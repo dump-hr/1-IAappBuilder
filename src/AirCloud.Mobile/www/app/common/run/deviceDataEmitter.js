@@ -1,23 +1,23 @@
 (function () {
     angular.module('app').run(deviceDataEmitter);
-    
+
     deviceDataEmitter.$inject = ['$rootScope', '$interval', '$cordovaBluetoothSerial', '$ionicPlatform'];
     function deviceDataEmitter($rootScope, $interval, $cordovaBluetoothSerial, $ionicPlatform) {
 
-        var useAndroidDevice = true;
-        
+        var useAndroidDevice = false;
+
             $ionicPlatform.ready(function() {
-                if(useAndroidDevice){  
+                if(useAndroidDevice){
                     $cordovaBluetoothSerial.isConnected().then(function() {
                         $cordovaBluetoothSerial.subscribe('\n').then(function(){}, function(){}, function(data) {
-                            var splittedData = data.split(","); 
+                            var splittedData = data.split(",");
                             var newDataReading = {
                                 voc: splittedData[0],
                                 co: splittedData[1],
                                 temperature: splittedData[2],
                                 humidity: splittedData[3]
                             }
-                            
+
                             $rootScope.$emit('deviceDataEmitter:update', newDataReading);
                         });
                   })
@@ -28,8 +28,8 @@
                 }
                 function getNextRandomTemperature(min, max) {
                     return Math.random() * (max - min) + min;
-                }  
-                
+                }
+
                 var interval = 1000;
                 function action() {
                     var newDataReading = {
@@ -38,11 +38,11 @@
                         temperature: getNextRandomTemperature(5, 34),
                         humidity: getNextRandomPercentage()
                     }
-                    
+
                     $rootScope.$emit('deviceDataEmitter:update', newDataReading);
                 }
                 $interval(action, interval);
-            }  
-        }); 
+            }
+        });
     }
 })();

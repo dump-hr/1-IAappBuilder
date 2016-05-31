@@ -18,8 +18,9 @@
 
     <div class="dashboard">
 
-      <div class="header">
-        <div class="header_bar bar bar-header bar-light">
+      <div class="header" ng-class="{'header--good': vm.quality.overalQuality == 'good',
+      'header--moderate': vm.quality.overalQuality == 'moderate', 'header--bad': vm.quality.overalQuality == 'bad'}">
+        <div class="header_bar bar bar-header">
           <h1 class="title">Air Cloud</h1>
         </div>
         <div class="header_message">
@@ -47,12 +48,25 @@
           <span class="reading_name">Volatile organic compounds (VOC)</span>
           <div class="reading_value">{{vm.readings.voc | number: 2}}<span>%</span></div>
           <progress value="{{vm.readings.voc | number: 2}}" max="100"></progress>
+
+          <div class="reading_legend">
+            <span class="reading_percentage">0%</span>
+            <span class="reading_percentage">20%</span>
+            <span class="reading_percentage">60%</span>
+            <span class="reading_percentage">100%</span>
+          </div>
         </div>
 
         <div class="reading_item reading_item--co">
           <span class="reading_name">Carbon monoxide (CO)</span>
           <div class="reading_value">{{vm.readings.co | number: 2}}<span>%</span></div>
           <progress value="{{vm.readings.co | number: 2}}" max="100"></progress>
+          <div class="reading_legend">
+            <span class="reading_percentage">0%</span>
+            <span class="reading_percentage">10%</span>
+            <span class="reading_percentage">30%</span>
+            <span class="reading_percentage">100%</span>
+          </div>
         </div>
 
         <div class="reading_item">
