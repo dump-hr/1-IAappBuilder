@@ -8,8 +8,7 @@
         
         if(useAndroidDevice){
             /* Borisov code za povezivanje sa Arduinom */
-        }
-        else{
+        } else {
             
             function getNextRandomPercentage() {
                 return Math.random() * 100;

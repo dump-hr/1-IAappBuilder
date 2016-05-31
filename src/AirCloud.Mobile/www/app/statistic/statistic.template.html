@@ -1,5 +1,25 @@
-<ion-view hide-nav-bar="true">
+<ion-view view-title="Statistic" hide-nav-bar="true">
   <ion-content>
-      <h1>Ovo je statistika</h1>
+      <highchart id="stacked-column-chart" config="vm.highchartsNG" style="span10"></highchart>
+      
+      <h1>Last 24 hours CO</h1>
+      <canvas id="line" class="chart chart-line" chart-data="vm.dataFor24HoursCO"
+        chart-labels="vm.labelsFor24HoursCO" chart-legend="true" chart-series="vm.seriesFor24HoursCO"
+        chart-click="onClick" >
+      </canvas>
+      
+      <h1>Last 24 hours CO</h1>
+      <canvas id="line" class="chart chart-line" chart-data="vm.dataFor24HoursVOC"
+        chart-labels="vm.labelsFor24HoursVOC" chart-legend="true" chart-series="vm.seriesFor24HoursVOC"
+        chart-click="onClick" >
+      </canvas>
+      
+      <h1>Overall data</h1>
+      <canvas id="pie" class="chart chart-pie"
+        chart-data="vm.dataForPieChart" chart-labels="vm.labelsForOverallForPieChart">
+      </canvas> 
+      
+     
+            
   </ion-content>
 </ion-view>
