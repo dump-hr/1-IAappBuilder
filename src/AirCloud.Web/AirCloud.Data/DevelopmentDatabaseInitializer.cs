@@ -1,25 +1,19 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using Dump.Auth.Data;
 
 namespace AirCloud.Data
 {
     using Model;
     using Seed;
-    public class DevelopmentDatabaseInitializer : DropCreateDatabaseAlways<AirCloudContext>
+    public class DevelopmentDatabaseInitializer : DropCreateDatabaseAlways<AuthDbContext>
     {
-        public override void InitializeDatabase(AirCloudContext context)
+        public override void InitializeDatabase(AuthDbContext context)
         {
             context.Database.CreateIfNotExists();
             context.Database.ExecuteSqlCommand(TransactionalBehavior.DoNotEnsureTransaction, $"ALTER DATABASE {context.Database.Connection.Database} SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
-            readingsFactory = new ReadingsFactory();
             base.InitializeDatabase(context);
         }
-        protected override void Seed(AirCloudContext context)
-        {
-            Array.ForEach(readingsFactory.GetRandomReadings().ToArray(), _ => context.Readings.Add(_));
-            context.SaveChanges();
-        }
-        private ReadingsFactory readingsFactory;
     }
 }

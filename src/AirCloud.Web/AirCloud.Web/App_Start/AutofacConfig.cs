@@ -12,6 +12,8 @@ using AirCloud.Web.Controllers;
 using Autofac;
 using Autofac.Core;
 using Autofac.Integration.WebApi;
+using Dump.Auth.Data;
+using Dump.Auth.Integration.Configuration;
 using Owin;
 
 namespace AirCloud.Web
@@ -66,27 +68,31 @@ namespace AirCloud.Web
             builder.RegisterType<ReadingsService>().As<IReadingsService>()
                 .AsImplementedInterfaces()
                 .InstancePerRequest();
+            builder.RegisterType<UsersService>().As<IUsersService>()
+               .AsImplementedInterfaces()
+               .InstancePerRequest();
 
             var databaseInitializer =
-             ConfigurationManager.AppSettings["EnviromentName"] == "Localhost"
-                 ? (IDatabaseInitializer<AirCloudContext>)new DevelopmentDatabaseInitializer()
-                 : (IDatabaseInitializer<AirCloudContext>)new ProductionDatabaseInitializer();
+          ConfigurationManager.AppSettings["EnviromentName"] == "Localhost"
+              ? (IDatabaseInitializer<AuthDbContext>)new DevelopmentDatabaseInitializer()
+              : (IDatabaseInitializer<AuthDbContext>)new ProductionDatabaseInitializer();
+
             var connectionString =
                 ConfigurationManager.AppSettings["EnviromentName"] == "Localhost"
                     ? ConfigurationManager.AppSettings["AirCloudLocalDb"]
                     : ConfigurationManager.AppSettings["AirCloudProductionDb"];
-            var databaseConfiguration = new DatabaseConfiguration()
-            {
-                ConnectionString = connectionString,
-                DatabaseInitializer = databaseInitializer
-            };
+
+            var authContextConfiguration = new Configurations.AuthContextConfiguration(
+                connectionString: connectionString,
+                databaseInitializer: databaseInitializer
+            );
 
             builder.RegisterType<AirCloudContext>()
                 .WithParameters(new List<Parameter> {
-                    new NamedParameter("databaseConfiguration", databaseConfiguration)
+                    new NamedParameter("config", authContextConfiguration)
                 }).As<IAirCloudContext>();
 
-            builder.Register<AirCloudContext>((x) => new AirCloudContext(databaseConfiguration: databaseConfiguration));
+            builder.Register<AirCloudContext>((x) => new AirCloudContext(config: authContextConfiguration));
         }
     }
 }

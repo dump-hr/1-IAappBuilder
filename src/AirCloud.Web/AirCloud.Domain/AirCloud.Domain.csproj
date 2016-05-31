@@ -34,6 +34,13 @@
       <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Dump.Auth.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Dump.Auth\Dump.Auth.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Dump.Auth.Domain">
+      <HintPath>..\packages\Dump.Auth\Dump.Auth.Domain.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -54,8 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Reading.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Mapper\AutomapperConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\UsersService.cs" />
     <Compile Include="Services\ReadingsService.cs" />
   </ItemGroup>
   <ItemGroup>

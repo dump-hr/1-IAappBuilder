@@ -61,6 +61,21 @@
       <HintPath>..\packages\Autofac.WebApi2.Owin.3.3.0\lib\net45\Autofac.Integration.WebApi.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Dump.Auth.Data">
+      <HintPath>..\packages\Dump.Auth\Dump.Auth.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Dump.Auth.Domain">
+      <HintPath>..\packages\Dump.Auth\Dump.Auth.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Dump.Auth.Integration">
+      <HintPath>..\packages\Dump.Auth\Dump.Auth.Integration.dll</HintPath>
+    </Reference>
+    <Reference Include="Dump.Auth.ResourceOwner">
+      <HintPath>..\packages\Dump.Auth\Dump.Auth.ResourceOwner.dll</HintPath>
+    </Reference>
+    <Reference Include="Dump.Auth.Server">
+      <HintPath>..\packages\Dump.Auth\Dump.Auth.Server.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -84,6 +99,10 @@
     </Reference>
     <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
@@ -190,6 +209,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReadingsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -1,25 +1,18 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Linq;
+using Dump.Auth.Data;
 
 namespace AirCloud.Data
 {
     using Model;
     using Seed;
-    public class ProductionDatabaseInitializer : CreateDatabaseIfNotExists<AirCloudContext>
+    public class ProductionDatabaseInitializer : CreateDatabaseIfNotExists<AuthDbContext>
     {
-        public override void InitializeDatabase(AirCloudContext context)
+        public override void InitializeDatabase(AuthDbContext context)
         {
             context.Database.CreateIfNotExists();
-            readingsFactory = new ReadingsFactory();
             base.InitializeDatabase(context);
         }
-
-        protected override void Seed(AirCloudContext context)
-        {
-            Array.ForEach(readingsFactory.GetRandomReadings().ToArray(), _ => context.Readings.Add(_));
-            context.SaveChanges();
-        }
-        private ReadingsFactory readingsFactory;
     }
 }
