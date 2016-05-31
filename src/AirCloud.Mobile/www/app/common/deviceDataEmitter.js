@@ -10,9 +10,25 @@
             /* Borisov code za povezivanje sa Arduinom */
         }
         else{
+            
+            function getNextRandomPercentage() {
+                return Math.random() * 100;
+            }
+            function getNextRandomTemperature(min, max) {
+                return Math.random() * (max - min) + min;
+                
+            }  
+            
             var interval = 1000;
             function action() {
-                $rootScope.$emit('deviceDataEmitter:update', { co: 500 });
+                var newDataReading = {
+                    voc: getNextRandomPercentage(),
+                    co: getNextRandomPercentage(),
+                    temperature: getNextRandomTemperature(5, 34),
+                    humidity: getNextRandomPercentage()
+                }
+                
+                $rootScope.$emit('deviceDataEmitter:update', newDataReading);
             }
             $interval(action, interval);
         }
