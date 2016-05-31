@@ -1,20 +1,26 @@
 <ion-view hide-nav-bar="true">
   <ion-content>
 
-    <!--<div class="loading-screen" ng-if="vm.isConnecting">-->
-      <!--<img class="loader" src="./img/loader.svg">-->
-    <!--</div>-->
+    <div class="loading-screen" ng-if="!vm.isConnecting">
+      <div class="loading_container">
+        <img class="loading_spinner" src="./img/loader.svg">
+        <span class="loading_message">AirCloud is loading</span>
+      </div>
+    </div>
 
-    <!--<div class="splash-screen" ng-if="vm.isOnDevice && !vm.isConnected">-->
-      <!--<img class="splash-screen_logo" src="./img/logo-white.png">-->
+    <div class="splash-screen" ng-if="vm.isOnDevice && !vm.isConnected">
+      <img class="splash-screen_logo" src="./img/logo-white.png">
 
-      <!--<p class="splash-screen_message">To get started connect to your device via bluetooth</p>-->
+      <p class="splash-screen_message">To get started connect to your device via bluetooth</p>
 
-      <!--<div class="splash-screen_bluetooth-list list list-inset">-->
-        <!--<div class="item" ng-click="vm.connect(bluetoothDevice.address)" ng-repeat="bluetoothDevice in bluetoothDevices">{{ bluetoothDevice.name }}</div>-->
-      <!--</div>-->
-    <!--</div>-->
+      <div class="splash-screen_bluetooth-list list list-inset">
+        <div class="item" ng-click="vm.connect(bluetoothDevice.address)"
+             ng-repeat="bluetoothDevice in bluetoothDevices">{{ bluetoothDevice.name }}
+        </div>
+      </div>
+    </div>
 
+    <div ng-hide="!vm.isConnecting || (vm.isOnDevice && !vm.isConnected)">
       <div class="header" ng-class="{'header--good': vm.quality.overalQuality == 'good',
       'header--moderate': vm.quality.overalQuality == 'moderate', 'header--bad': vm.quality.overalQuality == 'bad'}">
         <div class="header_bar bar bar-header">
@@ -57,16 +63,17 @@
           </div>
         </div>
 
-        <div class="reading_item">
+        <div class="reading_item reading_item--one-line">
           <span class="reading_name">Humidity</span>
           <div class="reading_value">{{vm.readings.humidity | number: 2}}<span>%</span></div>
         </div>
 
-        <div class="reading_item">
+        <div class="reading_item reading_item--one-line">
           <span class="reading_name">Temperature</span>
           <div class="reading_value">{{vm.readings.temperature | number: 2}}<span>°C</span></div>
         </div>
       </div>
+    </div>
     </div>
   </ion-content>
 </ion-view>
