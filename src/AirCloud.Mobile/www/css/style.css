@@ -9926,6 +9926,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
 
 .header_bar {
   height: 50px;
+  background: #43A047;
   box-shadow: 0px 0px 4px 0px rgba(38, 50, 56, 0.45); }
   .header_bar .title {
     line-height: 50px !important;
@@ -10138,10 +10139,6 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
 .statistics-wrapper {
   padding: 55px 15px 40px;
   background: #F5F5F5; }
-  .statistics-wrapper .header_bar {
-    background: #43A047;
-    position: fixed;
-    top: 0; }
   .statistics-wrapper h3 {
     margin-top: 30px;
     text-align: center;
@@ -10153,3 +10150,54 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
     text-align: center;
     font-size: 15px;
     margin-bottom: 10px; }
+
+.map-info {
+  position: absolute;
+  bottom: -1px;
+  width: 100%;
+  padding: 35px 15px;
+  background: rgba(33, 33, 33, 0.93);
+  color: white;
+  text-align: center; }
+
+.map-reading-wrapper {
+  display: inline-block;
+  margin: 0 auto;
+  width: 80%; }
+  .map-reading-wrapper:after {
+    content: '';
+    clear: both;
+    display: table; }
+
+.map-reading {
+  float: left;
+  width: 50%;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 300; }
+
+.map-info_message {
+  font-size: 16px;
+  margin: 0 0 15px;
+  font-weight: 300; }
+
+.map-info_status {
+  font-size: 32px;
+  font-weight: 700; }
+
+.reading-toggle {
+  height: 50px;
+  width: 100%;
+  padding-top: 50px; }
+
+.button-bar .button {
+  border-radius: 0 !important;
+  border: 0 !important;
+  line-height: 50px; }
+  .button-bar .button.activated {
+    background: rgba(67, 160, 71, 0.95);
+    border: 0; }
+
+.button-active, .activated {
+  background: rgba(67, 160, 71, 0.9);
+  color: white; }

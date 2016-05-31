@@ -8,7 +8,7 @@
 
         $scope.markers = [];
         $scope.map = {
-            center: { latitude: 43.510162, longitude: 16.4374519 },
+            center: { latitude: 43.5110932, longitude: 16.4717638 },
             zoom: 13,
           styles: [
             {
@@ -104,7 +104,8 @@
           ],
             options: {
                 scrollwheel: true,
-                zoomControl: false
+                zoomControl: false,
+              disableDefaultUI: true
             },
             heatLayerCallback: function (layer) {
                 readingsService.getAll_LongDetails(100).then(function (readings) {
