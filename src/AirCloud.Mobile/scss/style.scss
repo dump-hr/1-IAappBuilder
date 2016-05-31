@@ -1,1 +1,45 @@
 ﻿@import "ionic.app.scss";
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #212121;
+}
+
+.splash-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #26C6DA;
+
+  .splash-screen_logo {
+    display: block;
+    width: 47%;
+    margin: 100px auto 40px;
+  }
+
+  .splash-screen_message {
+    color: white;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  .splash-screen_bluetooth-list {
+    width: 85%;
+    margin: 12px auto;
+    color: #212121;
+    background: transparent;
+
+    .item {
+      padding: 14px 16px;
+
+      &:not(:last-of-type) {
+        margin-bottom: 3px;
+      }
+    }
+  }
+}
