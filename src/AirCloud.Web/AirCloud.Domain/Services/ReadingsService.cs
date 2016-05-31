@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using AirCloud.Data.Model;
 
 namespace AirCloud.Domain.Services
@@ -22,6 +23,7 @@ namespace AirCloud.Domain.Services
         public dto::Reading Create(dto::Reading readingDto)
         {
             var reading = AutoMapper.Mapper.Instance.Map<ent::Reading>(readingDto);
+            reading.MeasuredOn = DateTime.Now;
             context.Readings.Add(reading);
             context.SaveChanges();
             return AutoMapper.Mapper.Instance.Map<dto::Reading>(reading);
