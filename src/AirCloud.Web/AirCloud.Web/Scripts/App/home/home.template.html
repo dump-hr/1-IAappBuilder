@@ -6,7 +6,7 @@
         </div>
     </header>
 
-    <div class="sidebar">
+    <div class="sidebar" ng-class="{'sidebar-open' : window.width < 800, 'sidebar-closed' : window.width > 800'}">
         <div class="filter-wrapper">
             <div class="record-section">
                 <span class="label">Search town</span>
