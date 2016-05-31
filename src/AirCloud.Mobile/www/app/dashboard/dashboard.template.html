@@ -5,15 +5,15 @@
       <!--<img class="loader" src="./img/loader.svg">-->
     <!--</div>-->
 
-    <!--<div class="splash-screen" ng-if="vm.isOnDevice && !vm.isConnected">-->
-      <!--<img class="splash-screen_logo" src="./img/logo-white.png">-->
+    <div class="splash-screen" ng-if="vm.isArduinoAvailable && !vm.isConnected">
+      <img class="splash-screen_logo" src="./img/logo-white.png">
 
-      <!--<p class="splash-screen_message">To get started connect to your device via bluetooth</p>-->
+      <p class="splash-screen_message">To get started connect to your device via bluetooth</p>
 
-      <!--<div class="splash-screen_bluetooth-list list list-inset">-->
-        <!--<div class="item" ng-click="vm.connect(bluetoothDevice.address)" ng-repeat="bluetoothDevice in bluetoothDevices">{{ bluetoothDevice.name }}</div>-->
-      <!--</div>-->
-    <!--</div>-->
+      <div class="splash-screen_bluetooth-list list list-inset">
+        <div class="item" ng-click="vm.connect(bluetoothDevice.address)" ng-repeat="bluetoothDevice in bluetoothDevices">{{ bluetoothDevice.name }}</div>
+      </div>
+    </div>
 
       <div class="header" ng-class="{'header--good': vm.quality.overalQuality == 'good',
       'header--moderate': vm.quality.overalQuality == 'moderate', 'header--bad': vm.quality.overalQuality == 'bad'}">
