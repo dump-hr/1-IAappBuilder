@@ -31,9 +31,9 @@
             var co = quality(reading.co, airQualityLevels.co);
 
             if(voc.isGood && co.isGood)
-                return 'Air quality is GOOD - You are breathing normal, clean air.';
+                return 'You are breathing normal, clean air.';
             if(voc.isBad || co.isBad)
-                return 'Air quality is BAD - Permanent health damage, loss of consciousness and intoxication is possible with any exposure.';
+                return 'Permanent health damage, loss of consciousness and intoxication is possible with any exposure.';
             if(voc.isModerate && co.isModerate)
                 return 'Both permanent and temporary health effects are possible with long-term exposure, go to a better-ventilated area.';
             if(voc.isModerate)

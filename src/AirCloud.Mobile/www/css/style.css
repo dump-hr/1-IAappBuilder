@@ -9824,7 +9824,6 @@ body {
   overflow: hidden; }
 
 .loading-screen {
-  background: #4CAF50;
   background: linear-gradient(45deg, #81C784, #4CAF50);
   position: absolute;
   top: 0;
@@ -9855,7 +9854,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #4CAF50;
+  background: linear-gradient(45deg, #81C784, #4CAF50);
   z-index: 999; }
   .splash-screen .splash-screen_logo {
     display: block;
@@ -9877,6 +9876,14 @@ body {
       padding: 14px 16px; }
       .splash-screen .splash-screen_bluetooth-list .item:not(:last-of-type) {
         margin-bottom: 3px; }
+    .splash-screen .splash-screen_bluetooth-list .splash-screen_no-items {
+      margin-top: 20px;
+      padding: 20px 16px;
+      background: white;
+      border-radius: 4px;
+      font-size: 16px;
+      word-wrap: break-word;
+      text-align: center; }
 
 .header {
   background-color: #4CAF50;

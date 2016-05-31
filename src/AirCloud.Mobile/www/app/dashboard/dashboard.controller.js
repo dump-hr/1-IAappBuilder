@@ -1,8 +1,8 @@
 (function(){
     angular.module('app').controller('DashboardController', DashboardController);
 
-	DashboardController.$inject = ['$scope', '$ionicPlatform', '$rootScope', '$cordovaBluetoothSerial', '$window', 'airQualityStatusService', '$timeout']; 
-    function DashboardController($scope, $ionicPlatform, $rootScope, $cordovaBluetoothSerial, $window, airQualityStatusService, $timeout) {
+	DashboardController.$inject = ['$scope', '$ionicPlatform', '$rootScope', '$cordovaBluetoothSerial', '$window', 'airQualityStatusService', '$timeout', 'env']; 
+    function DashboardController($scope, $ionicPlatform, $rootScope, $cordovaBluetoothSerial, $window, airQualityStatusService, $timeout, env) {
         var vm = this;
         
         vm.initialDataLoaded = false; 
@@ -11,17 +11,16 @@
             vm.readings = data;
             vm.quality = airQualityStatusService.getStatus(data);
             vm.initialDataLoaded = true;
-            console.log(vm.initialDataLoaded); 
         });
         
         $scope.bluetoothDevices = []; 
             
-        vm.isOnDevice = !!$window.cordova; 
+        vm.isArduinoAvailable = env.isArduinoAvailable; 
         
         vm.isConnected = false; 
         vm.isConnecting = false; 
             
-        if(vm.isOnDevice) {
+        if(vm.isArduinoAvailable) {
             $ionicPlatform.ready(function() {
                 $cordovaBluetoothSerial.list().then(function(devices) {
                     $scope.bluetoothDevices = devices; 

@@ -1,14 +1,14 @@
 <ion-view hide-nav-bar="true">
   <ion-content>
 
-    <div class="loading-screen" ng-if="!vm.isConnecting">
+    <div class="loading-screen" ng-if="vm.isConnecting">
       <div class="loading_container">
         <img class="loading_spinner" src="./img/loader.svg">
         <span class="loading_message">AirCloud is loading</span>
       </div>
     </div>
 
-    <div class="splash-screen" ng-if="vm.isOnDevice && !vm.isConnected">
+    <div class="splash-screen" ng-if="vm.isArduinoAvailable && !vm.isConnected">
       <img class="splash-screen_logo" src="./img/logo-white.png">
 
       <p class="splash-screen_message">To get started connect to your device via bluetooth</p>
@@ -17,10 +17,12 @@
         <div class="item" ng-click="vm.connect(bluetoothDevice.address)"
              ng-repeat="bluetoothDevice in bluetoothDevices">{{ bluetoothDevice.name }}
         </div>
+
+        <div class="splash-screen_no-items" ng-if="bluetoothDevices.length == 0">There aren't any bluetooth devices nearby </div>
       </div>
     </div>
 
-    <div ng-hide="!vm.isConnecting || (vm.isOnDevice && !vm.isConnected)">
+    <div content-wrapper>
       <div class="header" ng-class="{'header--good': vm.quality.overalQuality == 'good',
       'header--moderate': vm.quality.overalQuality == 'moderate', 'header--bad': vm.quality.overalQuality == 'bad'}">
         <div class="header_bar bar bar-header">

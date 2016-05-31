@@ -11,7 +11,6 @@ body {
 }
 
 .loading-screen {
-  background: #4CAF50;
   background: linear-gradient(45deg, #81C784, #4CAF50);
   position: absolute;
   top: 0;
@@ -22,7 +21,6 @@ body {
   display: flex;
   align-items: center;
   jusitfy-content: center;
-
 
   .loading_container {
     display: block;
@@ -50,7 +48,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #4CAF50;
+  background: linear-gradient(45deg, #81C784, #4CAF50);
   z-index: 999;
 
   .splash-screen_logo {
@@ -80,6 +78,16 @@ body {
       &:not(:last-of-type) {
         margin-bottom: 3px;
       }
+    }
+
+    .splash-screen_no-items {
+      margin-top: 20px;
+      padding: 20px 16px;
+      background: white;
+      border-radius: 4px;
+      font-size: 16px;
+      word-wrap: break-word;
+      text-align: center;
     }
   }
 }
@@ -115,10 +123,9 @@ body {
     }
   }
 
-
   .header_bar {
     height: 50px;
-    box-shadow: 0px 0px 4px 0px rgba(38,50,56,0.5);
+    box-shadow: 0px 0px 4px 0px rgba(38, 50, 56, 0.5);
 
     .title {
       line-height: 50px;
@@ -217,7 +224,7 @@ body {
         display: block;
         position: absolute;
         background: #3C873C;
-        background: linear-gradient(to right, rgba(#3C873C,1) 0%,rgba(#3C873C,1) 85%,rgba(#E64A19,1) 100%);
+        background: linear-gradient(to right, rgba(#3C873C, 1) 0%, rgba(#3C873C, 1) 85%, rgba(#E64A19, 1) 100%);
         width: 25%;
         height: 15px;
         border-top-left-radius: 6px;
@@ -231,12 +238,12 @@ body {
         display: block;
         position: absolute;
         background: #D32F2F;
-        background: linear-gradient(to right, rgba(#F4511E,1) 0%,rgba(#D32F2F,1) 15%,rgba(#D32F2F,1) 100%);
+        background: linear-gradient(to right, rgba(#F4511E, 1) 0%, rgba(#D32F2F, 1) 15%, rgba(#D32F2F, 1) 100%);
         width: 45%;
         height: 15px;
         border-top-right-radius: 6px;
         border-bottom-right-radius: 6px;
-        right:0;
+        right: 0;
         top: 0;
       }
     }
@@ -289,7 +296,7 @@ body {
         display: block;
         position: absolute;
         background: #3C873C;
-        background: linear-gradient(to right, rgba(#3C873C,1) 0%,rgba(#3C873C,1) 85%,rgba(#E64A19,1) 100%);
+        background: linear-gradient(to right, rgba(#3C873C, 1) 0%, rgba(#3C873C, 1) 85%, rgba(#E64A19, 1) 100%);
         width: 15%;
         height: 15px;
         border-top-left-radius: 6px;
@@ -303,12 +310,12 @@ body {
         display: block;
         position: absolute;
         background: #D32F2F;
-        background: linear-gradient(to right, rgba(#F4511E,1) 0%,rgba(#D32F2F,1) 15%,rgba(#D32F2F,1) 100%);
+        background: linear-gradient(to right, rgba(#F4511E, 1) 0%, rgba(#D32F2F, 1) 15%, rgba(#D32F2F, 1) 100%);
         width: 70%;
         height: 15px;
         border-top-right-radius: 6px;
         border-bottom-right-radius: 6px;
-        right:0;
+        right: 0;
         top: 0;
       }
     }
