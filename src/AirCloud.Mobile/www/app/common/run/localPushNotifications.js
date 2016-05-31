@@ -10,11 +10,13 @@
            }
        }();
        function pushNotification(title, text) {
-           $cordovaLocalNotification.schedule({
-                id: getNextId(),
-                title: title,
-                text: text
-            });
+           if(env.isOnDevice){
+                $cordovaLocalNotification.schedule({
+                        id: getNextId(),
+                        title: title,
+                        text: text
+                });
+           }
        }
         
         $ionicPlatform.ready(function () {

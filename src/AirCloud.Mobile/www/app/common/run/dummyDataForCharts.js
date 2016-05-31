@@ -20,7 +20,6 @@
         
         if(alwaysDropThenCreate || !localStorage["chartDataStackedChart"]){
             localStorage["chartDataStackedChart"] = GetByWeekDaysForStackedColumnChart();
-            console.log(angular.fromJson(localStorage["chartDataStackedChart"]));
         }
         
         if(alwaysDropThenCreate || !localStorage["chartDataCO_Today"] || localStorage["chartDataCO_Today"] === []){
@@ -29,8 +28,8 @@
               if(dateAsString.indexOf("AM") >= 0){
                     localStorage["chartDataCO_Today"] = getDummyDataCO(date.getHours() * 60 + date.getMinutes());                
               } else {
-                    localStorage["chartDataCO_Today"] = getDummyDataCO(12 * 60 + date.getHours() * 60 + date.getMinutes());                
-              }      
+                    localStorage["chartDataCO_Today"] = getDummyDataCO(date.getHours() * 60 + date.getMinutes());                
+              }     
         }
         
         if(alwaysDropThenCreate || !localStorage["chartDataVOC_Today"] || localStorage["chartDataVOC_Today"] === []){
@@ -39,7 +38,7 @@
               if(dateAsString.indexOf("AM") >= 0){
                     localStorage["chartDataVOC_Today"] = getDummyDataCO(date.getHours() * 60 + date.getMinutes());                
               } else {
-                    localStorage["chartDataVOC_Today"] = getDummyDataCO(12 * 60 + date.getHours() * 60 + date.getMinutes());                
+                    localStorage["chartDataVOC_Today"] = getDummyDataCO(date.getHours() * 60 + date.getMinutes());                
               }
         }
         
