@@ -1,8 +1,11 @@
 <ion-view hide-nav-bar="true">
   <ion-content>
-      <div ng-if="!vm.internet">
-        <img src="./img/warning.png">
-        <p class="warningMessage">Please enable your internet connection to use this feature.</p>
-      </div>
+    <div ng-if='internet'>
+      <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+    </div>
+    <div ng-if="!internet">
+      <img src="./img/warning.png">
+      <p class="warningMessage">Please enable your internet connection to use this feature.</p>
+    </div>
   </ion-content>
 </ion-view>

@@ -3,8 +3,8 @@
 
   angular.module('app').controller("StatisticController", StatisticController);
 
-  StatisticController.$inject = ['localStorageService'];
-  function StatisticController(localStorageService) {
+  StatisticController.$inject = ['localStorageService', '$rootScope'];
+  function StatisticController(localStorageService, $rootScope) {
     var vm = this;
 
     var daysAsString = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -12,39 +12,47 @@
     vm.labelsFor24HoursCO = ["24 hours ago", "18 hours ago", "12 hours ago", "6 hours ago"];
     vm.seriesFor24HoursCO = ["Carbon Monoxide"];
 
-    vm.dataFor24HoursCO = (function putDataForLast24Hours() {
-      var data = localStorageService.GetDataLast24HoursCO();
-      var test = [];
-      for (var i = 0; i < 1440 / 20; i++) {
-        var max = 0;
-        for (var j = i * 20; j < (i + 1) * 20; j++) {
-          if (data[j] > max) {
-            max = data[j];
-          }
+    function putDataForLast24HoursCO(){
+        var data = localStorageService.GetDataLast24HoursCO();
+        var test = [];
+        for(var i = 0; i < 1440 / 20; i++){
+            var max = 0;
+            for(var j = i*20; j < (i+1)*20; j++){
+                if(data[j] > max){
+                    max = data[j];
+                }
+            }
+            test.push(max);               
         }
-        test.push(max);
-      }
-      return [test];
-    })()
+        return [test];
+    }
+    
+    vm.dataFor24HoursCO = putDataForLast24HoursCO();
 
     vm.labelsFor24HoursVOC = ["24 hours ago", "18 hours ago", "12 hours ago", "6 hours ago"];
     vm.seriesFor24HoursVOC = ["VOC"];
-
-    vm.dataFor24HoursVOC = (function putDataForLast24Hours() {
-      var data = localStorageService.GetDataLast24HoursCO();
-      var test = [];
-      for (var i = 0; i < 1440 / 20; i++) {
-        var max = 0;
-        for (var j = i * 20; j < (i + 1) * 20; j++) {
-          if (data[j] > max) {
-            max = data[j];
-          }
+    
+    function putDataForLast24HoursVOC(){
+        var data = localStorageService.GetDataLast24HoursCO();
+        var test = [];
+        for(var i = 0; i < 1440 / 20; i++){
+            var max = 0;
+            for(var j = i*20; j < (i+1)*20; j++){
+                if(data[j] > max){
+                    max = data[j];
+                }
+            }
+            test.push(max);               
         }
-        test.push(max);
-      }
-      return [test];
-    })()
-
+        return [test];
+    }
+    
+    vm.dataFor24HoursVOC = putDataForLast24HoursVOC();
+    
+    $rootScope.$on('deviceDataEmitter:update', function(event, data){
+        vm.dataFor24HoursVOC = putDataForLast24HoursVOC();
+        vm.dataFor24HoursCO = putDataForLast24HoursCO()
+    })
 
     vm.labelsForOverallForPieChart = ["Good", "Moderate", "Bad"];
     vm.dataForPieChart = (function putDataForOverallForPieChart() {

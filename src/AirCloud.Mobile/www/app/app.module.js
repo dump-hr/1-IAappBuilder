@@ -1,5 +1,5 @@
 (function(){
 	'use strict'; 
 	
-    angular.module('app', ['ionic', 'ngCordova', 'chart.js', 'highcharts-ng']);
+    angular.module('app', ['ionic', 'ngCordova', 'chart.js', 'highcharts-ng', 'uiGmapgoogle-maps']);
 })();
