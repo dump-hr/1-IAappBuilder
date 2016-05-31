@@ -1,5 +1,12 @@
 <ion-view hide-nav-bar="true">
- <h1>Ovo je MAPA</h1>
- {{poruka}}
-  <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+  <ion-content>
+    <h1>Ovo je MAPA</h1> {{poruka}}
+    <div ng-if='vm.internet'>
+      <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+    </div>
+    <div ng-if="!vm.internet">
+      <img src="./img/warning.png">
+      <p class="warningMessage">Please enable your internet connection to use this feature.</p>
+    </div>
+  </ion-content>
 </ion-view>

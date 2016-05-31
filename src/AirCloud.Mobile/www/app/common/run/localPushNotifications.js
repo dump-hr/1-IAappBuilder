@@ -25,7 +25,7 @@
                 var currentQuality = airQualityStatusService.getStatus(data);
                 
                 if(previousQuality && previousQuality.overalQuality !== currentQuality.overalQuality){
-                    pushNotification("Air quality:" + currentQuality.overalQuality, currentQuality.message);
+                    pushNotification("Air quality is " + currentQuality.overalQuality, currentQuality.message);
                 }
                 previousQuality = currentQuality;
             });
