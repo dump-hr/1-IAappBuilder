@@ -3,22 +3,27 @@
 
     angular.module('app').controller('MapController', MapController);
 
-    MapController.$inject = ['$cordovaNetwork', '$rootScope', 'uiGmapGoogleMapApi', '$scope', 'env'];
-    function MapController($cordovaNetwork, $rootScope, uiGmapGoogleMapApi, $scope, env) {
+    MapController.$inject = ['$cordovaNetwork', '$rootScope', 'uiGmapGoogleMapApi', '$scope', 'env', 'readingsService'];
+    function MapController($cordovaNetwork, $rootScope, uiGmapGoogleMapApi, $scope, env, readingsService) {
 
         $scope.markers = [];
         $scope.map = {
-            center: { latitude: 37.774546, longitude: -122.433523 },
+            center: { latitude: 43.510162, longitude: 16.4374519 },
             zoom: 14,
             options: {
-                scrollwheel: false,
+                scrollwheel: true,
                 zoomControl: false
             },
             heatLayerCallback: function (layer) {
-           
-                var pointArray = new google.maps.MVCArray(heatMapData);
-                layer.setData(pointArray);
-                layer.set('radius', 32);
+                readingsService.getAll_LongDetails(100).then(function (readings) {
+                    readingsService.generateHeatmapObjects(readings).then(function(heatMapContainer) {
+                        var heatmapDataAsArray = new google.maps.MVCArray(heatMapContainer.voc);
+                          console.log(heatMapContainer);
+                          layer.setData(heatmapDataAsArray);
+                          layer.set('radius', 32);
+                    });
+                  
+                });
             }
         };
 
