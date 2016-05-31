@@ -12,7 +12,7 @@
             <div class="record-section">
                 <span class="label">Search town</span>
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search town" aria-describedby="basic-addon1">
+                    <input id="autocomplete" type="text" class="form-control" placeholder="Search city" aria-describedby="basic-addon1">
                     <span class="input-group-addon">
                         <img src="../../../img/search.png" />
                     </span>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="content-wrapper">
-        <ui-gmap-google-map center='map.center' zoom='map.zoom' styles='map.styles' options='map.options'></ui-gmap-google-map>
+        <ui-gmap-google-map control="map.control" center='map.center' zoom='map.zoom' styles='map.styles' options='map.options'></ui-gmap-google-map>
     </div>
 </div>
 

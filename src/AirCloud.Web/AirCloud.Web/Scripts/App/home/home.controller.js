@@ -7,7 +7,11 @@
     function HomeController(uiGmapGoogleMapApi, $scope) {
         var vm = this;
 
+        var autocomplete;
+        var places; 
+
         $scope.map = {
+            control: {},
             center: { latitude: 43.5110932, longitude: 16.4717638 },
             zoom: 14,
             options: {
@@ -137,6 +141,24 @@
 
         uiGmapGoogleMapApi.then(function (map) {
             google.maps.event.trigger(map, 'resize');
+            console.log(map); 
+
+            autocomplete = new google.maps.places.Autocomplete(
+            (document.getElementById('autocomplete')), {
+                    types: ['(cities)']
+            });
+
+            places = new google.maps.places.PlacesService(map);
+            autocomplete.addListener('place_changed', onPlaceChanged);
+
+            function onPlaceChanged() {
+                var place = autocomplete.getPlace();
+                if (place.geometry) {
+                     $scope.map.control.refresh({ latitude: place.geometry.location.lat(), longitude: place.geometry.location.lng() });
+                } else {
+                    document.getElementById('autocomplete').placeholder = 'Enter a city';
+                }
+            }
         });
     }
 })();

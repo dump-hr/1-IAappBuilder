@@ -1,7 +1,7 @@
 <ion-view hide-nav-bar="true">
   <ion-content>
     <div ng-if='internet'>
-        <ui-gmap-google-map center='map.center' zoom='map.zoom' options="map.options" styles="map.styles">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom' options="map.options" dorebuildall="true" styles="map.styles">
             <ui-gmap-layer show="true" namespace="visualization" type="HeatmapLayer" onCreated="map.heatLayerCallback"></ui-gmap-layer>
         </ui-gmap-google-map>
     </div>
