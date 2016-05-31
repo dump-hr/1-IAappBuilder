@@ -1,9 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.Entity;
 using System.Reflection;
 using System.Web.Http;
+using AirCloud.Data;
+using AirCloud.Data.Configuration;
+using AirCloud.Data.Model;
+using AirCloud.Domain.Services;
 using AirCloud.Web.Controllers;
 using Autofac;
+using Autofac.Core;
 using Autofac.Integration.WebApi;
 using Owin;
 
@@ -56,7 +63,30 @@ namespace AirCloud.Web
 
         private static void ConfigureCustomDependecyMappings(ContainerBuilder builder)
         {
-            builder.RegisterType<Test>().As<ITestService>().AsImplementedInterfaces().InstancePerRequest();
+            builder.RegisterType<ReadingsService>().As<IReadingsService>()
+                .AsImplementedInterfaces()
+                .InstancePerRequest();
+
+            var databaseInitializer =
+             ConfigurationManager.AppSettings["EnviromentName"] == "Localhost"
+                 ? (IDatabaseInitializer<AirCloudContext>)new DevelopmentDatabaseInitializer()
+                 : (IDatabaseInitializer<AirCloudContext>)new CreateDatabaseIfNotExists<AirCloudContext>();
+            var connectionString =
+                ConfigurationManager.AppSettings["EnviromentName"] == "Localhost"
+                    ? ConfigurationManager.AppSettings["AirCloudLocalDb"]
+                    : ConfigurationManager.AppSettings["AirCloudProductionDb"];
+            var databaseConfiguration = new DatabaseConfiguration()
+            {
+                ConnectionString = connectionString,
+                DatabaseInitializer = databaseInitializer
+            };
+
+            builder.RegisterType<AirCloudContext>()
+                .WithParameters(new List<Parameter> {
+                    new NamedParameter("databaseConfiguration",databaseConfiguration)
+                }).As<IAirCloudContext>();
+
+            builder.Register<AirCloudContext>((x) => new AirCloudContext(databaseConfiguration: databaseConfiguration));
         }
     }
 }

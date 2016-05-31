@@ -13,6 +13,7 @@ namespace AirCloud.Web
             HttpConfiguration httpConfiguration = new HttpConfiguration();
             app.UseConfiguredWebApi(httpConfiguration: httpConfiguration);
             app.UseAutofacForWebApi(httpConfiguration: httpConfiguration);
+            app.UseAutomapper();
         }
     }
 }
