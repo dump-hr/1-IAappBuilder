@@ -5,9 +5,6 @@
     function DashboardController($scope, $ionicPlatform, $rootScope, $cordovaBluetoothSerial, $window, airQualityStatusService) {
         var vm = this;
         
-        vm.initialDataLoaded = false;
-        
-        
         $rootScope.$on('deviceDataEmitter:update', function (event, data) {
             vm.readings = data;
             vm.quality = airQualityStatusService.getStatus(data);
@@ -18,6 +15,8 @@
             $scope.bluetoothDevices = []; 
             
             vm.isOnDevice = !!$window.bluetoothSerial; 
+            vm.isConnected = false; 
+            vm.isConnecting = false; 
             
             if(vm.isOnDevice) {
                 $ionicPlatform.ready(function() {
@@ -25,6 +24,15 @@
                         $scope.bluetoothDevices = devices; 
                     }); 
                 });
+                
+                vm.connect = function(address) {
+                    vm.isConnecting = true; 
+                    $cordovaBluetoothSerial.connect(address).then(function() {
+                        vm.isConnected = true; 
+                    }).finally(function() {
+                        vm.isConnecting = false;
+                    }); 
+                }
             }
         });
     }
