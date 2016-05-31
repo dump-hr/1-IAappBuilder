@@ -9898,7 +9898,8 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
     display: block;
     width: 47%;
     margin: 100px auto 40px; }
-  .splash-screen .splash-screen_message {
+  .splash-screen .splash-screen_message,
+  .splash-screen .splash-screen_no-items {
     color: white;
     width: 60%;
     margin: 0 auto;
