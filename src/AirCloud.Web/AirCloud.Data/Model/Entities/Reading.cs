@@ -15,6 +15,7 @@ namespace AirCloud.Data.Model.Entities
         public double       VocConcentration    { get; set; }
         public double       CoConcentration     { get; set; }
         public double       Temperature         { get; set; }
+        public double       Humidity            { get; set; }
         public DateTime     MeasuredOn          { get; set; }
     }
 }
