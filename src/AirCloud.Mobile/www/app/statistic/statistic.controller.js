@@ -7,12 +7,14 @@
     function StatisticController(localStorageService){
         var vm = this;   
         
+        var daysAsString = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        
         vm.labelsFor24HoursCO = ["24 hours ago", "18 hours ago", "12 hours ago", "6 hours ago"];
         vm.seriesFor24HoursCO = ["CO"];
         
         vm.dataFor24HoursCO = (function putDataForLast24Hours(){
            var data = localStorageService.GetDataLast24HoursCO();
-           var test = [];
+           var test = [];n
            for(var i = 0; i < 1440 / 20; i++){
                var max = 0;
                for(var j = i*20; j < (i+1)*20; j++){
@@ -24,7 +26,6 @@
            }
            return [test];
         })()
-        
         
         vm.labelsFor24HoursVOC = ["24 hours ago", "18 hours ago", "12 hours ago", "6 hours ago"];
         vm.seriesFor24HoursVOC = ["VOC"];
@@ -52,14 +53,40 @@
         })();
         
         
+     
+     
+          
+        var yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        var twoDaysBefore = new Date();
+        twoDaysBefore.setDate(twoDaysBefore.getDate() - 2);
+        var threeDaysBefore = new Date();
+        threeDaysBefore.setDate(threeDaysBefore.getDate() - 3);
+        var fourDaysBefore = new Date();
+        fourDaysBefore.setDate(fourDaysBefore.getDate() - 4);
+        var fiveDaysBefore = new Date();
+        fiveDaysBefore.setDate(fiveDaysBefore.getDate() - 5);
+        var sixDaysBefore = new Date();
+        sixDaysBefore.setDate(sixDaysBefore.getDate() - 6);
+        var sevenDaysBefore = new Date();
+        sevenDaysBefore.setDate(sevenDaysBefore.getDate() - 7);
+        
+        var labelsForStackedColumnChart = [];
+        labelsForStackedColumnChart.push(getDateAsProperString(yesterday));
+        labelsForStackedColumnChart.push(getDateAsProperString(twoDaysBefore));
+        labelsForStackedColumnChart.push(getDateAsProperString(threeDaysBefore));
+        labelsForStackedColumnChart.push(getDateAsProperString(fourDaysBefore));
+        labelsForStackedColumnChart.push(getDateAsProperString(fiveDaysBefore));
+        labelsForStackedColumnChart.push(getDateAsProperString(sixDaysBefore));
+        labelsForStackedColumnChart.push(getDateAsProperString(sevenDaysBefore));
         
      var data = angular.fromJson(localStorage["chartDataStackedChart"]);   
      vm.highchartsNG = {
                   title: {
-              text: 'Last 24 hours'
+              text: 'Last week'
           },
           xAxis: {
-            categories: ['7 days ago', '6 days ago', '5 days ago', '4 days ago', '3 days ago', '2 days ago', '1 day ago']
+            categories: labelsForStackedColumnChart
           },
           yAxis: {
               min: 0,
@@ -119,5 +146,11 @@
                 data: [data[0][2], data[1][2], data[2][2], data[3][2], data[4][2], data[5][2], data[6][2]]
         }]
     }
+    
+    
+     function getDateAsProperString(date){
+            var dayAsString = daysAsString[date.getDay()];
+            return date.getDate() + "." + (date.getMonth() + 1) + ". " + dayAsString;
+        }
     }
 })();
