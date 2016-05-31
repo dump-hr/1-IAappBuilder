@@ -10,15 +10,11 @@
         var alwaysDropThenCreate = true;
         
         if(alwaysDropThenCreate || !localStorage["chartDataCO_Overall"] || (isDevOrProduction === "Dev" && angular.fromJson(localStorage["chartDataCO_Overall"]).length < 10080)){
-            //  console.log("AAAAA");
              localStorage["chartDataCO_Overall"] = getDummyDataCO(10080); //7 * 1440
-            //  console.log(angular.fromJson(localStorage["chartDataCO_Overall"]));
         }
         
         if(alwaysDropThenCreate || !localStorage["chartDataVOC_Overall"] || (isDevOrProduction === "Dev" && angular.fromJson(localStorage["chartDataVOC_Overall"]).length < 10080)){
-            //  console.log("BBB");
              localStorage["chartDataVOC_Overall"] = getDummyDataVOC(10080); //7 * 1440
-            //  console.log(angular.fromJson(localStorage["chartDataVOC_Overall"]));
         }
 
         
@@ -40,7 +36,6 @@
         }
         
         if(alwaysDropThenCreate || !localStorage["chartDataVOC_Today"] || localStorage["chartDataVOC_Today"] === []){
-            // console.log(angular.fromJson(localStorage["chartDataVOC_Overall"]));
             var date = new Date();
               var dateAsString = new Date().toLocaleString();
               if(dateAsString.indexOf("AM") >= 0){
@@ -48,9 +43,6 @@
               } else {
                     localStorage["chartDataVOC_Today"] = getDummyDataCO(12 * 60 + date.getHours() * 60 + date.getMinutes());                
               }
-              
-            //   console.log(angular.fromJson(localStorage["chartDataVOC_Today"]));
-
         }
         
         function getDummyDataCO(n){

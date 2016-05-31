@@ -8,13 +8,13 @@
         var vm = this;   
         
         var daysAsString = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        
+
         vm.labelsFor24HoursCO = ["24 hours ago", "18 hours ago", "12 hours ago", "6 hours ago"];
         vm.seriesFor24HoursCO = ["CO"];
         
         vm.dataFor24HoursCO = (function putDataForLast24Hours(){
            var data = localStorageService.GetDataLast24HoursCO();
-           var test = [];n
+           var test = [];
            for(var i = 0; i < 1440 / 20; i++){
                var max = 0;
                for(var j = i*20; j < (i+1)*20; j++){
@@ -105,17 +105,17 @@
             chart: {
               type: 'column'
           },
-            legend: {
-              align: 'right',
-              x: -70,
-              verticalAlign: 'top',
-              y: 20,
-              floating: true,
-              backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-              borderColor: '#CCC',
-              borderWidth: 1,
-              shadow: false
-          },
+        //     legend: {
+        //       align: 'right',
+        //       x: -70,
+        //       verticalAlign: 'top',
+        //       y: 20,
+        //       floating: true,
+        //       backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        //       borderColor: '#CCC',
+        //       borderWidth: 1,
+        //       shadow: false
+        //   },
           tooltip: {
               formatter: function() {
                   return '<b>'+ this.x +'</b><br/>'+
