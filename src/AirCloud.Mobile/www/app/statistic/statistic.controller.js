@@ -106,6 +106,7 @@
       },
       yAxis: {
         min: 0,
+        max: 25,
         title: {
           text: ''
         },
@@ -130,7 +131,7 @@
         tooltip: {
           formatter: function () {
             return '<b>' + this.x + '</b><br/>' +
-              this.series.name + ': ' + this.y + '<br/>' +
+              this.series.name + ': ' + (this.y).toFixed(2) + '<br/>' +
               'Total: ' + this.point.stackTotal;
           }
         },
@@ -145,13 +146,13 @@
       },
       series: [{
         name: 'Good',
-        data: [data[0][0], data[1][0], data[2][0], data[3][0], data[4][0], data[5][0], data[6][0]]
+        data: [data[0][0] / 60, data[1][0] / 60, data[2][0] / 60, data[3][0] / 60, data[4][0] / 60, data[5][0] / 60, data[6][0] / 60]
       }, {
         name: 'Moderate',
-        data: [data[0][1], data[1][1], data[2][1], data[3][1], data[4][1], data[5][1], data[6][1]]
+        data: [data[0][1] / 60, data[1][1] / 60, data[2][1] / 60, data[3][1] / 60, data[4][1] / 60, data[5][1] / 60, data[6][1] / 60]
       }, {
         name: 'Bad',
-        data: [data[0][2], data[1][2], data[2][2], data[3][2], data[4][2], data[5][2], data[6][2]]
+        data: [data[0][2] / 60, data[1][2] / 60, data[2][2] / 60, data[3][2] / 60, data[4][2] / 60, data[5][2] / 60, data[6][2] / 60]
       }].reverse()
     }
 

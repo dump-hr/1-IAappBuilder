@@ -1049,3 +1049,38 @@ hr {
 
 .affix {
   position: fixed; }
+
+body {
+  font-family: 'Roboto', sans-serif; }
+
+.header {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background: #43A047;
+  color: white; }
+
+.sidebar {
+  width: 300px;
+  position: absolute;
+  height: calc(100vh - 60px);
+  background: #212121; }
+
+.angular-google-map-container {
+  height: calc(100vh - 60px);
+  width: calc(100% - 300px);
+  float: right; }
+
+.logo-wrapper {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: center; }
+
+.logo {
+  width: 60px; }
+
+.title {
+  padding-left: 20px;
+  font-weight: 300;
+  margin: 0; }
