@@ -200,6 +200,9 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
+    <Content Include="img\logo-white.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\search.png" />
     <Content Include="package.json" />
     <None Include="Properties\PublishProfiles\aircloud_production.pubxml" />
     <Content Include="Scripts\App\app.config.js" />
@@ -218,7 +221,9 @@
     <Content Include="Scripts\Vendor\angular.min.js" />
     <Content Include="Scripts\Vendor\jquery-2.2.3.min.js" />
     <Content Include="Scripts\Vendor\lodash.js" />
+    <Content Include="Scripts\Vendor\pikaday.js" />
     <Content Include="Scripts\Vendor\underscore-min.js" />
+    <None Include="Styles\bootstrap.min.scss" />
     <Content Include="Styles\Css\main.css" />
     <Content Include="Styles\Css\main.min.css" />
     <Content Include="Web.config" />
@@ -232,6 +237,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Styles\main.scss" />
+    <Content Include="Styles\pikaday.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AirCloud.Data\AirCloud.Data.csproj">

@@ -1,14 +1,53 @@
 ﻿<div class="home">
     <header class="header">
         <div class="logo-wrapper">
-            <img class="logo" src="../../img/logo.png"/>
+            <img class="logo" src="../../img/logo.png" />
             <h1 class="title">AirCloud</h1>
         </div>
     </header>
+
     <div class="sidebar">
+        <div class="filter-wrapper">
+            <div class="record-section">
+                <span class="label">Search town</span>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search town" aria-describedby="basic-addon1">
+                    <span class="input-group-addon">
+                        <img src="../../../img/search.png" />
+                    </span>
+                </div>
+            </div>
+
+            <div class="record-section">
+                <span class="label">Reading date</span>
+                <input type="text" id="datepicker" class="date form-control" placeholder="Select date">
+            </div>
+
+            <div class="record-section">
+                <span class="label">Select record type</span>
+                <select class="form-control">
+                    <option value="one">Carbon Monoxide (CO)</option>
+                    <option value="two">Volatile organic compound (VOC)</option>
+                </select>
+            </div>
+
+            <div class="record-section">
+                <button class="btn">Apply filters</button>
+            </div>
+        </div>
     </div>
 
     <div class="content-wrapper">
         <ui-gmap-google-map center='map.center' zoom='map.zoom' styles='map.styles' options='map.options'></ui-gmap-google-map>
     </div>
 </div>
+
+<script>
+    var picker = new Pikaday({
+        field: document.getElementById('datepicker'),
+        format: 'D MMM YYYY',
+        onSelect: function () {
+            console.log(this.getMoment().format('Do MMMM YYYY'));
+        }
+    });
+</script>
