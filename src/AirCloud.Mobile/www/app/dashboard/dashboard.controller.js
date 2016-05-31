@@ -1,8 +1,8 @@
 (function(){
     angular.module('app').controller('DashboardController', DashboardController);
 
-	DashboardController.$inject = ['$scope', '$ionicPlatform', '$rootScope', '$cordovaBluetoothSerial', '$window', 'airQualityStatusService', '$timeout', 'env', '$cordovaLocalNotification']; 
-    function DashboardController($scope, $ionicPlatform, $rootScope, $cordovaBluetoothSerial, $window, airQualityStatusService, $timeout, env, $cordovaLocalNotification) {
+	DashboardController.$inject = ['$scope', '$ionicPlatform', '$rootScope', '$cordovaBluetoothSerial', '$window', 'airQualityStatusService', '$timeout', 'env', '$cordovaLocalNotification', '$rootScope']; 
+    function DashboardController($scope, $ionicPlatform, $rootScope, $cordovaBluetoothSerial, $window, airQualityStatusService, $timeout, env, $cordovaLocalNotification, $rootScope) {
         var vm = this;
         
         vm.initialDataLoaded = false;

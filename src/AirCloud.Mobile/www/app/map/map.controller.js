@@ -6,7 +6,6 @@
     MapController.$inject = ['$cordovaNetwork', '$rootScope', 'uiGmapGoogleMapApi', '$scope', 'env'];
     function MapController($cordovaNetwork, $rootScope, uiGmapGoogleMapApi, $scope, env){
       
-        $scope.poruka = 'porurururu';
         $scope.markers = [];
         $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
         
