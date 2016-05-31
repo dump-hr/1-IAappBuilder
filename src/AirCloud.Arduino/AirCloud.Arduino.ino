@@ -4,7 +4,7 @@
 #define DHTPIN 10
 #define MQ135PIN 0
 #define MQ9PIN 1
-#define COOffset 25
+#define COOffset 19
 
 #define DHTTYPE DHT11
 
