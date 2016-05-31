@@ -30,9 +30,7 @@
                     localStorage["chartDataCO_Today"] = getDummyDataCO(date.getHours() * 60 + date.getMinutes());                
               } else {
                     localStorage["chartDataCO_Today"] = getDummyDataCO(12 * 60 + date.getHours() * 60 + date.getMinutes());                
-              }
-            //    console.log(angular.fromJson(localStorage["chartDataCO_Today"]));
-      
+              }      
         }
         
         if(alwaysDropThenCreate || !localStorage["chartDataVOC_Today"] || localStorage["chartDataVOC_Today"] === []){
@@ -61,11 +59,6 @@
 
             for(var i = 0; i < n; i++){
                 dummyData.push(Math.abs(Math.abs(noise.simplex3(Math.random()*100 / 40, Math.random()*100 / 40, Math.random() * 10) * 100) - 15) / 1.84)
-                
-                // if(checkQualityService.checkVOC(dummyData[i]) === "bad"){
-                //     console.log("AAAAAAA");
-                // }
-                // dummyData.push(Math.abs(Math.abs(noise.simplex2(i / 40, i / 40) * 100) - 20) / 2.5)
             }
             return angular.toJson(dummyData);
         }
@@ -79,8 +72,6 @@
                 var moderate = 0;
                 var bad = 0;
                 for(var j = i*1440; j < (i+1)*1440; j++){
-                    // console.log(dummyDataCOOverall[i]);
-                    // console.log(dummyDataVOCOverall[i]);
                     if(checkIndividualQualityService.checkCOAndVOC(dummyDataCOOverall[j], dummyDataVOCOverall[j]) === "good"){
                         good++;
                     } else if(checkIndividualQualityService.checkCOAndVOC(dummyDataCOOverall[j], dummyDataVOCOverall[j]) === "moderate") {

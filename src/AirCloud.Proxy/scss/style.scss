@@ -1,0 +1,107 @@
+﻿@import "ionic.app.scss";
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #212121;
+  background: #F5F5F5;
+}
+
+.loading-screen {
+  background: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+
+  .loader {
+    display: block;
+    width: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.splash-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #00BCD4;
+
+  .splash-screen_logo {
+    display: block;
+    width: 47%;
+    margin: 100px auto 40px;
+  }
+
+  .splash-screen_message {
+    color: white;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  .splash-screen_bluetooth-list {
+    width: 85%;
+    margin: 12px auto;
+    color: #212121;
+    background: transparent;
+
+    .item {
+      padding: 14px 16px;
+
+      &:not(:last-of-type) {
+        margin-bottom: 3px;
+      }
+    }
+  }
+}
+
+.header {
+  background: #00BCD4;
+  padding: 110px 40px 50px;
+  color: white;
+  text-align: center;
+
+  .header_bar {
+    height: 50px;
+    background: #00BCD4;
+
+    .title {
+      line-height: 50px;
+      color: white;
+      text-align: left;
+      padding-left: 30px;
+    }
+  }
+
+  .header_message {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+  .header_status {
+    font-size: 45px;
+    margin: 20px 0 25px;
+    text-transform: capitalize;
+  }
+
+  .header_description {
+    margin-bottom: 0;
+    line-height: 1.6
+  }
+}
+
+.reading {
+  .reading_item {
+    padding: 25px 30px;
+    border-bottom: 1px solid rgba(#212121, 0.5);
+  }
+}

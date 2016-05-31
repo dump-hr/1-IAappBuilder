@@ -9,7 +9,8 @@
                 'tab-dashboard': {
                     templateUrl: './app/dashboard/dashboard.template.html',
                     controller: 'DashboardController',
-                    controllerAs: 'vm'
+                    controllerAs: 'vm', 
+                    cache: false
                 }
             }
         });

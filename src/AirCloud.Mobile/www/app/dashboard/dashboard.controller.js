@@ -1,9 +1,11 @@
 (function(){
     angular.module('app').controller('DashboardController', DashboardController);
 
-	DashboardController.$inject = ['$scope', '$ionicPlatform', '$rootScope', '$cordovaBluetoothSerial', '$window', 'airQualityStatusService']; 
-    function DashboardController($scope, $ionicPlatform, $rootScope, $cordovaBluetoothSerial, $window, airQualityStatusService) {
+	DashboardController.$inject = ['$scope', '$ionicPlatform', '$rootScope', '$cordovaBluetoothSerial', '$window', 'airQualityStatusService', '$timeout', 'env']; 
+    function DashboardController($scope, $ionicPlatform, $rootScope, $cordovaBluetoothSerial, $window, airQualityStatusService, $timeout, env) {
         var vm = this;
+        
+        vm.initialDataLoaded = false; 
         
         $rootScope.$on('deviceDataEmitter:update', function (event, data) {
             vm.readings = data;
@@ -11,29 +13,31 @@
             vm.initialDataLoaded = true;
         });
         
-        $scope.$on("$ionicView.enter", function () {  
-            $scope.bluetoothDevices = []; 
+        $scope.bluetoothDevices = []; 
             
-            vm.isOnDevice = !!$window.bluetoothSerial; 
-            vm.isConnected = false; 
-            vm.isConnecting = false; 
+        vm.isArduinoAvailable = env.isArduinoAvailable; 
+        
+        vm.isConnected = false; 
+        vm.isConnecting = false; 
             
-            if(vm.isOnDevice) {
-                $ionicPlatform.ready(function() {
-                    $cordovaBluetoothSerial.list().then(function(devices) {
-                        $scope.bluetoothDevices = devices; 
-                    }); 
-                });
+        if(vm.isArduinoAvailable) {
+            $ionicPlatform.ready(function() {
+                $cordovaBluetoothSerial.list().then(function(devices) {
+                    $scope.bluetoothDevices = devices; 
+                }); 
+            });
                 
-                vm.connect = function(address) {
-                    vm.isConnecting = true; 
-                    $cordovaBluetoothSerial.connect(address).then(function() {
-                        vm.isConnected = true; 
-                    }).finally(function() {
-                        vm.isConnecting = false;
-                    }); 
-                }
+            vm.connect = function(address) {
+                vm.isConnecting = true; 
+                
+                $cordovaBluetoothSerial.connect(address).then(function() {
+                    vm.isConnected = true; 
+                }).finally(function() {
+                    $timeout(function() {
+                        vm.isConnecting = false; 
+                    }, 500); 
+                }); 
             }
-        });
+        }
     }
 })();
