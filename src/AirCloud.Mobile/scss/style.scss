@@ -29,7 +29,19 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item {
 ion-tabs.tabs-color-active-positive .tab-item.tab-item-active {
   color: white;
   border-color: transparent;
+  border: 0;
   margin-top: 0;
+  .icon {
+    margin-top: -1px;
+  }
+}
+
+ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
+  color: white !important;
+  border: 0 !important;
+  border-color: transparent !important;
+  margin-top: 0;
+
   .icon {
     margin-top: -1px;
   }
@@ -40,6 +52,7 @@ ion-tabs.tabs-color-active-positive .tab-item.tab-item-active {
 }
 
 .tab-item.activated {
+  border: 0;
   border-color: transparent !important;
   color: white !important;
   margin-top: 0 !important;
