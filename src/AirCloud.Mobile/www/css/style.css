@@ -9825,22 +9825,26 @@ body {
 
 .tab-nav.tabs {
   height: 60px;
+  background: #212121;
   line-height: 60px;
   margin-bottom: -1px; }
 
+.tab-title {
+  display: none; }
+
 ion-tabs.tabs-striped.tabs-color-active-positive .tab-item {
-  background: #212121;
   opacity: 1;
   line-height: 60px; }
-  ion-tabs.tabs-striped.tabs-color-active-positive .tab-item span {
-    display: none; }
 
-ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active {
   color: white;
   border-color: transparent;
   margin-top: 0; }
-  ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active .icon {
+  ion-tabs.tabs-color-active-positive .tab-item.tab-item-active .icon {
     margin-top: -1px; }
+
+.tabs-icon-top > .tabs .tab-item {
+  line-height: 60px; }
 
 .tab-item.activated {
   border-color: transparent !important;
