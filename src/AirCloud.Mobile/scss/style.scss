@@ -65,7 +65,7 @@ body {
 
 .header {
   background: #4CAF50;
-  padding: 110px 50px 60px;
+  padding: 110px 40px 50px;
   color: white;
   text-align: center;
 
@@ -89,11 +89,13 @@ body {
 
   .header_status {
     font-size: 45px;
-    margin: 20px 0;
+    margin: 20px 0 25px;
+    text-transform: capitalize;
   }
 
   .header_description {
     margin-bottom: 0;
+    line-height: 1.6
   }
 }
 
