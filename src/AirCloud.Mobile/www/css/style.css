@@ -9817,7 +9817,23 @@ a.button {
 
 body {
   font-family: 'Roboto', sans-serif;
-  color: #212121; }
+  color: #212121;
+  background: #F5F5F5; }
+
+.loading-screen {
+  background: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100; }
+  .loading-screen .loader {
+    display: block;
+    width: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
 
 .splash-screen {
   position: absolute;
@@ -9825,7 +9841,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #26C6DA; }
+  background: #4CAF50; }
   .splash-screen .splash-screen_logo {
     display: block;
     width: 47%;
@@ -9846,3 +9862,30 @@ body {
       padding: 14px 16px; }
       .splash-screen .splash-screen_bluetooth-list .item:not(:last-of-type) {
         margin-bottom: 3px; }
+
+.header {
+  background: #4CAF50;
+  padding: 110px 50px 60px;
+  color: white;
+  text-align: center; }
+  .header .header_bar {
+    height: 50px;
+    background: #43A047; }
+    .header .header_bar .title {
+      line-height: 50px;
+      color: white;
+      text-align: left;
+      padding-left: 30px; }
+  .header .header_message {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 300; }
+  .header .header_status {
+    font-size: 45px;
+    margin: 15px 0 20px; }
+  .header .header_description {
+    margin-bottom: 0; }
+
+.reading .reading_item {
+  padding: 25px 30px;
+  border-bottom: 1px solid rgba(33, 33, 33, 0.5); }

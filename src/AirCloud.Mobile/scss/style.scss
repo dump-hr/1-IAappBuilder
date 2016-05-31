@@ -3,6 +3,25 @@
 body {
   font-family: 'Roboto', sans-serif;
   color: #212121;
+  background: #F5F5F5;
+}
+
+.loading-screen {
+  background: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+
+  .loader {
+    display: block;
+    width: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .splash-screen {
@@ -11,7 +30,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #26C6DA;
+  background: #4CAF50;
 
   .splash-screen_logo {
     display: block;
@@ -41,5 +60,46 @@ body {
         margin-bottom: 3px;
       }
     }
+  }
+}
+
+.header {
+  background: #4CAF50;
+  padding: 110px 50px 60px;
+  color: white;
+  text-align: center;
+
+  .header_bar {
+    height: 50px;
+    background: #43A047;
+
+    .title {
+      line-height: 50px;
+      color: white;
+      text-align: left;
+      padding-left: 30px;
+    }
+  }
+
+  .header_message {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+  .header_status {
+    font-size: 45px;
+    margin: 15px 0 20px;
+  }
+
+  .header_description {
+    margin-bottom: 0;
+  }
+}
+
+.reading {
+  .reading_item {
+    padding: 25px 30px;
+    border-bottom: 1px solid rgba(#212121, 0.5);
   }
 }
