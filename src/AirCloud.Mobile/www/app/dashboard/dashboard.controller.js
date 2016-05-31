@@ -5,7 +5,7 @@
     function DashboardController($scope, $ionicPlatform, $rootScope) {
         var vm = this;
         $rootScope.$on('deviceDataEmitter:update', function (event, data) {
-            console.log(data);
+            vm.readings = data;
         });
         $scope.$on("$ionicView.enter", function () {          
             $ionicPlatform.ready(function() {
