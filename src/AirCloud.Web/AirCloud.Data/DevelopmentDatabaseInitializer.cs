@@ -15,7 +15,11 @@ namespace AirCloud.Data
             readingsFactory = new ReadingsFactory();
             base.InitializeDatabase(context);
         }
-        protected override void Seed(AirCloudContext context) => Array.ForEach(readingsFactory.GetRandomReadings().ToArray(), _ => context.Readings.Add(_));
+        protected override void Seed(AirCloudContext context)
+        {
+            Array.ForEach(readingsFactory.GetRandomReadings().ToArray(), _ => context.Readings.Add(_));
+            context.SaveChanges();
+        }
         private ReadingsFactory readingsFactory;
     }
 }
