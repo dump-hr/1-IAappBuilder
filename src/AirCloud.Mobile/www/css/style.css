@@ -9944,9 +9944,9 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
     .header.header--good .header_bar {
       background: rgba(67, 160, 71, 0.8); }
   .header.header--moderate {
-    background-image: linear-gradient(45deg, #FF5722, #E64A19); }
+    background-image: linear-gradient(45deg, #F57C00, #E65100); }
     .header.header--moderate .header_bar {
-      background: rgba(230, 74, 25, 0.8); }
+      background: rgba(230, 81, 0, 0.8); }
   .header.header--bad {
     background-image: linear-gradient(45deg, #F44336, #D32F2F); }
     .header.header--bad .header_bar {
@@ -10000,7 +10000,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
   margin-bottom: 0; }
 
 .reading progress[value]::-webkit-progress-bar {
-  background-color: #F4511E;
+  background-color: #EF6C00;
   border-radius: 6px; }
 
 .reading progress[value]::-webkit-progress-value {
@@ -10019,7 +10019,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
     display: block;
     position: absolute;
     background: #3C873C;
-    background: linear-gradient(to right, #3c873c 0%, #3c873c 85%, #e64a19 100%);
+    background: linear-gradient(to right, #3c873c 0%, #3c873c 85%, #ef6c00 100%);
     width: 22%;
     height: 15px;
     border-top-left-radius: 6px;
@@ -10031,7 +10031,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
     display: block;
     position: absolute;
     background: #D32F2F;
-    background: linear-gradient(to right, #f4511e 0%, #d32f2f 15%, #d32f2f 100%);
+    background: linear-gradient(to right, #ef6c00 0%, #d32f2f 15%, #d32f2f 100%);
     width: 45%;
     height: 15px;
     border-top-right-radius: 6px;
@@ -10081,7 +10081,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
     display: block;
     position: absolute;
     background: #3C873C;
-    background: linear-gradient(to right, #3c873c 0%, #3c873c 85%, #e64a19 100%);
+    background: linear-gradient(to right, #3c873c 0%, #3c873c 85%, #ef6c00 100%);
     width: 17%;
     height: 15px;
     border-top-left-radius: 6px;
@@ -10093,7 +10093,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
     display: block;
     position: absolute;
     background: #D32F2F;
-    background: linear-gradient(to right, #f4511e 0%, #d32f2f 10%, #d32f2f 100%);
+    background: linear-gradient(to right, #ef6c00 0%, #d32f2f 10%, #d32f2f 100%);
     width: 73%;
     height: 15px;
     border-top-right-radius: 6px;
