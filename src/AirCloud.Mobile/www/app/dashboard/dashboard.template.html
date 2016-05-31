@@ -5,17 +5,16 @@
     <!--<img class="loader" src="../img/loader.svg"-->
     <!--</div>-->
 
-    <div class="splash-screen">
-      <img class="splash-screen_logo" src="../img/logo-white.png">
+    <!--<div class="splash-screen">-->
+      <!--<img class="splash-screen_logo" src="../img/logo-white.png">-->
 
-      <p class="splash-screen_message">To get started connect to your device via bluetooth</p>
+      <!--<p class="splash-screen_message">To get started connect to your device via bluetooth</p>-->
 
-      <div ng-if="vm.isOnDevice && !vm.isConnected" class="splash-screen_bluetooth-list list list-inset"
-           ng-repeat="bluetoothDevice in bluetoothDevices">
-        <div class="item" ng-click="vm.connect(bluetoothDevice.address)">{{ bluetoothDevice.name }}</div>
-      </div>
-
-    </div>
+      <!--<div ng-if="vm.isOnDevice && !vm.isConnected" class="splash-screen_bluetooth-list list list-inset"-->
+           <!--ng-repeat="bluetoothDevice in bluetoothDevices">-->
+        <!--<div class="item" ng-click="vm.connect(bluetoothDevice.address)">{{ bluetoothDevice.name }}</div>-->
+      <!--</div>-->
+    <!--</div>-->
 
     <div class="dashboard">
 
@@ -44,25 +43,26 @@
       </div>
 
       <div class="reading" ng-if="vm.initialDataLoaded">
-        <div class="reading_item">
-          <span class="title">Volatile organic compounds (VOC)</span>
-          <div class="value">{{vm.readings.voc | number: 2}}<span>%</span></div>
+        <div class="reading_item reading_item--voc">
+          <span class="reading_name">Volatile organic compounds (VOC)</span>
+          <div class="reading_value">{{vm.readings.voc | number: 2}}<span>%</span></div>
+          <progress value="{{vm.readings.voc | number: 2}}" max="100"></progress>
+        </div>
+
+        <div class="reading_item reading_item--co">
+          <span class="reading_name">Carbon monoxide (CO)</span>
+          <div class="reading_value">{{vm.readings.co | number: 2}}<span>%</span></div>
+          <progress value="{{vm.readings.co | number: 2}}" max="100"></progress>
         </div>
 
         <div class="reading_item">
-          <span class="title">Carbon monoxide (CO)</span>
-          <div class="value">{{vm.readings.co | number: 2}}<span>%</span></div>
-        </div>
-
-
-        <div class="reading_item">
-          <span class="title">Humidity</span>
-          <div class="value">{{vm.readings.humidity | number: 2}}<span>%</span></div>
+          <span class="reading_name">Humidity</span>
+          <div class="reading_value">{{vm.readings.humidity | number: 2}}<span>%</span></div>
         </div>
 
         <div class="reading_item">
-          <span class="title">Temperature</span>
-          <div class="value">{{vm.readings.temperature | number: 2}}<span>%</span></div>
+          <span class="reading_name">Temperature</span>
+          <div class="reading_value">{{vm.readings.temperature | number: 2}}<span>%</span></div>
         </div>
       </div>
     </div>
