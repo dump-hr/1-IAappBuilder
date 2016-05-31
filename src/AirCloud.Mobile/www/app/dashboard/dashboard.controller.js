@@ -11,31 +11,31 @@
             vm.readings = data;
             vm.quality = airQualityStatusService.getStatus(data);
             vm.initialDataLoaded = true;
+            console.log(vm.initialDataLoaded); 
         });
         
-        $scope.$on("$ionicView.enter", function () {  
-            $scope.bluetoothDevices = []; 
+        $scope.bluetoothDevices = []; 
             
-            vm.isOnDevice = !!$window.bluetoothSerial; 
-            vm.isConnected = false; 
-            vm.isConnecting = false; 
+        vm.isOnDevice = !!$window.cordova; 
+        
+        vm.isConnected = false; 
+        vm.isConnecting = false; 
             
-            if(vm.isOnDevice) {
-                $ionicPlatform.ready(function() {
-                    $cordovaBluetoothSerial.list().then(function(devices) {
-                        $scope.bluetoothDevices = devices; 
-                    }); 
-                });
+        if(vm.isOnDevice) {
+            $ionicPlatform.ready(function() {
+                $cordovaBluetoothSerial.list().then(function(devices) {
+                    $scope.bluetoothDevices = devices; 
+                }); 
+            });
                 
-                vm.connect = function(address) {
-                    vm.isConnecting = true; 
-                    $cordovaBluetoothSerial.connect(address).then(function() {
-                        vm.isConnected = true; 
-                    }).finally(function() {
-                        vm.isConnecting = false;
-                    }); 
-                }
+            vm.connect = function(address) {
+                vm.isConnecting = true; 
+                $cordovaBluetoothSerial.connect(address).then(function() {
+                    vm.isConnected = true; 
+                }).finally(function() {
+                    vm.isConnecting = false;
+                }); 
             }
-        });
+        }
     }
 })();
