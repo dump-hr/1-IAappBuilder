@@ -1,7 +1,9 @@
 (function(){
 	'use strict'; 
 	
-    angular.module('app').config(RouterStateConfig);
+    angular.module('app')
+	.config(RouterStateConfig)
+	.config(HeatmapConfig);
 
     RouterStateConfig.$inject = ['$stateProvider', '$urlRouterProvider', '$ionicConfigProvider'];
     function RouterStateConfig($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
@@ -15,4 +17,12 @@
 		
 		$ionicConfigProvider.tabs.position('bottom');
     }
+	
+	HeatmapConfig.$inject = ['uiGmapGoogleMapApiProvider'];
+	function HeatmapConfig(uiGmapGoogleMapApiProvider){
+		uiGmapGoogleMapApiProvider.configure({
+			key: 'AIzaSyB81UIIhv_kwpUKiSsnclFpjD8xwwdM4F0',
+			libraries: 'weather,geometry,visualization'
+		});
+	}
 })();
