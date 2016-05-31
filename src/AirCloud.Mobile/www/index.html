@@ -1,6 +1,6 @@
-﻿ <!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
@@ -12,7 +12,7 @@
 
     <script src="./lib/lodash/lodash.js"></script>
     <script src="./lib/ionic/js/ionic.bundle.js"></script>
-	  <script src="./lib/underscore/underscore.js"></script>
+    <script src="./lib/underscore/underscore.js"></script>
     <script src="./lib/Chart.js/Chart.js"></script>
     <script src="./lib/highcharts/highcharts.js"></script>
     <script src="./lib/angular-chart.js/angular-chart.js"></script>
@@ -24,13 +24,17 @@
     <script src="./cordova.js"></script>
     <script src="./lib/ng-cordova/ng-cordova.js"></script>
 
-	<script src="./app/app.module.js"></script>
+    <script src="./app/app.module.js"></script>
+
     <script src="./app/app.run.js"></script>
     <script src="./app/common/const/env.js"></script>
+    <script src="./app/common/const/apiEndpoints.js"></script>
+    <script src="./app/common/const/heatmapWeights.js"></script>
 
     <script src="./app/common/run/deviceDataEmitter.js"></script>
     <script src="./app/common/run/localPushNotifications.js"></script>
     <script src="./app/common/services/airQualityLevels.js"></script>
+    <script src="./app/common/services/readings.js"></script>
 
     <script src="./app/app.config.js"></script>
 
@@ -47,14 +51,17 @@
     <script src="./app/map/map.state.js"></script>
     <script src="./app/map/map.controller.js"></script>
     <style>
-    .angular-google-map-container { height: 400px; } </style>
-  </head>
-  <body ng-app="app">
+        .angular-google-map-container {
+            height: 400px;
+        }
+    </style>
+</head>
+<body ng-app="app">
     <ion-nav-bar class="bar-stable">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
+        <ion-nav-back-button>
+        </ion-nav-back-button>
     </ion-nav-bar>
 
     <ion-nav-view></ion-nav-view>
-  </body>
+</body>
 </html>
