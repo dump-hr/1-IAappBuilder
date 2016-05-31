@@ -1,9 +1,9 @@
 <ion-view hide-nav-bar="true">
   <ion-content>
 
-    <!--<div class="loading-screen">-->
-    <!--<img class="loader" src="../img/loader.svg"-->
-    <!--</div>-->
+    <div class="loading-screen" ng-if="vm.isConnecting">
+      <img class="loader" src="./img/loader.svg">
+    </div>
     
     <div class="splash-screen" ng-if="vm.isOnDevice && !vm.isConnected">
       <img class="splash-screen_logo" src="./img/logo-white.png">

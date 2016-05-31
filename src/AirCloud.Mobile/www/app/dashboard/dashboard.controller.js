@@ -1,8 +1,8 @@
 (function(){
     angular.module('app').controller('DashboardController', DashboardController);
 
-	DashboardController.$inject = ['$scope', '$ionicPlatform', '$rootScope', '$cordovaBluetoothSerial', '$window', 'airQualityStatusService']; 
-    function DashboardController($scope, $ionicPlatform, $rootScope, $cordovaBluetoothSerial, $window, airQualityStatusService) {
+	DashboardController.$inject = ['$scope', '$ionicPlatform', '$rootScope', '$cordovaBluetoothSerial', '$window', 'airQualityStatusService', '$timeout']; 
+    function DashboardController($scope, $ionicPlatform, $rootScope, $cordovaBluetoothSerial, $window, airQualityStatusService, $timeout) {
         var vm = this;
         
         vm.initialDataLoaded = false; 
@@ -30,10 +30,13 @@
                 
             vm.connect = function(address) {
                 vm.isConnecting = true; 
+                
                 $cordovaBluetoothSerial.connect(address).then(function() {
                     vm.isConnected = true; 
                 }).finally(function() {
-                    vm.isConnecting = false;
+                    $timeout(function() {
+                        vm.isConnecting = false; 
+                    }, 500); 
                 }); 
             }
         }
