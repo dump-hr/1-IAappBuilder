@@ -1,6 +1,6 @@
 (function () {
     angular.module('app').constant('env', {
-        isArduinoAvailable: true,
+        isArduinoAvailable: false,
         isOnDevice: true
     });
 })();

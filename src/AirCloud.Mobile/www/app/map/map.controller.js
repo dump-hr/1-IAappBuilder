@@ -10,27 +10,12 @@
         $scope.map = {
             center: { latitude: 37.774546, longitude: -122.433523 },
             zoom: 14,
-            options: {scrollwheel: false },
+            options: {
+                scrollwheel: false,
+                zoomControl: false
+            },
             heatLayerCallback: function (layer) {
-                var map, pointarray, heatmap;
-
-                var heatMapData = [
-     { location: new google.maps.LatLng(37.782, -122.447), weight: 0.5 },
-
-     { location: new google.maps.LatLng(37.782, -122.443), weight: 0.1 },
-     { location: new google.maps.LatLng(37.782, -122.441), weight: 0.2 },
-     { location: new google.maps.LatLng(37.782, -122.439), weight: 0.5 },
-
-     { location: new google.maps.LatLng(37.782, -122.435), weight: 0.1 },
-
-     { location: new google.maps.LatLng(37.785, -122.447), weight: 0.5 },
-     { location: new google.maps.LatLng(37.785, -122.445), weight: 0.1 },
-
-     { location: new google.maps.LatLng(37.785, -122.441), weight: 0.2 },
-
-     { location: new google.maps.LatLng(37.785, -122.437), weight: 0.3 },
-     { location: new google.maps.LatLng(37.785, -122.435), weight: 1 }
-                ];
+           
                 var pointArray = new google.maps.MVCArray(heatMapData);
                 layer.setData(pointArray);
                 layer.set('radius', 32);
