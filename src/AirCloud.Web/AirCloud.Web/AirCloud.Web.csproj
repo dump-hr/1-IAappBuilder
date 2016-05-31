@@ -204,7 +204,16 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AirCloud.Data\AirCloud.Data.csproj">
+      <Project>{e427f410-4eee-4a85-a91b-d3fb058fab89}</Project>
+      <Name>AirCloud.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AirCloud.Domain\AirCloud.Domain.csproj">
+      <Project>{3bf6c81b-8718-4a42-9e8b-b2842af1f39a}</Project>
+      <Name>AirCloud.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Scripts\Vendor\jquery-1.10.2.min.map" />

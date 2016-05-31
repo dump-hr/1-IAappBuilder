@@ -7,12 +7,27 @@ using System.Web.Http;
 
 namespace AirCloud.Web.Controllers
 {
+    public interface ITestService
+    {
+        string TestMsg { get; set; }
+    }
+
+    public class Test : ITestService
+    {
+        public string TestMsg { get; set; } = "test";
+    }
     public class ValuesController : ApiController
     {
+        public ValuesController(ITestService test)
+        {
+            this.test = test;
+        }
+
+        private readonly ITestService test;
         // GET api/values
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "value1", "value2", test.TestMsg };
         }
 
         // GET api/values/5

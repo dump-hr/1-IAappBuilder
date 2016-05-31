@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCloud.Web", "AirCloud.Web\AirCloud.Web.csproj", "{B13369F0-0DE4-4E88-80F4-FF855B51648D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCloud.Domain", "AirCloud.Domain\AirCloud.Domain.csproj", "{3BF6C81B-8718-4A42-9E8B-B2842AF1F39A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirCloud.Data", "AirCloud.Data\AirCloud.Data.csproj", "{E427F410-4EEE-4A85-A91B-D3FB058FAB89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{B13369F0-0DE4-4E88-80F4-FF855B51648D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B13369F0-0DE4-4E88-80F4-FF855B51648D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B13369F0-0DE4-4E88-80F4-FF855B51648D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BF6C81B-8718-4A42-9E8B-B2842AF1F39A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BF6C81B-8718-4A42-9E8B-B2842AF1F39A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BF6C81B-8718-4A42-9E8B-B2842AF1F39A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BF6C81B-8718-4A42-9E8B-B2842AF1F39A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E427F410-4EEE-4A85-A91B-D3FB058FAB89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E427F410-4EEE-4A85-A91B-D3FB058FAB89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E427F410-4EEE-4A85-A91B-D3FB058FAB89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E427F410-4EEE-4A85-A91B-D3FB058FAB89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

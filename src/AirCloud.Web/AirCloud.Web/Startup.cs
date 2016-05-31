@@ -10,7 +10,10 @@ namespace AirCloud.Web
     {
         public void Configuration(IAppBuilder app)
         {
-            app.UseAutofacForWebApi(httpConfiguration: GlobalConfiguration.Configuration);      
+            HttpConfiguration httpConfiguration = new HttpConfiguration();
+            WebApiConfig.Register(httpConfiguration);
+            app.UseWebApi(httpConfiguration);
+            app.UseAutofacForWebApi(httpConfiguration: httpConfiguration);
         }
     }
 }
