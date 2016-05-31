@@ -179,13 +179,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\Dist\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\AutomapperConfiguration.cs" />
-    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
@@ -201,13 +200,18 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="gulpfile.js" />
+    <Content Include="package.json" />
     <None Include="Properties\PublishProfiles\aircloud_production.pubxml" />
-    <None Include="Scripts\Vendor\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\Vendor\jquery-1.10.2.js" />
-    <Content Include="Scripts\Vendor\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\Vendor\modernizr-2.6.2.js" />
-    <Content Include="Scripts\Vendor\respond.js" />
-    <Content Include="Scripts\Vendor\respond.min.js" />
+    <Content Include="Scripts\App\app.config.js" />
+    <Content Include="Scripts\App\app.module.js" />
+    <Content Include="Scripts\App\app.states.js" />
+    <Content Include="Scripts\App\home\home.controller.js" />
+    <Content Include="Scripts\App\home\home.template.html" />
+    <Content Include="Scripts\Vendor\angular-ui-router.min.js" />
+    <Content Include="Scripts\Vendor\angular.min.js" />
+    <Content Include="Scripts\Vendor\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\Vendor\underscore-min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -215,12 +219,10 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Scripts\Vendor\_references.js" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Styles\main.scss" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AirCloud.Data\AirCloud.Data.csproj">
@@ -234,7 +236,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Scripts\Vendor\jquery-1.10.2.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
