@@ -12,6 +12,16 @@ body {
     color: white;
 }
 
+.sidebar-open {
+    visibility: visible;
+    opacity: 1;
+}
+
+sidebar-closed {
+    visibility: hidden;
+    opacity: 0;
+}
+
 .sidebar {
     width: 300px;
     position: absolute;
@@ -19,6 +29,8 @@ body {
     background: #212121;
     display: flex;
     align-items: center;
+
+    transition: all 0.2s ease-in-out;
 
     .filter-wrapper {
         width: 100%;
@@ -113,4 +125,17 @@ body {
     padding-left: 20px;
     font-weight: 300;
     margin: 0;
+}
+
+#intercom-container .intercom-launcher-button {
+    background-color: #43A047 !important;
+    border-color: #43A047 !important;
+    width: 60px !important;
+    height: 60px !important;
+}
+
+@media (max-width: 800px) {
+    .angular-google-map-container {
+        width: 100%;
+    }
 }

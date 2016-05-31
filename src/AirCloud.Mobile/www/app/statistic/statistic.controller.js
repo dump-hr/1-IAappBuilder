@@ -22,16 +22,16 @@
                     max = data[j];
                 }
             }
-            test.push(max);               
+            test.push(max);
         }
         return [test];
     }
-    
+
     vm.dataFor24HoursCO = putDataForLast24HoursCO();
 
     vm.labelsFor24HoursVOC = ["24 hours ago", "18 hours ago", "12 hours ago", "6 hours ago"];
     vm.seriesFor24HoursVOC = ["VOC"];
-    
+
     function putDataForLast24HoursVOC(){
         var data = localStorageService.GetDataLast24HoursCO();
         var test = [];
@@ -42,13 +42,13 @@
                     max = data[j];
                 }
             }
-            test.push(max);               
+            test.push(max);
         }
         return [test];
     }
-    
+
     vm.dataFor24HoursVOC = putDataForLast24HoursVOC();
-    
+
     $rootScope.$on('deviceDataEmitter:update', function(event, data){
         vm.dataFor24HoursVOC = putDataForLast24HoursVOC();
         vm.dataFor24HoursCO = putDataForLast24HoursCO()
@@ -111,14 +111,15 @@
           text: ''
         },
         stackLabels: {
-          enabled: false,
+          enabled: false
         },
         gridLineDashStyle: 'longdash'
       },
       options: {
         chart: {
           type: 'column',
-          backgroundColor: 'transparent'
+          backgroundColor: 'transparent',
+          height: 250
         },
         colors: [
           '#4CAF50',
@@ -154,7 +155,8 @@
         name: 'Bad',
         data: [data[0][2] / 60, data[1][2] / 60, data[2][2] / 60, data[3][2] / 60, data[4][2] / 60, data[5][2] / 60, data[6][2] / 60]
       }].reverse()
-    }
+    };
+
 
 
     function getDateAsProperString(date) {
