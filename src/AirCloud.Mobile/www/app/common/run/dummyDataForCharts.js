@@ -39,7 +39,7 @@
               if(dateAsString.indexOf("AM") >= 0){
                     localStorage["chartDataVOC_Today"] = getDummyDataCO(date.getHours() * 60 + date.getMinutes());                
               } else {
-                    localStorage["chartDataVOC_Today"] = getDummyDataCO(12 * 60 + date.getHours() * 60 + date.getMinutes());                
+                    localStorage["chartDataVOC_Today"] = getDummyDataCO(date.getHours() * 60 + date.getMinutes());                
               }
         }
         

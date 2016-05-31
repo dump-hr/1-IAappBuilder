@@ -3,8 +3,8 @@
     
     angular.module('app').controller("StatisticController", StatisticController);
     
-    StatisticController.$inject = ['localStorageService'];
-    function StatisticController(localStorageService){
+    StatisticController.$inject = ['localStorageService', '$rootScope'];
+    function StatisticController(localStorageService, $rootScope){
         var vm = this;   
         
         var daysAsString = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -52,10 +52,6 @@
             return localStorageService.GetDataOverallGoodModerateBad();
         })();
         
-        
-     
-     
-          
         var yesterday = new Date();
         yesterday.setDate(yesterday.getDate() - 1);
         var twoDaysBefore = new Date();

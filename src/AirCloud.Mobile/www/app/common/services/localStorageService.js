@@ -6,6 +6,10 @@
     LocalStorageService.$inject = ['checkIndividualQualityService'];
     function LocalStorageService(checkIndividualQualityService){
         function AddNewThisDay(reading){
+            if(angular.fromJson(localStorage["chartDataVOC_Today"]).length >= 1440 || angular.fromJson(localStorage["chartDataCO_Today"]).length >= 1440){
+                // console.log("Ponoc je, bar kad je refresh svaki sekund"); 
+                AddLastDayToWeek();
+            }
             AddNewVoc(reading.voc);
             AddNewCO(reading.co);
         }
@@ -14,18 +18,29 @@
             var todayDataVOC = angular.fromJson(localStorage["chartDataVOC_Today"]);
             todayDataVOC.push(newVoc);
             localStorage["chartDataVOC_Today"] = angular.toJson(todayDataVOC);
-            // console.log(angular.fromJson(localStorage["chartDataVOC_Today"]).length); 
         }
         
         function AddNewCO(newCO){
              var todayDataCO = angular.fromJson(localStorage["chartDataCO_Today"]);
              todayDataCO.push(newCO);
              localStorage["chartDataCO_Today"] = angular.toJson(todayDataCO);
-            //  console.log(angular.fromJson(localStorage["chartDataCO_Today"]).length);  
         }
         
         function AddLastDayToWeek(){
+            var todayDataCO = angular.fromJson(localStorage["chartDataVOC_Today"]);
+            var todayDataVOC = angular.fromJson(localStorage["chartDataCO_Today"]);
             
+            var overallDataCO = angular.fromJson(localStorage["chartDataCO_Overall"]);
+            var overallDataVOC = angular.fromJson(localStorage["chartDataVOC_Overall"]);
+            
+            for(var i = 0; i < 1440; i++){
+                overallDataCO.push(todayDataCO[i]);
+                overallDataVOC.push(todayDataVOC[i]);
+            }
+            localStorage["chartDataVOC_Today"] = angular.toJson([]);
+            localStorage["chartDataCO_Today"] = angular.toJson([]);
+            localStorage["chartDataCO_Overall"] = angular.toJson(overallDataCO);
+            localStorage["chartDataVOC_Overall"] = angular.toJson(overallDataVOC);
         }
         
         function GetDataLast24HoursCO(){
