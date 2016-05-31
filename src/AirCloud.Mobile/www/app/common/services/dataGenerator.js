@@ -6,23 +6,17 @@
     DataGenerator.$inject = [];
     function DataGenerator(){
         function generateCO(n){
-            n = 5000;
+            n = 10080;
             if(n > 10000){
                 var test = (Math.random() * 100) % 10 + 15
             } else {
                 var test = (Math.random() * 100) % 8 + 8
             }
-            // console.log("test " + test);
+            
             var allData = [];
             allData.push(growth(n/test, 8));
-            // console.log(allData);
             var used = false;
-            // console.log(allData[allData.length - 1]);
-            
-            // console.log(allData[allData.length - 1].length);
-            
-            // console.log("ovo je ono undefined"  + allData[allData.length - 1][allData[allData.length - 1].length - 1]);
-            for(var i = 0; i < test - 1; i++){
+            for(var i = 0; i < test - 2; i++){
                 var tst = parseInt((Math.random() * 100)) % 2;
                 used = false;
                 
@@ -43,7 +37,14 @@
                     allData.push(drop(n/test, allData[allData.length - 1][allData[allData.length - 1].length - 1] ));
                 }
             }
-            console.log(allData)
+            // console.log(allData)
+
+            allData.push(growth(n - allData.length * allData[0].length, allData[allData.length - 1][allData[allData.length - 1].length - 1]));
+            // console.log(allData)
+            var pss = _.flatten(allData);
+            console.log(pss);
+            
+            return pss;
         }
         
         function drop(n, current){
