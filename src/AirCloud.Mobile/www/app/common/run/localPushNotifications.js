@@ -10,12 +10,12 @@
            }
        }();
        function pushNotification(title, text) {
-           if(true){
-            // $cordovaLocalNotification.schedule({
-            //         id: getNextId(),
-            //         title: title,
-            //         text: text
-            // });
+           if(env.isOnDevice){
+                $cordovaLocalNotification.schedule({
+                        id: getNextId(),
+                        title: title,
+                        text: text
+                });
            }
        }
         

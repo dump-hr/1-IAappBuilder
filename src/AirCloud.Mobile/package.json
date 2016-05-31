@@ -18,8 +18,8 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
-    "cordova-plugin-bluetooth-serial", 
-	"cordova-plugin-network-information", 
+    "cordova-plugin-bluetooth-serial",
+    "cordova-plugin-network-information",
     "cordova-plugin-dialogs",
     "cordova-plugin-local-notifications",
     "ionic-plugin-keyboard"
