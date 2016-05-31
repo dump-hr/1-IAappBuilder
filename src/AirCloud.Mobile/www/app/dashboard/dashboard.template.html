@@ -1,13 +1,18 @@
 <ion-view hide-nav-bar="true">
-  <ion-content>
-    
+  <ion-content>   
     <div ng-if="vm.isOnDevice" class="list list-inset" ng-repeat="bluetoothDevice in bluetoothDevices">
       <div class="item" ng-click="vm.connect(bluetoothDevice.address)">{{ bluetoothDevice.name }}</div>
     </div>
 
+    <div class="status">
+      Air quality <span>{{vm.quality.overalQuality}}</span>
+      {{vm.quality.message}}
+    </div>
+    
     <div ng-if="!vm.initialDataLoaded">
         Fetching data from device...
     </div>
+    
     <div ng-if="vm.initialDataLoaded">
       <div>
         <span class="title">Volatile organic compounds (VOC)</span>
