@@ -9865,7 +9865,7 @@ body {
 
 .header {
   background: #4CAF50;
-  padding: 110px 50px 60px;
+  padding: 110px 40px 50px;
   color: white;
   text-align: center; }
   .header .header_bar {
@@ -9882,9 +9882,11 @@ body {
     font-weight: 300; }
   .header .header_status {
     font-size: 45px;
-    margin: 20px 0; }
+    margin: 20px 0 25px;
+    text-transform: capitalize; }
   .header .header_description {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    line-height: 1.6; }
 
 .reading .reading_item {
   padding: 25px 30px;
