@@ -57,7 +57,7 @@
             var dummyData = [];
 
             for(var i = 0; i < n; i++){
-                dummyData.push(Math.abs(Math.abs(noise.simplex3(Math.random()*100 / 40, Math.random()*100 / 40, Math.random() * 10) * 100) - 15) / 1.84)
+                dummyData.push(Math.abs(Math.abs(noise.simplex3(Math.random()*100 / 40, Math.random()*100 / 40, Math.random() * 10) * 100) - 20) / 2.74)
             }
             return angular.toJson(dummyData);
         }
