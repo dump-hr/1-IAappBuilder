@@ -20,12 +20,20 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item {
   background: #212121;
   opacity: 1;
   line-height: 60px;
+
+  span {
+    display: none;
+  }
 }
 
 ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
   color: white;
   border-color: transparent;
   margin-top: 0;
+
+  .icon {
+    margin-top: -1px;
+  }
 }
 
 .tab-item.activated {

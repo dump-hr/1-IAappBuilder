@@ -9832,11 +9832,15 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item {
   background: #212121;
   opacity: 1;
   line-height: 60px; }
+  ion-tabs.tabs-striped.tabs-color-active-positive .tab-item span {
+    display: none; }
 
 ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
   color: white;
   border-color: transparent;
   margin-top: 0; }
+  ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active .icon {
+    margin-top: -1px; }
 
 .tab-item.activated {
   border-color: transparent !important;
