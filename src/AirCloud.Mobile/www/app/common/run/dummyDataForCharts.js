@@ -8,11 +8,9 @@
     function DummyDataFactory(checkIndividualQualityService, dataGenerator){
         var isDevOrProduction = "Dev";
         var alwaysDropThenCreate = true;
-        
-        dataGenerator.generateCO(100);
-        
+                
         if(alwaysDropThenCreate || !localStorage["chartDataCO_Overall"] || (isDevOrProduction === "Dev" && angular.fromJson(localStorage["chartDataCO_Overall"]).length < 10080)){
-             localStorage["chartDataCO_Overall"] = getDummyDataCO(10080); //7 * 1440
+             localStorage["chartDataCO_Overall"] = dataGenerator.spliter(10080); //7 * 1440
         }
         
         if(alwaysDropThenCreate || !localStorage["chartDataVOC_Overall"] || (isDevOrProduction === "Dev" && angular.fromJson(localStorage["chartDataVOC_Overall"]).length < 10080)){
@@ -64,18 +62,42 @@
             return angular.toJson(dummyData);
         }
         
+        // function GetByWeekDaysForStackedColumnChart(){
+        //     var dummyDataCOOverall = angular.fromJson(localStorage["chartDataCO_Overall"]);
+        //     var dummyDataVOCOverall = angular.fromJson(localStorage["chartDataVOC_Overall"]);
+        //     var data = [[],[],[],[],[],[],[]];
+        //     for(var i = 0; i < 7; i++){
+        //         var good = 0;
+        //         var moderate = 0;
+        //         var bad = 0;
+        //         for(var j = i*1440; j < (i+1)*1440; j++){
+        //             if(checkIndividualQualityService.checkCOAndVOC(dummyDataCOOverall[j], dummyDataVOCOverall[j]) === "good"){
+        //                 good++;
+        //             } else if(checkIndividualQualityService.checkCOAndVOC(dummyDataCOOverall[j], dummyDataVOCOverall[j]) === "moderate") {
+        //                 moderate++;
+        //             } else {
+        //                 bad++;
+        //             }
+        //         }
+        //         data[i].push(good);
+        //         data[i].push(moderate);
+        //         data[i].push(bad);
+        //     } 
+        //     return angular.toJson(data);           
+        // }      
         function GetByWeekDaysForStackedColumnChart(){
             var dummyDataCOOverall = angular.fromJson(localStorage["chartDataCO_Overall"]);
-            var dummyDataVOCOverall = angular.fromJson(localStorage["chartDataVOC_Overall"]);
+            // console.log(dummyDataCOOverall);
             var data = [[],[],[],[],[],[],[]];
             for(var i = 0; i < 7; i++){
                 var good = 0;
                 var moderate = 0;
                 var bad = 0;
                 for(var j = i*1440; j < (i+1)*1440; j++){
-                    if(checkIndividualQualityService.checkCOAndVOC(dummyDataCOOverall[j], dummyDataVOCOverall[j]) === "good"){
+                    // console.log(dummyDataCOOverall[j]);
+                    if(checkIndividualQualityService.checkCO(dummyDataCOOverall[j]) === "good"){
                         good++;
-                    } else if(checkIndividualQualityService.checkCOAndVOC(dummyDataCOOverall[j], dummyDataVOCOverall[j]) === "moderate") {
+                    } else if(checkIndividualQualityService.checkCO(dummyDataCOOverall[j]) === "moderate") {
                         moderate++;
                     } else {
                         bad++;
