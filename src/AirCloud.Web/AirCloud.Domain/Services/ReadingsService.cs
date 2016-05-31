@@ -10,7 +10,7 @@ namespace AirCloud.Domain.Services
     public interface IReadingsService
     {
         dto::Reading Create(dto::Reading readingDto);
-        IQueryable<dto::Reading> GetAll_LongDetails();
+        IQueryable<dto::Reading> GetAll_LongDetails(int take = int.MaxValue);
     }
     public class ReadingsService : IReadingsService
     {
@@ -29,8 +29,11 @@ namespace AirCloud.Domain.Services
             return AutoMapper.Mapper.Instance.Map<dto::Reading>(reading);
         }
 
-        public IQueryable<dto::Reading> GetAll_LongDetails()
-            => context.Readings.ToArray()
+        public IQueryable<dto::Reading> GetAll_LongDetails(int take = int.MaxValue)
+            => context.Readings
+                .OrderByDescending(reading => reading.MeasuredOn)
+                .Take(take)
+                .ToArray()
                 .Select(AutoMapper.Mapper.Instance.Map<dto::Reading>)
                 .AsQueryable();
     }
