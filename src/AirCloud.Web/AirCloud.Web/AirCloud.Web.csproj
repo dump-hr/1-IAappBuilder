@@ -180,7 +180,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\Dist\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
@@ -208,10 +207,20 @@
     <Content Include="Scripts\App\app.states.js" />
     <Content Include="Scripts\App\home\home.controller.js" />
     <Content Include="Scripts\App\home\home.template.html" />
+    <Content Include="Scripts\Dist\app.js" />
+    <Content Include="Scripts\Dist\app.min.js" />
+    <Content Include="Scripts\Dist\vendor.js" />
+    <Content Include="Scripts\Dist\vendor.min.js" />
+    <Content Include="Scripts\Vendor\angular-google-maps.js" />
+    <Content Include="Scripts\Vendor\angular-simple-logger.js" />
     <Content Include="Scripts\Vendor\angular-ui-router.min.js" />
+    <Content Include="Scripts\Vendor\angular.js" />
     <Content Include="Scripts\Vendor\angular.min.js" />
     <Content Include="Scripts\Vendor\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\Vendor\lodash.js" />
     <Content Include="Scripts\Vendor\underscore-min.js" />
+    <Content Include="Styles\Css\main.css" />
+    <Content Include="Styles\Css\main.min.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
