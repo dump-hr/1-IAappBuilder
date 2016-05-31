@@ -1,5 +1,5 @@
 <ion-view hide-nav-bar="true">
-  <<<<<<< HEAD
+<<<<<<< HEAD
   <ion-content>
 
     <!--<div class="loading-screen">-->
@@ -32,20 +32,42 @@
           Air quality
         </div>
         <div class="header_status">
-          {{vm.quality.overalQuality}}
+          Good
         </div>
         <p class="header_description">
-          {{vm.quality.message}}
+          You are breathing normal & clean air
         </p>
-      </div>
+=======
+  <ion-content>
+    <div ng-if="vm.isOnDevice && !vm.isConnected" class="list list-inset" ng-repeat="bluetoothDevice in bluetoothDevices">
+      <div class="item" ng-click="vm.connect(bluetoothDevice.address)">{{ bluetoothDevice.name }}</div>
+    </div>
 
-      <div ng-if="vm.isOnDevice && !vm.isConnected" class="list list-inset"
-           ng-repeat="bluetoothDevice in bluetoothDevices">
-        <div class="item" ng-click="vm.connect(bluetoothDevice.address)">{{ bluetoothDevice.name }}</div>
-      </div>
-
-      <div ng-if="vm.isConnecting">
+    <div ng-if="vm.isConnecting">
         Fetching data from device...
+    </div>
+
+    <div class="status">
+      Air quality <span>{{vm.quality.overalQuality}}</span>
+      {{vm.quality.message}}
+    </div>
+
+    <div ng-if="vm.initialDataLoaded">
+      <div>
+        <span class="title">Volatile organic compounds (VOC)</span>
+        <div class="value">{{vm.readings.voc | number: 2}}<span>%</span></div>
+      </div>
+
+      <div>
+        <span class="title">Carbon monoxide (CO)</span>
+        <div class="value">{{vm.readings.co | number: 2}}<span>%</span></div>
+>>>>>>> 0f087e38d06b76152c782451ad0e761de4988edf
+      </div>
+    </div>
+
+      <div ng-if="!vm.initialDataLoaded">
+        <p>Fetching data from device...</p>
+        <img class="loader" src="../img/loader.svg">
       </div>
 
       <div class="reading" ng-if="vm.initialDataLoaded">
@@ -59,7 +81,6 @@
           <div class="value">{{vm.readings.co | number: 2}}<span>%</span></div>
         </div>
 
-
         <div class="reading_item">
           <span class="title">Humidity</span>
           <div class="value">{{vm.readings.humidity | number: 2}}<span>%</span></div>
@@ -70,6 +91,6 @@
           <div class="value">{{vm.readings.temperature | number: 2}}<span>%</span></div>
         </div>
       </div>
-    </div>
+
   </ion-content>
 </ion-view>
