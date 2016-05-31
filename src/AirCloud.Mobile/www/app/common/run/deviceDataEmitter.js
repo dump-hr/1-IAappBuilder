@@ -5,19 +5,17 @@
     function deviceDataEmitter($rootScope, $interval, $cordovaBluetoothSerial, $ionicPlatform, env) {
         $ionicPlatform.ready(function () {
             if (env.isArduinoAvailable) {
-                $cordovaBluetoothSerial.isConnected().then(function () {
-                    $cordovaBluetoothSerial.subscribe('\n').then(function () { }, function () { }, function (data) {
-                        var splittedData = data.split(',');
-                        var newDataReading = {
-                            voc: splittedData[0],
-                            co: splittedData[1],
-                            temperature: splittedData[2],
-                            humidity: splittedData[3]
-                        }
+                $cordovaBluetoothSerial.subscribe('\n').then(function () { }, function () { }, function (data) {
+                    var splittedData = data.split(',');
+                    var newDataReading = {
+                        voc: splittedData[0],
+                        co: splittedData[1],
+                        temperature: splittedData[2],
+                        humidity: splittedData[3]
+                    }
 
-                        $rootScope.$emit('deviceDataEmitter:update', newDataReading);
-                    });
-                })
+                    $rootScope.$emit('deviceDataEmitter:update', newDataReading);
+                });
             }
             else {
                 function getNextRandomPercentage() {
