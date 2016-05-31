@@ -83,7 +83,7 @@ namespace AirCloud.Web
 
             builder.RegisterType<AirCloudContext>()
                 .WithParameters(new List<Parameter> {
-                    new NamedParameter("databaseConfiguration",databaseConfiguration)
+                    new NamedParameter("databaseConfiguration", databaseConfiguration)
                 }).As<IAirCloudContext>();
 
             builder.Register<AirCloudContext>((x) => new AirCloudContext(databaseConfiguration: databaseConfiguration));
