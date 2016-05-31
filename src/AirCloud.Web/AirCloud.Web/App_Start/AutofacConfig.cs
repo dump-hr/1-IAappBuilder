@@ -70,7 +70,7 @@ namespace AirCloud.Web
             var databaseInitializer =
              ConfigurationManager.AppSettings["EnviromentName"] == "Localhost"
                  ? (IDatabaseInitializer<AirCloudContext>)new DevelopmentDatabaseInitializer()
-                 : (IDatabaseInitializer<AirCloudContext>)new CreateDatabaseIfNotExists<AirCloudContext>();
+                 : (IDatabaseInitializer<AirCloudContext>)new ProductionDatabaseInitializer();
             var connectionString =
                 ConfigurationManager.AppSettings["EnviromentName"] == "Localhost"
                     ? ConfigurationManager.AppSettings["AirCloudLocalDb"]
