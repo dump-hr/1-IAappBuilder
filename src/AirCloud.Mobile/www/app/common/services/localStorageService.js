@@ -5,8 +5,23 @@
     
     LocalStorageService.$inject = ['checkIndividualQualityService'];
     function LocalStorageService(checkIndividualQualityService){
-        function AddNewThisDay(){
-            
+        function AddNewThisDay(reading){
+            AddNewVoc(reading.voc);
+            AddNewCo(reading.co);
+        }
+        
+        function AddNewVoc(newVoc){
+            var todayDataCO = angular.fromJson(localStorage["chartDataCO_Today"]);
+            todayDataCO.push(newCO);
+            localStorage["chartDataCO_Today"] = angular.toJson(todayDataCO);
+            console.log(angular.fromJson(localStorage["chartDataCO_Today"]).length); 
+        }
+        
+        function AddNewCO(newCO){
+             var todayDataCO = angular.fromJson(localStorage["chartDataCO_Today"]);
+             todayDataCO.push(newCO);
+             localStorage["chartDataCO_Today"] = angular.toJson(todayDataCO);
+             console.log(angular.fromJson(localStorage["chartDataCO_Today"]).length);  
         }
         
         function AddLastDayToWeek(){
