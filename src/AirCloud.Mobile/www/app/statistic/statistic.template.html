@@ -1,22 +1,26 @@
 <ion-view view-title="Statistic" hide-nav-bar="true">
   <ion-content>
+    <div class="statistics-wrapper">
+      <h3>Last week</h3>
+      <span>Distribution of air quality <br><small>(hours per day)</small></span>
       <highchart id="stacked-column-chart" config="vm.highchartsNG" style="span10"></highchart>
-      
-      <h1>Last 24 hours CO</h1>
+
+      <h3>Last 24 hours CO</h3>
       <canvas id="line" class="chart chart-line" chart-data="vm.dataFor24HoursCO"
-        chart-labels="vm.labelsFor24HoursCO" chart-legend="true" chart-series="vm.seriesFor24HoursCO"
-        chart-click="onClick" >
+              chart-labels="vm.labelsFor24HoursCO" chart-legend="true" chart-series="vm.seriesFor24HoursCO"
+              chart-click="onClick" chart-colours=vm.chartColors.colours>
       </canvas>
-      
-      <h1>Last 24 hours CO</h1>
+
+      <h3>Last 24 hours CO</h3>
       <canvas id="line" class="chart chart-line" chart-data="vm.dataFor24HoursVOC"
-        chart-labels="vm.labelsFor24HoursVOC" chart-legend="true" chart-series="vm.seriesFor24HoursVOC"
-        chart-click="onClick" >
+              chart-labels="vm.labelsFor24HoursVOC" chart-legend="true" chart-series="vm.seriesFor24HoursVOC"
+              chart-click="onClick" chart-colours=vm.chartColors.colours>
       </canvas>
-      
-      <h1>Overall data</h1>
-      <canvas id="pie" class="chart chart-pie"
-        chart-data="vm.dataForPieChart" chart-labels="vm.labelsForOverallForPieChart">
-      </canvas> 
+
+      <h3>Overall data</h3>
+      <canvas id="pie" class="chart chart-doughnut"
+              chart-data="vm.dataForPieChart"  chart-colours="vm.pieChartColors" chart-labels="vm.labelsForOverallForPieChart">
+      </canvas>
+    </div>
   </ion-content>
 </ion-view>
