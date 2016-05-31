@@ -1,18 +1,24 @@
-﻿
+﻿using System.Linq;
 using System.Web.Http;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
+using Owin;
 
 namespace AirCloud.Web
 {
     public static class WebApiConfig
     {
-        public static void Register(HttpConfiguration config)
+        public static void UseConfiguredWebApi(this IAppBuilder app, HttpConfiguration httpConfiguration)
         {
-            config.MapHttpAttributeRoutes();
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            httpConfiguration.MapHttpAttributeRoutes();
+
+            var xmlFormatterMediaType = httpConfiguration.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(mediaType => mediaType.MediaType == "application/xml");
+            httpConfiguration.Formatters.XmlFormatter.SupportedMediaTypes.Remove(xmlFormatterMediaType);
+            httpConfiguration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            httpConfiguration.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new StringEnumConverter());
+            httpConfiguration.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
+
+            app.UseWebApi(httpConfiguration);
         }
     }
 }

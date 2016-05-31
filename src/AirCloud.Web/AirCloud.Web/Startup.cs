@@ -11,8 +11,7 @@ namespace AirCloud.Web
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration httpConfiguration = new HttpConfiguration();
-            WebApiConfig.Register(httpConfiguration);
-            app.UseWebApi(httpConfiguration);
+            app.UseConfiguredWebApi(httpConfiguration: httpConfiguration);
             app.UseAutofacForWebApi(httpConfiguration: httpConfiguration);
         }
     }
