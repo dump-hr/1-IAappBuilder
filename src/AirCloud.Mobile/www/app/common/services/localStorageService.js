@@ -7,21 +7,21 @@
     function LocalStorageService(checkIndividualQualityService){
         function AddNewThisDay(reading){
             AddNewVoc(reading.voc);
-            AddNewCo(reading.co);
+            AddNewCO(reading.co);
         }
         
         function AddNewVoc(newVoc){
-            var todayDataCO = angular.fromJson(localStorage["chartDataCO_Today"]);
-            todayDataCO.push(newCO);
-            localStorage["chartDataCO_Today"] = angular.toJson(todayDataCO);
-            console.log(angular.fromJson(localStorage["chartDataCO_Today"]).length); 
+            var todayDataVOC = angular.fromJson(localStorage["chartDataVOC_Today"]);
+            todayDataVOC.push(newVoc);
+            localStorage["chartDataVOC_Today"] = angular.toJson(todayDataVOC);
+            // console.log(angular.fromJson(localStorage["chartDataVOC_Today"]).length); 
         }
         
         function AddNewCO(newCO){
              var todayDataCO = angular.fromJson(localStorage["chartDataCO_Today"]);
              todayDataCO.push(newCO);
              localStorage["chartDataCO_Today"] = angular.toJson(todayDataCO);
-             console.log(angular.fromJson(localStorage["chartDataCO_Today"]).length);  
+            //  console.log(angular.fromJson(localStorage["chartDataCO_Today"]).length);  
         }
         
         function AddLastDayToWeek(){

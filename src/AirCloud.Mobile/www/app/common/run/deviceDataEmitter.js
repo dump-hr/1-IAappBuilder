@@ -1,8 +1,8 @@
 (function () {
     angular.module('app').run(deviceDataEmitter);
 
-    deviceDataEmitter.$inject = ['$rootScope', '$interval', '$cordovaBluetoothSerial', '$ionicPlatform', 'env'];
-    function deviceDataEmitter($rootScope, $interval, $cordovaBluetoothSerial, $ionicPlatform, env) {
+    deviceDataEmitter.$inject = ['$rootScope', '$interval', '$cordovaBluetoothSerial', '$ionicPlatform', 'env', 'localStorageService'];
+    function deviceDataEmitter($rootScope, $interval, $cordovaBluetoothSerial, $ionicPlatform, env, localStorageService) {
         $ionicPlatform.ready(function () {
             if (env.isArduinoAvailable) {
                 $cordovaBluetoothSerial.subscribe('\n').then(function () { }, function () { }, function (data) {
@@ -15,6 +15,7 @@
                     }
 
                     $rootScope.$emit('deviceDataEmitter:update', newDataReading);
+                    localStorageService.AddNewThisDay(newDataReading);                    
                 });
             }
             else {
@@ -35,6 +36,8 @@
                     }
 
                     $rootScope.$emit('deviceDataEmitter:update', newDataReading);
+                    localStorageService.AddNewThisDay(newDataReading);                    
+
                 }
                 $interval(action, interval);
             }

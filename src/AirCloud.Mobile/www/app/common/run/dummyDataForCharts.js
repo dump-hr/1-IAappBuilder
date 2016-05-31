@@ -29,8 +29,8 @@
               if(dateAsString.indexOf("AM") >= 0){
                     localStorage["chartDataCO_Today"] = getDummyDataCO(date.getHours() * 60 + date.getMinutes());                
               } else {
-                    localStorage["chartDataCO_Today"] = getDummyDataCO(12 * 60 + date.getHours() * 60 + date.getMinutes());                
-              }      
+                    localStorage["chartDataCO_Today"] = getDummyDataCO(date.getHours() * 60 + date.getMinutes());                
+              }     
         }
         
         if(alwaysDropThenCreate || !localStorage["chartDataVOC_Today"] || localStorage["chartDataVOC_Today"] === []){
