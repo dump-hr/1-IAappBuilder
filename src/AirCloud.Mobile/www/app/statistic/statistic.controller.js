@@ -64,7 +64,6 @@
 
     vm.pieChartColors = ["#4CAF50", "#F4511E", "#E53935"];
 
-
     var yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
     var twoDaysBefore = new Date();
