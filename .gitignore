@@ -228,3 +228,5 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 !src/AirCloud.Mobile/www/app/_env
+
+.idea/
