@@ -243,7 +243,6 @@
     <Content Include="Scripts\Vendor\lodash.js" />
     <Content Include="Scripts\Vendor\pikaday.js" />
     <Content Include="Scripts\Vendor\underscore-min.js" />
-    <None Include="Styles\bootstrap.min.scss" />
     <Content Include="Styles\Css\main.css" />
     <Content Include="Styles\Css\main.min.css" />
     <Content Include="Web.config" />

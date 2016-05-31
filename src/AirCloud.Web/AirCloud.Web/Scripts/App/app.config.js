@@ -16,7 +16,7 @@
     function HeatmapConfig(uiGmapGoogleMapApiProvider) {
         uiGmapGoogleMapApiProvider.configure({
             key: 'AIzaSyB81UIIhv_kwpUKiSsnclFpjD8xwwdM4F0',
-            libraries: 'weather,geometry,visualization'
+            libraries: 'weather,geometry,visualization,places'
         });
     }
 })();

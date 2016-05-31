@@ -3,8 +3,8 @@
 
   angular.module('app').controller("StatisticController", StatisticController);
 
-  StatisticController.$inject = ['localStorageService', '$rootScope'];
-  function StatisticController(localStorageService, $rootScope) {
+  StatisticController.$inject = ['localStorageService'];
+  function StatisticController(localStorageService) {
     var vm = this;
 
     var daysAsString = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -33,7 +33,7 @@
     vm.seriesFor24HoursVOC = ["VOC"];
 
     function putDataForLast24HoursVOC(){
-        var data = localStorageService.GetDataLast24HoursCO();
+        var data = localStorageService.GetDataLast24HoursVOC();
         var test = [];
         for(var i = 0; i < 1440 / 20; i++){
             var max = 0;
@@ -48,11 +48,6 @@
     }
 
     vm.dataFor24HoursVOC = putDataForLast24HoursVOC();
-
-    $rootScope.$on('deviceDataEmitter:update', function(event, data){
-        vm.dataFor24HoursVOC = putDataForLast24HoursVOC();
-        vm.dataFor24HoursCO = putDataForLast24HoursCO()
-    })
 
     vm.labelsForOverallForPieChart = ["Good", "Moderate", "Bad"];
     vm.dataForPieChart = (function putDataForOverallForPieChart() {
@@ -123,7 +118,7 @@
         },
         colors: [
           '#4CAF50',
-          '#F4511E',
+          '#EF6C00',
           '#E53935'
         ].reverse(),
 

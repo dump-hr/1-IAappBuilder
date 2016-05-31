@@ -1,17 +1,18 @@
 ﻿<div class="home">
     <header class="header">
         <div class="logo-wrapper">
-            <img class="logo" src="../../img/logo.png" />
+            
+            <img class="logo" src="../../img/logo.png"/>
             <h1 class="title">AirCloud</h1>
         </div>
     </header>
 
-    <div class="sidebar" ng-class="{'sidebar-open' : window.width < 800, 'sidebar-closed' : window.width > 800'}">
+    <div class="sidebar">
         <div class="filter-wrapper">
             <div class="record-section">
                 <span class="label">Search town</span>
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search town" aria-describedby="basic-addon1">
+                    <input id="autocomplete" type="text" class="form-control" placeholder="Search city" aria-describedby="basic-addon1">
                     <span class="input-group-addon">
                         <img src="../../../img/search.png" />
                     </span>
@@ -38,7 +39,7 @@
     </div>
 
     <div class="content-wrapper">
-        <ui-gmap-google-map center='map.center' zoom='map.zoom' styles='map.styles' options='map.options'></ui-gmap-google-map>
+        <ui-gmap-google-map control="map.control" center='map.center' zoom='map.zoom' styles='map.styles' options='map.options'></ui-gmap-google-map>
     </div>
 </div>
 

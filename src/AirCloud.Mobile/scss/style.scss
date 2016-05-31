@@ -143,6 +143,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
 
 .header_bar {
   height: 50px;
+  background: #43A047;
   box-shadow: 0px 0px 4px 0px rgba(38, 50, 56, 0.45);
 
   .title {
@@ -150,6 +151,15 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
     color: white;
     text-align: left;
     padding-left: 30px;
+    font-weight: 300;
+  }
+
+  .title-img {
+    width: 35px;
+    display: inline-block;
+    margin-right: 7px;
+    position: relative;
+    top: 5px;
   }
 }
 
@@ -168,10 +178,10 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
   }
 
   &.header--moderate {
-    background-image: linear-gradient(45deg, #FF5722, #E64A19);
+    background-image: linear-gradient(45deg, #F57C00, #E65100);
 
     .header_bar {
-      background: rgba(#E64A19, 0.8);
+      background: rgba(#E65100, 0.8);
     }
   }
 
@@ -250,7 +260,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
   }
 
   progress[value]::-webkit-progress-bar {
-    background-color: #F4511E;
+    background-color: #EF6C00;
     border-radius: 6px;
   }
 
@@ -273,7 +283,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
         display: block;
         position: absolute;
         background: #3C873C;
-        background: linear-gradient(to right, rgba(#3C873C, 1) 0%, rgba(#3C873C, 1) 85%, rgba(#E64A19, 1) 100%);
+        background: linear-gradient(to right, rgba(#3C873C, 1) 0%, rgba(#3C873C, 1) 85%, rgba(#EF6C00, 1) 100%);
         width: 22%;
         height: 15px;
         border-top-left-radius: 6px;
@@ -287,7 +297,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
         display: block;
         position: absolute;
         background: #D32F2F;
-        background: linear-gradient(to right, rgba(#F4511E, 1) 0%, rgba(#D32F2F, 1) 15%, rgba(#D32F2F, 1) 100%);
+        background: linear-gradient(to right, rgba(#EF6C00, 1) 0%, rgba(#D32F2F, 1) 15%, rgba(#D32F2F, 1) 100%);
         width: 45%;
         height: 15px;
         border-top-right-radius: 6px;
@@ -364,7 +374,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
         display: block;
         position: absolute;
         background: #3C873C;
-        background: linear-gradient(to right, rgba(#3C873C, 1) 0%, rgba(#3C873C, 1) 85%, rgba(#E64A19, 1) 100%);
+        background: linear-gradient(to right, rgba(#3C873C, 1) 0%, rgba(#3C873C, 1) 85%, rgba(#EF6C00, 1) 100%);
         width: 17%;
         height: 15px;
         border-top-left-radius: 6px;
@@ -378,7 +388,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
         display: block;
         position: absolute;
         background: #D32F2F;
-        background: linear-gradient(to right, rgba(#F4511E, 1) 0%, rgba(#D32F2F, 1) 10%, rgba(#D32F2F, 1) 100%);
+        background: linear-gradient(to right, rgba(#EF6C00, 1) 0%, rgba(#D32F2F, 1) 10%, rgba(#D32F2F, 1) 100%);
         width: 73%;
         height: 15px;
         border-top-right-radius: 6px;
@@ -450,17 +460,15 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
   padding: 55px 15px 40px;
   background: #F5F5F5;
 
-  .header_bar {
-    background: #43A047;
-    position: fixed;
-    top: 0;
-  }
-
   h3 {
-    margin-top: 30px;
+    margin-top: 50px;
     text-align: center;
     margin-bottom: 10px;
 
+    &:first-of-type {
+      margin-top: 25px;
+    }
+    
     &:last-of-type {
       margin-bottom: 20px;
     }
@@ -474,3 +482,65 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
   }
 }
 
+.map-info {
+  position: absolute;
+  bottom: -1px;
+  width: 100%;
+  padding: 35px 15px;
+  background: rgba(#212121, 0.93);
+  color: white;
+  text-align: center;
+}
+.map-reading-wrapper {
+  display: inline-block;
+  margin: 0 auto;
+  width: 80%;
+  &:after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+}
+
+.map-reading {
+  float: left;
+  width: 50%;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 300;
+}
+.map-info_message {
+  font-size: 16px;
+  margin: 0 0 15px;
+  font-weight: 300;
+}
+
+.map-info_status {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.reading-toggle {
+  height: 50px;
+  width: 100%;
+  padding-top: 50px;
+
+}
+
+.button-bar {
+  .button {
+    border-radius: 0 !important;
+    border: 0 !important;
+    line-height:50px;
+
+    &.activated {
+      background: rgba(#43A047, 0.95);
+      border: 0;
+    }
+  }
+}
+
+.button-active, .activated {
+  background: rgba(#43A047, 0.9);
+  color: white;
+}

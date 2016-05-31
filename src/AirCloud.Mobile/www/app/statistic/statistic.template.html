@@ -2,7 +2,7 @@
   <ion-content>
     <div class="statistics-wrapper">
       <div class="header_bar bar bar-header">
-        <h1 class="title">Air Cloud</h1>
+        <h1 class="title"><img src="../../img/logo.png" class="title-img"> Air Cloud</h1>
       </div>
       <h3>Last week</h3>
       <span>Distribution of air quality <br><small>(hours per day)</small></span>
@@ -14,7 +14,7 @@
               chart-click="onClick" chart-colours=vm.chartColors.colours>
       </canvas>
 
-      <h3>Last 24 hours CO</h3>
+      <h3>Last 24 hours VOC</h3>
       <canvas id="line" class="chart chart-line" chart-data="vm.dataFor24HoursVOC"
               chart-labels="vm.labelsFor24HoursVOC" chart-legend="true" chart-series="vm.seriesFor24HoursVOC"
               chart-click="onClick" chart-colours=vm.chartColors.colours>
