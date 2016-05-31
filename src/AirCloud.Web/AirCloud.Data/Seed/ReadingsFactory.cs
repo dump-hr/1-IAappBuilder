@@ -7,7 +7,6 @@ namespace AirCloud.Data.Seed
     using ent = Model.Entities;
     public class ReadingsFactory
     {
-
         public IEnumerable<ent::Reading> GetRandomReadings(int take = 10000)
         {
             return Enumerable.Range(0, take).Select(_ =>
