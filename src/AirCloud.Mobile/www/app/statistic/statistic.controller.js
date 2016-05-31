@@ -11,8 +11,8 @@
 
         vm.labelsFor24HoursCO = ["24 hours ago", "18 hours ago", "12 hours ago", "6 hours ago"];
         vm.seriesFor24HoursCO = ["CO"];
-        
-        vm.dataFor24HoursCO = (function putDataForLast24Hours(){
+            
+        function putDataForLast24HoursCO(){
            var data = localStorageService.GetDataLast24HoursCO();
            var test = [];
            for(var i = 0; i < 1440 / 20; i++){
@@ -25,12 +25,14 @@
                test.push(max);               
            }
            return [test];
-        })()
+        }
         
+        vm.dataFor24HoursCO = putDataForLast24HoursCO();
+
         vm.labelsFor24HoursVOC = ["24 hours ago", "18 hours ago", "12 hours ago", "6 hours ago"];
         vm.seriesFor24HoursVOC = ["VOC"];
         
-        vm.dataFor24HoursVOC = (function putDataForLast24Hours(){
+        function putDataForLast24HoursVOC(){
            var data = localStorageService.GetDataLast24HoursCO();
            var test = [];
            for(var i = 0; i < 1440 / 20; i++){
@@ -43,8 +45,13 @@
                test.push(max);               
            }
            return [test];
-        })()
+        }
         
+
+        $rootScope.$on('deviceDataEmitter:update', function(event, data){
+            vm.dataFor24HoursVOC = putDataForLast24HoursVOC();
+            vm.dataFor24HoursCO = putDataForLast24HoursCO()
+        })
         
         
         vm.labelsForOverallForPieChart = ["Good", "Moderate", "Bad"];

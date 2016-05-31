@@ -20,7 +20,6 @@
         
         if(alwaysDropThenCreate || !localStorage["chartDataStackedChart"]){
             localStorage["chartDataStackedChart"] = GetByWeekDaysForStackedColumnChart();
-            console.log(angular.fromJson(localStorage["chartDataStackedChart"]));
         }
         
         if(alwaysDropThenCreate || !localStorage["chartDataCO_Today"] || localStorage["chartDataCO_Today"] === []){
