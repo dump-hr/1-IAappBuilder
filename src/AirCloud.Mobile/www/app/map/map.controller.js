@@ -9,7 +9,7 @@
         $scope.markers = [];
         $scope.map = {
             center: { latitude: 43.510162, longitude: 16.4374519 },
-            zoom: 14,
+            zoom: 13,
             options: {
                 scrollwheel: true,
                 zoomControl: false
@@ -20,7 +20,7 @@
                         var heatmapDataAsArray = new google.maps.MVCArray(heatMapContainer.voc);
                           console.log(heatMapContainer);
                           layer.setData(heatmapDataAsArray);
-                          layer.set('radius', 32);
+                          layer.set('radius', 42);
                     });
                   
                 });
