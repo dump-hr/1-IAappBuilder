@@ -26,7 +26,7 @@
                     return Math.random() * (max - min) + min;
                 }
 
-                var interval = 1000;
+                var interval = 5000;
                 function action() {
                     var newDataReading = {
                         voc: getNextRandomPercentage(),

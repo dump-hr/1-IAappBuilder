@@ -4,10 +4,12 @@
     angular.module('app').run(DummyDataFactory);
     
     
-    DummyDataFactory.$inject = ['checkIndividualQualityService'];
-    function DummyDataFactory(checkIndividualQualityService){
+    DummyDataFactory.$inject = ['checkIndividualQualityService', 'dataGenerator'];
+    function DummyDataFactory(checkIndividualQualityService, dataGenerator){
         var isDevOrProduction = "Dev";
         var alwaysDropThenCreate = true;
+        
+        dataGenerator.generateCO(100);
         
         if(alwaysDropThenCreate || !localStorage["chartDataCO_Overall"] || (isDevOrProduction === "Dev" && angular.fromJson(localStorage["chartDataCO_Overall"]).length < 10080)){
              localStorage["chartDataCO_Overall"] = getDummyDataCO(10080); //7 * 1440
