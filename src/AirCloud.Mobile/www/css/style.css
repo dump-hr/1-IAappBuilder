@@ -9885,6 +9885,15 @@ body {
       word-wrap: break-word;
       text-align: center; }
 
+.header_bar {
+  height: 50px;
+  box-shadow: 0px 0px 4px 0px rgba(38, 50, 56, 0.5); }
+  .header_bar .title {
+    line-height: 50px !important;
+    color: white;
+    text-align: left;
+    padding-left: 30px; }
+
 .header {
   background-color: #4CAF50;
   padding: 85px 40px 45px;
@@ -9902,14 +9911,6 @@ body {
     background-image: linear-gradient(45deg, #E53935, #D32F2F); }
     .header.header--bad .header_bar {
       background: #D32F2F; }
-  .header .header_bar {
-    height: 50px;
-    box-shadow: 0px 0px 4px 0px rgba(38, 50, 56, 0.5); }
-    .header .header_bar .title {
-      line-height: 50px;
-      color: white;
-      text-align: left;
-      padding-left: 30px; }
   .header .header_message {
     text-transform: uppercase;
     font-size: 18px;
@@ -10071,3 +10072,22 @@ body {
         left: 30%; }
       .reading .reading_item--co .reading_legend span:last-of-type {
         left: 93%; }
+
+.statistics-wrapper {
+  padding: 55px 15px 40px;
+  background: #F5F5F5; }
+  .statistics-wrapper .header_bar {
+    background: #43A047;
+    position: fixed;
+    top: 0; }
+  .statistics-wrapper h3 {
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 10px; }
+    .statistics-wrapper h3:last-of-type {
+      margin-bottom: 20px; }
+  .statistics-wrapper span {
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 10px; }

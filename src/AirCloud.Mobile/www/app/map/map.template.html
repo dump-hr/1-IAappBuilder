@@ -1,5 +1,11 @@
 <ion-view hide-nav-bar="true">
   <ion-content>
-      <h1>Ovo je MAPA</h1>
+      <div ng-if="!vm.internet">
+        <img src="./img/warning.png">
+        <p class="warningMessage">Please enable your internet connection to use this feature.</p>
+      </div>
+      <div ng-if="vm.internet">
+        <h1>ima interneta</h1>
+        <div>
   </ion-content>
 </ion-view>
