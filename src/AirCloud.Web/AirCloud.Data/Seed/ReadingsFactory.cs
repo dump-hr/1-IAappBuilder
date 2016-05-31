@@ -7,7 +7,7 @@ namespace AirCloud.Data.Seed
     using ent = Model.Entities;
     public class ReadingsFactory
     {
-        public IEnumerable<ent::Reading> GetRandomReadings(int take = 10000)
+        public IEnumerable<ent::Reading> GetRandomReadings(int take = 20)
         {
             return Enumerable.Range(0, take).Select(_ =>
             {
@@ -60,7 +60,7 @@ namespace AirCloud.Data.Seed
         private int GetRandomInteger()    => random.Next(0, 80);
         private int GetRandomPercentage() => random.Next(0, 80) / 100;
 
-        private readonly double                     maxDelta = 0.00001;
+        private readonly double                     maxDelta = 0.00015;
         private readonly Random                     random = new Random();
         private readonly Dictionary<int, double>    directionOffsets = new Dictionary<int, double>()
         {
