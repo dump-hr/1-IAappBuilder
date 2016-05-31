@@ -11,6 +11,8 @@ namespace AirCloud.Domain.Services
     {
         dto::Reading Create(dto::Reading readingDto);
         IQueryable<dto::Reading> GetAll_LongDetails(int take = int.MaxValue);
+
+        DateTime GetFirstDateWithEntry();
     }
     public class ReadingsService : IReadingsService
     {
@@ -36,5 +38,10 @@ namespace AirCloud.Domain.Services
                 .ToArray()
                 .Select(AutoMapper.Mapper.Instance.Map<dto::Reading>)
                 .AsQueryable();
+
+        public DateTime GetFirstDateWithEntry()
+        {
+            return context.Readings.Min(x => x.MeasuredOn);
+        }
     }
 }

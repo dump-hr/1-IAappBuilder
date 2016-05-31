@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Http;
 
 namespace AirCloud.Web.Controllers
@@ -17,5 +18,7 @@ namespace AirCloud.Web.Controllers
         public IQueryable<dto::Reading> GetAll_LongDetails([FromUri] int take = int.MaxValue) => readingsService.GetAll_LongDetails(take: take);
 
         public dto::Reading Create(dto::Reading createDto) => readingsService.Create(createDto);
+
+        public DateTime GetFirstDateWithReading() => readingsService.GetFirstDateWithEntry();
     }
 }
