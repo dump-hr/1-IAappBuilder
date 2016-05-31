@@ -1,5 +1,25 @@
 <ion-view hide-nav-bar="true">
   <ion-content>
-    Test
+    
+    <div>
+      <span class="title">Volatile organic compounds (VOC)</span>
+      <div class="value">{{vm.readings.voc | number: 2}}<span>%</span></div>
+    </div>
+    
+    <div>
+      <span class="title">Carbon monoxide (CO)</span>
+      <div class="value">{{vm.readings.co | number: 2}}<span>%</span></div>
+    </div>
+    
+    <div>
+      <span class="title">Humidity</span>
+      <div class="value">{{vm.readings.humidity | number: 2}}<span>%</span></div>
+    </div>
+    
+    <div>
+      <span class="title">Temperature</span>
+      <div class="value">{{vm.readings.temperature | number: 2}}<span>%</span></div>
+    </div>
+ 
   </ion-content>
 </ion-view>
