@@ -13,6 +13,7 @@
 			if (window.StatusBar) {
 				StatusBar.styleDefault();
 			}
+
 			if(env.isOnDevice) {
 				intercom.registerUnidentifiedUser();
 			}
