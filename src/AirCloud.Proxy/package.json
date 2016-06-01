@@ -16,11 +16,11 @@
     "cordova-plugin-device",
     "cordova-plugin-console",
     "cordova-plugin-whitelist",
-    "cordova-plugin-splashscreen",
+    "cordova-plugin-splashscreen", 
+    "cordova-plugin-geolocation", 
     "cordova-plugin-statusbar",
     "cordova-plugin-bluetooth-serial",
     "cordova-plugin-dialogs",
-    "cordova-plugin-local-notifications",
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
