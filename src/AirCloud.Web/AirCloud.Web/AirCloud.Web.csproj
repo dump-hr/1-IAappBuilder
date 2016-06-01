@@ -204,9 +204,12 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
+    <Content Include="img\bg-image.jpg" />
     <Content Include="img\logo-white.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\logo2.png" />
     <Content Include="img\mac.png" />
+    <Content Include="img\mob.png" />
     <Content Include="img\pattern.png" />
     <Content Include="img\search.png" />
     <Content Include="package.json" />
