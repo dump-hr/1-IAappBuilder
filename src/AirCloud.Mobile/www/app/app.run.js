@@ -14,17 +14,16 @@
 				StatusBar.styleDefault();
 			}
 
-			if(env.isOnDevice) {
-				intercom.registerIdentifiedUser({userId: userService.getUser() });
+			if (env.isOnDevice) {
+				intercom.registerIdentifiedUser({ userId: userService.getUser() });
 			}
 		});
 
 		$rootScope.openIntercomMessagingCenter = function () {
-			if(env.isOnDevice) {
+			if (env.isOnDevice) {
 				$ionicPlatform.ready(function () {
-					intercom.logEvent("ordered_item");
-					//intercom.setPreviewPosition(intercom.BOTTOM_RIGHT);
-					//intercom.displayMessageComposer();
+					intercom.setPreviewPosition(intercom.BOTTOM_RIGHT);
+					intercom.displayMessageComposer();
 				});
 			}
 		}
