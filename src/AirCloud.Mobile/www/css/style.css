@@ -10210,3 +10210,21 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
 .button-active, .activated {
   background: rgba(67, 160, 71, 0.9);
   color: white; }
+
+.bar .title + .button:last-child {
+  width: 34px;
+  border-radius: 50%;
+  top: 7px;
+  bottom: 7px;
+  right: 7px;
+  vertical-align: middle;
+  line-height: 34px;
+  padding: 0; }
+  .bar .title + .button:last-child img {
+    width: 20px;
+    display: block;
+    margin: 0 auto; }
+
+@media not all, (-webkit-min-device-pixel-ratio: 1.5), not all, (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .tabs {
+    padding-top: 0 !important; } }
