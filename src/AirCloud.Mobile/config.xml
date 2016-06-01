@@ -41,5 +41,7 @@
     <icon src="resources\android\icon\drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
   </platform>
   <plugin name="de.appplant.cordova.plugin.local-notification"/>
+  <preference name="intercom-app-id" value="lodpnpk6"/>
+  <preference name="intercom-android-api-key" value="android_sdk-969a4455c520f845aeb4b089735c0c62feeb5c2e"/>
   <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
 </widget>
