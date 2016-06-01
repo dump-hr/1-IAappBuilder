@@ -15,7 +15,7 @@ namespace AirCloud.Domain.Services
         DateTime GetFirstDateWithEntry();
         Tuple<double, double> GetGlobalAverages();
     }
-    public class ReadingsService : IReadingsService
+    public class ReadingsService : IReadingsService 
     {
         public ReadingsService(IAirCloudContext context)
         {
