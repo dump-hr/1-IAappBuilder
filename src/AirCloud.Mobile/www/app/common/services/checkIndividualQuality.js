@@ -3,7 +3,7 @@
     
     angular.module('app').constant('qualityLevelLimits', {
         co: {
-            good: 10,
+            good: 15,
             moderate: 30,
         },
         voc: {
