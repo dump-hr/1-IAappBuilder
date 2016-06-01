@@ -5,15 +5,19 @@
     function intercomReport($rootScope, $ionicPlatform, env, airQualityStatusService) {
         if (env.isOnDevice) {
             $ionicPlatform.ready(function () {
-                var previousState = null;
+                var previousOveralQuality = null;
                 $rootScope.$on('deviceDataEmitter:update', function (event, data) {
                     var quality = airQualityStatusService.getStatus(data);
-                    var eventName = {
-                        good: 'airquality_good',
-                        moderate: 'airquality_moderate',
-                        bad: 'airquality_bad',
-                    }[quality.overalQuality];
-                    intercom.logEvent(eventName, { timestamp: new Date() });
+                    
+                     if(previousOveralQuality !== quality.overalQuality){
+                        var eventName = {
+                            good:     'airquality_good',
+                            moderate: 'airquality_moderate',
+                            bad:      'airquality_bad',
+                        }[quality.overalQuality];
+                        intercom.logEvent(eventName, { timestamp: new Date() });
+                        previousOveralQuality = quality.overalQuality;
+                    }
                 });
             });
         }
