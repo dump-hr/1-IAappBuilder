@@ -6,14 +6,14 @@
         <img src="././img/feedback.svg">
        </button>
     </div>
-    <div class="reading-toggle">
+    <div class="reading-toggle" ng-if="mapDidLoad">
       <div class="button-bar">
-        <a class="button button-active">CO</a>
-        <a class="button">VOC</a>
+        <a class="button" ng-class="{'button-active': mapType == 'CO'}"   ng-click="switchMapType()">CO</a>
+        <a class="button" ng-class="{'button-active': mapType == 'VOC'}"  ng-click="switchMapType()">VOC</a>
       </div>
     </div>
     <div ng-if='internet'>
-      <ui-gmap-google-map center='map.center' zoom='map.zoom' options="map.options" styles="map.styles">
+      <ui-gmap-google-map center='map.center' zoom='map.zoom' options="map.options" styles="map.styles" control="map.control">
         <ui-gmap-layer show="true" namespace="visualization" type="HeatmapLayer" onCreated="map.heatLayerCallback"></ui-gmap-layer>
       </ui-gmap-google-map>
     </div>
@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-
+        
     <div ng-if="!internet">
       <img src="./img/warning.png">
       <p class="warningMessage">Please enable your internet connection to use this feature.</p>
