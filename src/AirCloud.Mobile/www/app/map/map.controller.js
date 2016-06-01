@@ -117,22 +117,25 @@
                 disableDefaultUI: true
             },
             heatLayerCallback: function (layer) {
-                $scope.$on('switchMapState', function (state, args) {
+                $scope.$on('switchMapState', function () {
                     readingsService.getAll_LongDetails(100)
                       .then(function (readings) {
                           readingsService.generateHeatmapObjects(readings)
                                .then(function (heatMapObject) {
+                                   console.log(heatMapObject);
                                    if ($scope.next.mapType === 'CO') {
                                        var heatmapDataAsArray = new google.maps.MVCArray(heatMapObject.co);
                                        layer.setData(heatmapDataAsArray);
                                        layer.set('radius', 42);
                                        $scope.next.mapType = 'VOC';
+                                       $scope.map.control.refresh();
                                    }
-                                   if ($scope.next.mapType === 'VOC') {
+                                   else {
                                        var heatmapDataAsArray = new google.maps.MVCArray(heatMapObject.voc);
                                        layer.setData(heatmapDataAsArray);
                                        layer.set('radius', 42);
                                        $scope.next.mapType = 'CO';
+                                       $scope.map.control.refresh();
                                    }
                                });
                       });
@@ -167,22 +170,24 @@
                 $scope.rawMap = map;
                 $scope.mapDidLoad = true;
                 $scope.$emit('switchMapState');
+                $scope.map.control.refresh();
             });
             loadGlobalAverages();
         }
-        switchMapType();
 
         function loadGlobalAverages() {
             readingsService.getGlobalAverages().then(function (averages) {
-                console.log(averages);
                 vm.averageFetched = true;
                 vm.globalAverages = averages;
                 vm.globalAverages.co = vm.globalAverages.co.toFixed(2) * 100;
                 vm.globalAverages.voc = vm.globalAverages.voc.toFixed(2) * 100;
+                $scope.$emit('switchMapState');
+                $scope.map.control.refresh();
             });
         }
         function switchMapType() {
             $scope.$emit('switchMapState');
         }
+
     }
 })();

@@ -8,8 +8,8 @@
     </div>
     <div class="reading-toggle" ng-if="mapDidLoad">
       <div class="button-bar">
-        <a class="button" ng-class="{'button-active': mapType == 'CO'}"   ng-click="switchMapType()">CO</a>
-        <a class="button" ng-class="{'button-active': mapType == 'VOC'}"  ng-click="switchMapType()">VOC</a>
+        <a class="button" ng-class="{'button-active': next.mapType == 'CO'}"   ng-click="switchMapType()">CO</a>
+        <a class="button" ng-class="{'button-active': next.mapType == 'VOC'}"  ng-click="switchMapType()">VOC</a>
       </div>
     </div>
     <div ng-if='internet'>
