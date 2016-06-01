@@ -19,11 +19,7 @@ namespace AirCloud.Web.Controllers
 
         [HttpPost]
         public IQueryable<dto::Reading> GetAll_LongDetailsForDate([FromBody] DateTime date)
-        {
-            var a = readingsService.GetAll_LongDetailsForDate(date);
-
-            return a;
-        }
+            => readingsService.GetAll_LongDetailsForDate(date);
 
         public object GetGlobalAverages()
         {

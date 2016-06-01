@@ -13,7 +13,9 @@
 			if (window.StatusBar) {
 				StatusBar.styleDefault();
 			}
-			intercom.registerUnidentifiedUser();	
+			if(env.isOnDevice) {
+				intercom.registerUnidentifiedUser();
+			}
 		});
 
 		$rootScope.openIntercomMessagingCenter = function () {
@@ -25,4 +27,4 @@
 			}
 		}
 	}
-})(); 
+})();

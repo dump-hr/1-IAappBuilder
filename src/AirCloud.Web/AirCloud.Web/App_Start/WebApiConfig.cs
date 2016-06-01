@@ -24,7 +24,6 @@ namespace AirCloud.Web
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new StringEnumConverter());
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
 
-            app.UseCors(CorsOptions.AllowAll);
             app.UseWebApi(httpConfiguration);
         }
     }

@@ -11,12 +11,12 @@ namespace AirCloud.Data
         public override void InitializeDatabase(AirCloudContext context)
         {
             context.Database.CreateIfNotExists();
-            readingsFactory = new ReadingsFactory();
             base.InitializeDatabase(context);
         }
-
         protected override void Seed(AirCloudContext context)
         {
+            readingsFactory = new ReadingsFactory();
+            
             Array.ForEach(readingsFactory.GetRandomReadings(DateTime.Now).ToArray(), _ => context.Readings.Add(_));
             Array.ForEach(readingsFactory.GetRandomReadings(DateTime.Now.AddDays(-1)).ToArray(), _ => context.Readings.Add(_));
             Array.ForEach(readingsFactory.GetRandomReadings(DateTime.Now.AddDays(-2)).ToArray(), _ => context.Readings.Add(_));
