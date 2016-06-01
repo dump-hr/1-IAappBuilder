@@ -1,35 +1,22 @@
 (function () {
     angular.module('airCloudProxy').run(deviceDataEmitter);
     
-    deviceDataEmitter.$inject = ['$rootScope', '$interval'];
-    function deviceDataEmitter($rootScope, $interval) {
-
-        var useAndroidDevice = false;
-        
-        if(useAndroidDevice){
-            /* Borisov code za povezivanje sa Arduinom */
-        }
-        else{
-            
-            function getNextRandomPercentage() {
-                return Math.random() * 100;
-            }
-            function getNextRandomTemperature(min, max) {
-                return Math.random() * (max - min) + min; 
-            }  
-            
-            var interval = 1000;
-            function action() {
+    deviceDataEmitter.$inject = ['$rootScope', '$interval', '$ionicPlatform', '$cordovaBluetoothSerial'];
+    function deviceDataEmitter($rootScope, $interval, $ionicPlatform, $cordovaBluetoothSerial) {
+        $ionicPlatform.ready(function () {
+            console.log("Usa san"); 
+            $cordovaBluetoothSerial.subscribe('\n').then(function () { }, function () { }, function (data) {
+                console.log("Subscribe");
+                var splittedData = data.split(',');
                 var newDataReading = {
-                    voc: getNextRandomPercentage(),
-                    co: getNextRandomPercentage(),
-                    temperature: getNextRandomTemperature(5, 34),
-                    humidity: getNextRandomPercentage()
+                    voc: splittedData[0],
+                    co: splittedData[1],
+                    temperature: splittedData[2],
+                    humidity: splittedData[3]
                 }
-                
+
                 $rootScope.$emit('deviceDataEmitter:update', newDataReading);
-            }
-            $interval(action, interval);
-        }
+            });
+        });
     }
 })();
