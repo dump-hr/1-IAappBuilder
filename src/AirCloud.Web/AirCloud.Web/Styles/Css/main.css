@@ -322,6 +322,7 @@ sidebar-closed {
     width: 270px; }
   .full-height-header h1 {
     color: white;
+    color: black;
     font-weight: 300;
     margin-left: 30px; }
   .full-height-header .slogan {
