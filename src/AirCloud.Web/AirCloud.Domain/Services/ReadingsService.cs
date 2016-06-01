@@ -12,7 +12,6 @@ namespace AirCloud.Domain.Services
         dto::Reading Create(dto::Reading readingDto);
         IQueryable<dto::Reading> GetAll_LongDetails(int take = int.MaxValue);
         IQueryable<dto::Reading> GetAll_LongDetailsForDate(DateTime date);
-
         DateTime GetFirstDateWithEntry();
     }
     public class ReadingsService : IReadingsService

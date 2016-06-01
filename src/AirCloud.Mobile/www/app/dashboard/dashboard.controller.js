@@ -6,7 +6,7 @@
         var vm = this;
 
         vm.initialDataLoaded = false;
-
+        
         $rootScope.$on('deviceDataEmitter:update', function (event, data) {
             vm.readings = data;
             vm.quality = airQualityStatusService.getStatus(data);
@@ -39,5 +39,6 @@
                 });
             }
         }
+        
     }
 })();
