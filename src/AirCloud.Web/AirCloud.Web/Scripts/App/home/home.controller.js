@@ -3,21 +3,50 @@
 
     angular.module('app').controller('homeController', HomeController);
 
-    HomeController.$inject = ['uiGmapGoogleMapApi', '$scope'];
-    function HomeController(uiGmapGoogleMapApi, $scope) {
+    HomeController.$inject = ['uiGmapGoogleMapApi', '$scope', '$http', 'readingsService'];
+    function HomeController(uiGmapGoogleMapApi, $scope, $http, readingsService) {
         var vm = this;
 
         var autocomplete;
         var places; 
 
+        vm.dateChanged = function (date) {
+            var dateObject = new Date(date);
+            dateObject.setHours(dateObject.getHours() + 2);
+            
+            $scope.$emit('dateData', dateObject); 
+        }
+
+
         $scope.map = {
             control: {},
             center: { latitude: 43.5110932, longitude: 16.4717638 },
-            zoom: 14,
+            zoom: 13,
             options: {
                 disableDefaultUI: true,
-                scrollwheel: false
+                scrollwheel: false,
+                zoomControl: false
             },
+            heatLayerCallback: function (layer) {
+                $scope.$on('dateData', function (event, data) {
+                    $http.post('/api/Readings/GetAll_LongDetailsForDate', JSON.stringify(data.toISOString())).then(function (readings) {
+                        console.log(readings); 
+                        if (readings.data.length === 0)
+                        {
+                            var heatmapDataAsArray = [];
+                            layer.setData(heatmapDataAsArray);
+                        }
+                        else {
+                            readingsService.generateHeatmapObjects(readings.data).then(function (heatMapContainer) {
+                                var heatmapDataAsArray = new google.maps.MVCArray(heatMapContainer.voc);
+                                layer.setData(heatmapDataAsArray);
+                                layer.set('radius', 42);
+                            });
+                        }
+
+                    });
+                }); 
+            }, 
             styles: [
                 {
                     "featureType": "administrative",

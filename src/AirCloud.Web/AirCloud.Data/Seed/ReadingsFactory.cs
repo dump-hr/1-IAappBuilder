@@ -7,7 +7,7 @@ namespace AirCloud.Data.Seed
     using ent = Model.Entities;
     public class ReadingsFactory
     {
-        public IEnumerable<ent::Reading> GetRandomReadings(int take = 1000)
+        public IEnumerable<ent::Reading> GetRandomReadings(DateTime date, int take = 1000)
         {
             return Enumerable.Range(0, take).Select(_ =>
             {
@@ -27,7 +27,7 @@ namespace AirCloud.Data.Seed
                     VocConcentration    = measurements.VocConcentration,
                     Humidity            = measurements.Humidity,
                     Temperature         = measurements.Temperature,
-                    MeasuredOn          = DateTime.Now
+                    MeasuredOn          = date
                 };
             });
         } 

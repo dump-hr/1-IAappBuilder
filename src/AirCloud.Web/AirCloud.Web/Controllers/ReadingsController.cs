@@ -20,5 +20,13 @@ namespace AirCloud.Web.Controllers
         public dto::Reading Create(dto::Reading createDto) => readingsService.Create(createDto);
 
         public DateTime GetFirstDateWithReading() => readingsService.GetFirstDateWithEntry();
+
+        [HttpPost]
+        public IQueryable<dto::Reading> GetAll_LongDetailsForDate([FromBody] DateTime date)
+        {
+            var a = readingsService.GetAll_LongDetailsForDate(date);
+
+            return a;
+        }
     }
 }
