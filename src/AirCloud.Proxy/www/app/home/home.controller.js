@@ -11,20 +11,20 @@
             $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
                 var reading = data;
                 console.log("Event"); 
-				
 				reading.latitude = position.coords.latitude; 
                 reading.longitude = position.coords.longitude;
                 
-				var counter = angular.fromJson(localStorage['counter']); 
-				if(counter === 18)
+				var counter = angular.fromJson(localStorage["counter"]); 
+				if(counter == 18)
 				{
+                    console.log("POSLA SAM");
 					readingsService.create(reading);
 					counter = 0; 
 				} else {
 					counter++; 
 				}
 				
-				localStorage['counter'] = angular.toJson(counter);      
+				localStorage["counter"] = angular.toJson(counter);      
             });
         });
 
