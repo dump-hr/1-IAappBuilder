@@ -61,21 +61,6 @@
       <HintPath>..\packages\Autofac.WebApi2.Owin.3.3.0\lib\net45\Autofac.Integration.WebApi.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Dump.Auth.Data">
-      <HintPath>..\packages\Dump.Auth\Dump.Auth.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Dump.Auth.Domain">
-      <HintPath>..\packages\Dump.Auth\Dump.Auth.Domain.dll</HintPath>
-    </Reference>
-    <Reference Include="Dump.Auth.Integration">
-      <HintPath>..\packages\Dump.Auth\Dump.Auth.Integration.dll</HintPath>
-    </Reference>
-    <Reference Include="Dump.Auth.ResourceOwner">
-      <HintPath>..\packages\Dump.Auth\Dump.Auth.ResourceOwner.dll</HintPath>
-    </Reference>
-    <Reference Include="Dump.Auth.Server">
-      <HintPath>..\packages\Dump.Auth\Dump.Auth.Server.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -209,7 +194,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReadingsController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -228,6 +212,10 @@
     <Content Include="Scripts\App\app.config.js" />
     <Content Include="Scripts\App\app.module.js" />
     <Content Include="Scripts\App\app.states.js" />
+    <Content Include="Scripts\App\common\airQualityLevels.js" />
+    <Content Include="Scripts\App\common\apiEndpoints.js" />
+    <Content Include="Scripts\App\common\heatmapWeights.js" />
+    <Content Include="Scripts\App\common\readings.service.js" />
     <Content Include="Scripts\App\home\home.controller.js" />
     <Content Include="Scripts\App\home\home.template.html" />
     <Content Include="Scripts\Dist\app.js" />

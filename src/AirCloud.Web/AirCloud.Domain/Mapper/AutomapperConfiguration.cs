@@ -14,10 +14,6 @@ namespace AirCloud.Domain.Mapper
                 mapperConfiguration.CreateMap<ent::Reading, dto::Reading>()
                     .ReverseMap()
                     .IgnoreAllUnresolved();
-
-                mapperConfiguration.CreateMap<ent::User, dto::User>()
-                   .ReverseMap()
-                   .IgnoreAllUnresolved();
             });
         }
 

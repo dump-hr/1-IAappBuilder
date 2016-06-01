@@ -1,26 +1,21 @@
 ﻿using System.Data.Entity;
-using Dump.Auth.Data;
+using AirCloud.Data.Configuration;
 
 namespace AirCloud.Data.Model
 {
     using ent = Entities;
 
-    public interface IAirCloudContext : IAuthDbContext
+    public interface IAirCloudContext
     {
         IDbSet<ent::Reading> Readings { get; set; }
-        IDbSet<ent::User> UsersSet<TUser>();
+        int SaveChanges();
     }
-    public class AirCloudContext : AuthDbContext, IAirCloudContext
+    public class AirCloudContext : DbContext, IAirCloudContext
     {
-        public AirCloudContext(IAuthContextConfig config) : base(config)
+        public AirCloudContext(DatabaseConfiguration databaseConfiguration) : base(nameOrConnectionString: databaseConfiguration.ConnectionString)
         {
-            Database.SetInitializer(strategy: config.DatabaseInitializer);
+            Database.SetInitializer(strategy: databaseConfiguration.DatabaseInitializer);
         }
-
         public virtual IDbSet<ent::Reading> Readings { get; set; }
-        public IDbSet<ent::User> UsersSet<TUser>()
-        {
-            return Set<ent::User>();
-        }
     }
 }

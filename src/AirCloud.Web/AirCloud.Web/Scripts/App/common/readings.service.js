@@ -15,12 +15,6 @@
                         return response.data;
                     });
             },
-            getGlobalAverages: function () {
-                return $http.get(apiEndpoints.reading.getGlobalAverages)
-                    .then(function (response) {
-                        return response.data;
-                    });
-            },
             create: function (reading) {
                 return $http.post(apiEndpoints.reading.create, reading).then(function (response) {
                     return response.data;
