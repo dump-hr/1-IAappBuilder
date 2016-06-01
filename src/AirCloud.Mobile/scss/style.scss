@@ -276,6 +276,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
 
   .reading_item--voc {
     padding-bottom: 40px;
+    text-align: center;
 
     progress {
       &:before {
@@ -367,6 +368,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
 
   .reading_item--co {
     padding-bottom: 40px;
+    text-align: center;
 
     progress {
       &:before {
@@ -532,8 +534,10 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
     border-radius: 0 !important;
     border: 0 !important;
     line-height:50px;
+    background: #9E9E9E;
+    color: white;
 
-    &.activated {
+    &.button-active {
       background: rgba(#43A047, 0.95);
       border: 0;
     }

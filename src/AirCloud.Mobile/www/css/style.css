@@ -10020,7 +10020,8 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
   z-index: 99; }
 
 .reading .reading_item--voc {
-  padding-bottom: 40px; }
+  padding-bottom: 40px;
+  text-align: center; }
   .reading .reading_item--voc progress:before {
     content: '';
     display: block;
@@ -10082,7 +10083,8 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
           content: "100%"; }
 
 .reading .reading_item--co {
-  padding-bottom: 40px; }
+  padding-bottom: 40px;
+  text-align: center; }
   .reading .reading_item--co progress:before {
     content: '';
     display: block;
@@ -10202,8 +10204,10 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
 .button-bar .button {
   border-radius: 0 !important;
   border: 0 !important;
-  line-height: 50px; }
-  .button-bar .button.activated {
+  line-height: 50px;
+  background: #9E9E9E;
+  color: white; }
+  .button-bar .button.button-active {
     background: rgba(67, 160, 71, 0.95);
     border: 0; }
 
