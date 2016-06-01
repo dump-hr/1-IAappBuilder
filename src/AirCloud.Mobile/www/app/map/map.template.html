@@ -21,13 +21,14 @@
       <p class="map-info_message">Average global air quality</p>
       <div class="map-reading-wrapper">
         <div class="map-reading">CO
-          <strong ng-if='!vm.globalAverages'>8%</strong>
-          <strong ng-if='vm.globalAverages'>{{vm.globalAverages.co}}</strong>
+          <strong ng-if='!vm.averageFetched'>8%</strong>
+          <strong ng-if='vm.averageFetched'>{{vm.globalAverages.co}}%</strong>
         </div>
 
         <div class="map-reading">VOC
-          <strong ng-if='!vm.globalAverages'>30%</strong>
-          <strong ng-if='vm.globalAverages'>{{vm.globalAverages.voc}}</strong>
+          <strong ng-if='!vm.averageFetched'>22%</strong>
+          <strong ng-if='vm.averageFetched'>{{vm.globalAverages.voc}}%</strong>
+          
         </div>
       </div>
     </div>
@@ -36,5 +37,6 @@
       <img src="./img/warning.png">
       <p class="warningMessage">Please enable your internet connection to use this feature.</p>
     </div>
+    
   </ion-content>
 </ion-view>

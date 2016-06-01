@@ -10,7 +10,8 @@
             views: {
                 'tab-map': {
                     templateUrl: './app/map/map.template.html',
-                    controller: 'MapController'
+                    controller: 'MapController',
+                    controllerAs: "vm"
                 }
             }
         });    

@@ -5,7 +5,8 @@
 
   MapController.$inject = ['$cordovaNetwork', '$rootScope', 'uiGmapGoogleMapApi', '$scope', 'env', 'readingsService'];
   function MapController($cordovaNetwork, $rootScope, uiGmapGoogleMapApi, $scope, env, readingsService) {
-
+    var vm = this;
+    vm.averageFetched = false;
     $scope.markers = [];
     $scope.map = {
       center: { latitude: 43.5110932, longitude: 16.4717638 },
@@ -145,7 +146,11 @@
     }
     function loadGlobalAverages() {
       readingsService.getGlobalAverages().then(function (averages) {
+        console.log(averages);
+        vm.averageFetched = true;
         vm.globalAverages = averages;
+        vm.globalAverages.co = vm.globalAverages.co.toFixed(2) * 100;
+        vm.globalAverages.voc = vm.globalAverages.voc.toFixed(2) * 100;
       });
     }
   }
