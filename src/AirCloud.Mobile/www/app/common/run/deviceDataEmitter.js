@@ -26,6 +26,7 @@
                     return Math.random() * (max - min) + min;
                 }
 
+
                 var interval = 1000;
                 function action() {
                     var newDataReading = {
