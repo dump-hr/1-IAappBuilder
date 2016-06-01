@@ -57,8 +57,8 @@ namespace AirCloud.Data.Seed
                 Temperature         = GetRandomInteger()
             };
         }
-        private int GetRandomInteger()    => random.Next(0, 80);
-        private double GetRandomPercentage() => GetRandomInteger() * 0.01;
+        private int GetRandomInteger()    => random.Next(10, 36);
+        private double GetRandomPercentage() => random.Next(0, 25) * 0.01;
 
         private readonly double                     maxDelta = 0.01;
         private readonly Random                     random = new Random();
