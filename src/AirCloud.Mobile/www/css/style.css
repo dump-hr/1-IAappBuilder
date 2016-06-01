@@ -10212,16 +10212,15 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
   color: white; }
 
 .bar .title + .button:last-child {
-  width: 34px;
+  background: transparent;
   border-radius: 50%;
   top: 7px;
   bottom: 7px;
   right: 7px;
   vertical-align: middle;
-  line-height: 34px;
   padding: 0; }
   .bar .title + .button:last-child img {
-    width: 20px;
+    width: 25px;
     display: block;
     margin: 0 auto; }
 
