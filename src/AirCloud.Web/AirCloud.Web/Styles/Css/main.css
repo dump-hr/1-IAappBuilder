@@ -196,8 +196,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   cursor: help; }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background: #fafafa; }
+  font-family: 'Roboto', sans-serif; }
 
 .header {
   width: 100%;
@@ -301,85 +300,46 @@ sidebar-closed {
 
 .full-height-header {
   width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(45deg, #424242, #212121);
+  height: calc(100vh - 60px);
+  background-image: url("../../../img/bg-image.jpg");
+  background-size: cover;
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-direction: column; }
-  .full-height-header:after {
-    content: '';
-    display: table;
-    clear: both; }
-
-.header-content {
-  top: 0;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  flex-direction: column; }
-
-.logo-container {
-  display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 50px; }
-
-.header-content .logo {
-  width: 270px; }
-
-h1 {
-  color: white;
-  font-weight: 300;
-  margin-left: 30px; }
-
-.slogan {
-  text-align: center;
-  margin-top: 5px;
-  font-size: 20px;
-  color: white; }
-  .slogan strong {
-    font-size: 26px; }
-
-.cta {
-  display: inline-block;
-  padding: 12px 80px !important;
-  border-radius: 1px;
-  margin-top: 30px;
-  background: #E64A19;
-  color: white; }
-  .cta:focus, .cta:hover {
-    color: white !important;
-    background: #D84315; }
+  flex-direction: column;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  -webkit-clip-path: polygon(30% 0%, 100% 0, 100% 93%, 60% 93%, 50% 100%, 40% 93%, 0 93%, 0 0); }
+  .full-height-header .header-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column; }
+  .full-height-header .logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; }
+  .full-height-header .logo {
+    width: 270px; }
+  .full-height-header h1 {
+    color: white;
+    font-weight: 300;
+    margin-left: 30px; }
+  .full-height-header .slogan {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 20px;
+    color: white; }
+    .full-height-header .slogan strong {
+      font-size: 26px; }
+  .full-height-header .cta {
+    display: inline-block;
+    padding: 10px 80px;
+    border-radius: 1px;
+    margin-top: 30px;
+    background: #A83330;
+    color: white; }
+    .full-height-header .cta:focus, .full-height-header .cta:hover {
+      color: white; }
 
 .section {
-  width: 50%;
-  float: left;
-  position: relative;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 50px; }
-
-.section-content {
-  width: 80%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 100px; }
-  .section-content p {
-    text-align: center; }
-  .section-content img {
-    width: 100%; }
-
-.section-wrapper {
-  padding-top: 180px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center; }
+  padding: 80px 100px; }
