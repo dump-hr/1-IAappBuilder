@@ -20,5 +20,15 @@ namespace AirCloud.Web.Controllers
         public dto::Reading Create(dto::Reading createDto) => readingsService.Create(createDto);
 
         public DateTime GetFirstDateWithReading() => readingsService.GetFirstDateWithEntry();
+
+        public object GetGlobalAverages()
+        {
+            var globalAverages = readingsService.GetGlobalAverages();
+            return new
+            {
+                co = globalAverages.Item1,
+                voc = globalAverages.Item2
+            };
+        }
     }
 }

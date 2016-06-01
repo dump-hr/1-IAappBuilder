@@ -58,7 +58,7 @@ namespace AirCloud.Data.Seed
             };
         }
         private int GetRandomInteger()    => random.Next(0, 80);
-        private int GetRandomPercentage() => random.Next(0, 80) / 100;
+        private double GetRandomPercentage() => GetRandomInteger() * 0.01;
 
         private readonly double                     maxDelta = 0.01;
         private readonly Random                     random = new Random();
