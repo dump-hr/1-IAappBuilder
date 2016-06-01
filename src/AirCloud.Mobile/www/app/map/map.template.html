@@ -3,7 +3,7 @@
     <div class="header_bar bar bar-header">
       <h1 class="title"><img src="././img/logo.png" class="title-img"> Air Cloud</h1>
       <button class="button" ng-click="openIntercomMessagingCenter()">
-            <i class="ion ion-help-circled"></i>
+        <img src="././img/feedback.svg">
        </button>
     </div>
     <div class="reading-toggle">
@@ -25,7 +25,7 @@
           <strong ng-if='vm.globalAverages'>{{vm.globalAverages.co}}</strong>
         </div>
 
-        <div class="map-reading">
+        <div class="map-reading">VOC
           <strong ng-if='!vm.globalAverages'>30%</strong>
           <strong ng-if='vm.globalAverages'>{{vm.globalAverages.voc}}</strong>
         </div>

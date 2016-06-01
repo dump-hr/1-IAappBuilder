@@ -1,49 +1,51 @@
 (function () {
     angular.module('airCloudProxy').controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$ionicPlatform', '$rootScope', '$timeout', '$cordovaBluetoothSerial', '$window', 'airQualityStatusService', 'readingsService'];
-    function HomeController($scope, $ionicPlatform, $rootScope, $timeout, $cordovaBluetoothSerial, $window, airQualityStatusService, readingsService) {
+    HomeController.$inject = ['$scope', '$ionicPlatform', '$rootScope', '$timeout', '$cordovaBluetoothSerial', '$window', 'readingsService', '$cordovaGeolocation'];
+    function HomeController($scope, $ionicPlatform, $rootScope, $timeout, $cordovaBluetoothSerial, $window, readingsService, $cordovaGeolocation) {
         var vm = this;
-
-        vm.initialDataLoaded = false;
+        
+        var posOptions = {timeout: 10000, enableHighAccuracy: false};
 
         $rootScope.$on('deviceDataEmitter:update', function (event, data) {
-            vm.reading = data;
-            vm.quality = airQualityStatusService.getStatus(data);
-            vm.initialDataLoaded = true;
-            vm.reading.latitude = 43.513345;
-            vm.reading.longitude = 16.4693514;
-
-            readingsService.generateRandomReadings(vm.reading).then(function(readings) {
-                _.each(readings, function (reading) {
-                    console.log(reading);
-                    readingsService.create(reading);
-                });
+            $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
+                var reading = data;
+                console.log("Event"); 
+				reading.latitude = position.coords.latitude; 
+                reading.longitude = position.coords.longitude;
+                
+				var counter = angular.fromJson(localStorage["counter"]); 
+				if(counter == 18)
+				{
+                    console.log("POSLA SAM");
+					readingsService.create(reading);
+					counter = 0; 
+				} else {
+					counter++; 
+				}
+				
+				localStorage["counter"] = angular.toJson(counter);      
             });
         });
 
         $scope.$on("$ionicView.enter", function () {
             $scope.bluetoothDevices = [];
 
-            vm.isOnDevice = !!$window.bluetoothSerial;
-            vm.isConnected = false;
-            vm.isConnecting = false;
-
-            if (vm.isOnDevice) {
-                $ionicPlatform.ready(function () {
-                    $cordovaBluetoothSerial.list().then(function (devices) {
-                        $scope.bluetoothDevices = devices;
-                    });
+            $ionicPlatform.ready(function () {
+                $cordovaBluetoothSerial.list().then(function (devices) {
+                    $scope.bluetoothDevices = devices;
                 });
+            });
 
-                vm.connect = function (address) {
-                    vm.isConnecting = true;
-                    $cordovaBluetoothSerial.connect(address).then(function () {
-                        vm.isConnected = true;
-                    }).finally(function () {
-                        vm.isConnecting = false;
-                    });
-                }
+            vm.connect = function (address) {
+                vm.isConnecting = true;
+                console.log("Spajam se.");
+                $cordovaBluetoothSerial.connect(address).then(function () {
+                    console.log("Spojen");
+                    vm.isConnected = true;
+                }).finally(function () {
+                    vm.isConnecting = false;
+                });
             }
         });
     }

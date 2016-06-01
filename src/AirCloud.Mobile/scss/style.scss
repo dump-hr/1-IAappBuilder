@@ -276,6 +276,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
 
   .reading_item--voc {
     padding-bottom: 40px;
+    text-align: center;
 
     progress {
       &:before {
@@ -367,6 +368,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
 
   .reading_item--co {
     padding-bottom: 40px;
+    text-align: center;
 
     progress {
       &:before {
@@ -532,8 +534,10 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
     border-radius: 0 !important;
     border: 0 !important;
     line-height:50px;
+    background: #9E9E9E;
+    color: white;
 
-    &.activated {
+    &.button-active {
       background: rgba(#43A047, 0.95);
       border: 0;
     }
@@ -543,4 +547,27 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
 .button-active, .activated {
   background: rgba(#43A047, 0.9);
   color: white;
+}
+
+.bar .title + .button:last-child {
+  background: transparent;
+  border-radius: 50%;
+  width: 34px;
+  top: 7px;
+  bottom: 7px;
+  right: 7px;
+  vertical-align: middle;
+  padding: 0;
+
+  img {
+    width: 25px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@media not all, (-webkit-min-device-pixel-ratio: 1.5), not all, (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+  .tabs {
+    padding-top: 0 !important;
+  }
 }
