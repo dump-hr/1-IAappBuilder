@@ -1,6 +1,5 @@
 <ion-view hide-nav-bar="true">
   <ion-content>
-
     <div class="loading-screen" ng-if="vm.isConnecting">
       <div class="loading_container">
         <img class="loading_spinner" src="./img/loader.svg">
@@ -14,8 +13,7 @@
       <p class="splash-screen_message" ng-if="bluetoothDevices.length">To get started connect to your device via bluetooth</p>
 
       <div class="splash-screen_bluetooth-list list list-inset">
-        <div class="item" ng-click="vm.connect(bluetoothDevice.address)"
-             ng-repeat="bluetoothDevice in bluetoothDevices">{{ bluetoothDevice.name }}
+        <div class="item" ng-click="vm.connect(bluetoothDevice.address)" ng-repeat="bluetoothDevice in bluetoothDevices">{{ bluetoothDevice.name }}
         </div>
       </div>
 
@@ -26,7 +24,12 @@
       <div class="header" ng-class="{'header--good': vm.quality.overalQuality == 'good',
       'header--moderate': vm.quality.overalQuality == 'moderate', 'header--bad': vm.quality.overalQuality == 'bad'}">
         <div class="header_bar bar bar-header">
-          <h1 class="title"><img src="../../img/logo.png" class="title-img"> Air Cloud</h1>
+          <h1 class="title"><img src="././img/logo.png" class="title-img"> Air Cloud</h1>
+
+          <button class="button" ng-click="openIntercomMessagingCenter()">
+        <i class="ion ion-help-circled"></i>
+      </button>
+
         </div>
         <div class="header_message">
           Air quality

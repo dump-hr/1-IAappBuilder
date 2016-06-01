@@ -10,7 +10,7 @@ namespace AirCloud.Domain.Services
     public interface IReadingsService
     {
         dto::Reading Create(dto::Reading readingDto);
-        IQueryable<dto::Reading> GetAll_LongDetails(int take = int.MaxValue);
+        IQueryable<dto::Reading> GetAll_LongDetails(DateTime date, int take = int.MaxValue);
 
         DateTime GetFirstDateWithEntry();
     }
