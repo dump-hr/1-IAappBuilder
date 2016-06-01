@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('app').service('readingsService', readingsService);
 
-    function readingsService($http, $q, apiEndpoints, airQualityLevels, heatmapWeights) {
+    function readingsService($http, $q, apiEndpoints, airQualityLevels, heatmapWeights, checkIndividualQualityService) {
         return {
             getAll_LongDetails: function (take) {
                 if (take) {
@@ -71,54 +71,57 @@
                     temperature: measurements.temperature
                 };
             },
-            generateHeatmapObjects:  function(readings) {
+            generateHeatmapObjects: function (readings) {
                 var deffered = $q.defer();
                 var heatMapContainer = {
                     voc: [],
                     co: []
                 };
-                _.each(readings, function(reading) {
-                    //vocs
-                    if (reading.vocConcentration >= airQualityLevels.voc.good[0] && reading.vocConcentration <= airQualityLevels.voc.good[1]) {
+
+                for (var i = 0; i < readings.length; i++) {
+                    var co = readings[i].coConcentration * 100;
+                    var voc = readings[i].vocConcentration * 100;
+
+                    if (checkIndividualQualityService.checkVOC(voc) == "good") {
                         heatMapContainer.voc.push({
-                            location: new google.maps.LatLng(reading.latitude, reading.longitude),
-                            weight : heatmapWeights.good
+                            location: new google.maps.LatLng(readings[i].latitude, readings[i].longitude),
+                            weight: heatmapWeights.good
                         });
                     }
-                    if (reading.vocConcentration >= airQualityLevels.voc.moderate[0] && reading.vocConcentration <= airQualityLevels.voc.moderate[1]) {
+                    if (checkIndividualQualityService.checkVOC(voc) == "moderate") {
                         heatMapContainer.voc.push({
-                            location: new google.maps.LatLng(reading.latitude, reading.longitude),
+                            location: new google.maps.LatLng(readings[i].latitude, readings[i].longitude),
                             weight: heatmapWeights.moderate
                         });
                     }
-                    if (reading.vocConcentration >= airQualityLevels.voc.bad[0] && reading.vocConcentration <= airQualityLevels.voc.bad[1]) {
+                    if (checkIndividualQualityService.checkVOC(voc) == "bad") {
                         heatMapContainer.voc.push({
-                            location: new google.maps.LatLng(reading.latitude, reading.longitude),
+                            location: new google.maps.LatLng(readings[i].latitude, readings[i].longitude),
                             weight: heatmapWeights.bad
                         });
                     }
                     //cos
-                    if (reading.coConcentration >= airQualityLevels.co.good[0] && reading.coConcentration  <= airQualityLevels.co.good[1]) {
+                    if (checkIndividualQualityService.checkCO(co) == "good") {
                         heatMapContainer.co.push({
-                            location: new google.maps.LatLng(reading.latitude, reading.longitude),
-                            weight : heatmapWeights.good
+                            location: new google.maps.LatLng(readings[i].latitude, readings[i].longitude),
+                            weight: heatmapWeights.good
                         });
                     }
-                    if (reading.coConcentration >= airQualityLevels.co.moderate[0] && reading.coConcentration <= airQualityLevels.co.moderate[1]) {
+                    if (checkIndividualQualityService.checkCO(co) == "moderate") {
                         heatMapContainer.co.push({
-                            location: new google.maps.LatLng(reading.latitude, reading.longitude),
+                            location: new google.maps.LatLng(readings[i].latitude, readings[i].longitude),
                             weight: heatmapWeights.moderate
                         });
+
                     }
-                    if (reading.coConcentration  >= airQualityLevels.co.bad[0] && reading.coConcentration  <= airQualityLevels.co.bad[1]) {
+                    if (checkIndividualQualityService.checkCO(co) == "bad") {
                         heatMapContainer.co.push({
-                            location: new google.maps.LatLng(reading.latitude, reading.longitude),
+                            location: new google.maps.LatLng(readings[i].latitude, readings[i].longitude),
                             weight: heatmapWeights.bad
                         });
                     }
                     deffered.resolve(heatMapContainer);
-                });
-                
+                }
                 return deffered.promise;
             }
         };
