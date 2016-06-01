@@ -20,8 +20,15 @@
     <div class="map-info">
       <p class="map-info_message">Average global air quality</p>
       <div class="map-reading-wrapper">
-        <div class="map-reading">CO <strong>8%</strong></div>
-        <div class="map-reading">VOC <strong>30%</strong></div>
+        <div class="map-reading">CO
+          <strong ng-if='!vm.globalAverages'>8%</strong>
+          <strong ng-if='vm.globalAverages'>{{vm.globalAverages.co}}</strong>
+        </div>
+
+        <div class="map-reading">
+          <strong ng-if='!vm.globalAverages'>30%</strong>
+          <strong ng-if='vm.globalAverages'>{{vm.globalAverages.voc}}</strong>
+        </div>
       </div>
     </div>
 
