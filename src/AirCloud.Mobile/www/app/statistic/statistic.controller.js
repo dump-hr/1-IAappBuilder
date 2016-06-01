@@ -22,7 +22,7 @@
                     max = data[j];
                 }
             }
-            test.push(max.toFixed(2));
+            test.push(max);
         }
         return [test];
     }
@@ -42,7 +42,7 @@
                     max = data[j];
                 }
             }
-            test.push(max.toFixed(2));
+            test.push(max);
         }
         return [test];
     }
