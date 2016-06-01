@@ -13,14 +13,14 @@
 			if (window.StatusBar) {
 				StatusBar.styleDefault();
 			}
-			intercom.registerUnidentifiedUser();
+			//intercom.registerUnidentifiedUser();
 		});
 
 		$rootScope.openIntercomMessagingCenter = function () {
 			$ionicPlatform.ready(function () {
 
-				intercom.setPreviewPosition(intercom.BOTTOM_RIGHT);
-				intercom.displayMessageComposer();
+				//intercom.setPreviewPosition(intercom.BOTTOM_RIGHT);
+				//intercom.displayMessageComposer();
 			});
 		}
 	}
