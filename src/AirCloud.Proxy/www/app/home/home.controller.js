@@ -7,16 +7,24 @@
         
         var posOptions = {timeout: 10000, enableHighAccuracy: false};
 
-
         $rootScope.$on('deviceDataEmitter:update', function (event, data) {
             $cordovaGeolocation.getCurrentPosition(posOptions).then(function (position) {
                 var reading = data;
                 console.log("Event"); 
-                
-                reading.latitude = position.coords.latitude; 
+				
+				reading.latitude = position.coords.latitude; 
                 reading.longitude = position.coords.longitude;
-                console.log(reading)
-                readingsService.create(reading);
+                
+				var counter = angular.fromJson(localStorage['counter']); 
+				if(counter === 18)
+				{
+					readingsService.create(reading);
+					counter = 0; 
+				} else {
+					counter++; 
+				}
+				
+				localStorage['counter'] = angular.toJson(counter);      
             });
         });
 
