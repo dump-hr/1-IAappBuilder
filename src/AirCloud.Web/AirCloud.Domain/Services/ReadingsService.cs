@@ -10,9 +10,9 @@ namespace AirCloud.Domain.Services
     public interface IReadingsService
     {
         dto::Reading Create(dto::Reading readingDto);
-        IQueryable<dto::Reading> GetAll_LongDetails(int take = int.MaxValue);
         IQueryable<dto::Reading> GetAll_LongDetailsForDate(DateTime date);
         DateTime GetFirstDateWithEntry();
+        Tuple<double, double> GetGlobalAverages();
     }
     public class ReadingsService : IReadingsService
     {
@@ -31,14 +31,6 @@ namespace AirCloud.Domain.Services
             return AutoMapper.Mapper.Instance.Map<dto::Reading>(reading);
         }
 
-        public IQueryable<dto::Reading> GetAll_LongDetails(int take = int.MaxValue)
-            => context.Readings
-                .OrderByDescending(reading => reading.MeasuredOn)
-                .Take(take)
-                .ToArray()
-                .Select(AutoMapper.Mapper.Instance.Map<dto::Reading>)
-                .AsQueryable();
-
         public IQueryable<dto::Reading> GetAll_LongDetailsForDate(DateTime date) {
             return context.Readings
                 .Where(x => x.MeasuredOn.Year == date.Year && x.MeasuredOn.Month == date.Month && x.MeasuredOn.Day == date.Day)
@@ -49,6 +41,9 @@ namespace AirCloud.Domain.Services
                 .AsQueryable();
         }
         
+        public Tuple<double, double> GetGlobalAverages() => new Tuple<double, double>(
+            context.Readings.Average(reading => reading.CoConcentration),
+            context.Readings.Average(reading => reading.VocConcentration));
 
         public DateTime GetFirstDateWithEntry()
         {

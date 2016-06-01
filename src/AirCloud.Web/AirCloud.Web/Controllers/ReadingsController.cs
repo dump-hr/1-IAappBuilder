@@ -15,11 +15,7 @@ namespace AirCloud.Web.Controllers
         }
         private readonly service::IReadingsService readingsService;
 
-        public IQueryable<dto::Reading> GetAll_LongDetails([FromUri] DateTime date, [FromUri] int take = int.MaxValue) => readingsService.GetAll_LongDetails(take: take);
-
         public dto::Reading Create(dto::Reading createDto) => readingsService.Create(createDto);
-
-        public DateTime GetFirstDateWithReading() => readingsService.GetFirstDateWithEntry();
 
         [HttpPost]
         public IQueryable<dto::Reading> GetAll_LongDetailsForDate([FromBody] DateTime date)
@@ -27,6 +23,16 @@ namespace AirCloud.Web.Controllers
             var a = readingsService.GetAll_LongDetailsForDate(date);
 
             return a;
+        }
+
+        public object GetGlobalAverages()
+        {
+            var globalAverages = readingsService.GetGlobalAverages();
+            return new
+            {
+                co = globalAverages.Item1,
+                voc = globalAverages.Item2
+            };
         }
     }
 }

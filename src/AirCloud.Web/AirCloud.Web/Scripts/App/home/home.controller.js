@@ -8,7 +8,7 @@
         var vm = this;
 
         var autocomplete;
-        var places; 
+        var places;
 
         vm.dateChanged = function (date) {
             var dateObject = new Date(date);
@@ -16,6 +16,8 @@
             
             $scope.$emit('dateData', dateObject); 
         }
+
+        vm.selected = "one";
 
         $scope.map = {
             center: { latitude: 43.5110932, longitude: 16.4717638 },
@@ -37,7 +39,13 @@
                         }
                         else {
                             readingsService.generateHeatmapObjects(readings.data).then(function (heatMapContainer) {
-                                var heatmapDataAsArray = new google.maps.MVCArray(heatMapContainer.voc);
+                                console.log(heatMapContainer); 
+                                if (vm.selected == "one") {
+                                    var heatmapDataAsArray = new google.maps.MVCArray(heatMapContainer.voc);
+                                } else {
+                                    var heatmapDataAsArray = new google.maps.MVCArray(heatMapContainer.co);
+                                }
+                                
                                 layer.setData(heatmapDataAsArray);
                                 layer.set('radius', 42);
                             });
