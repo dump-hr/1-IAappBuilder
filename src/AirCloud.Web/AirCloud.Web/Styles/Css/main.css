@@ -196,7 +196,8 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   cursor: help; }
 
 body {
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  background: #eee !important; }
 
 .header {
   width: 100%;
@@ -322,7 +323,6 @@ sidebar-closed {
     width: 270px; }
   .full-height-header h1 {
     color: white;
-    color: black;
     font-weight: 300;
     margin-left: 30px; }
   .full-height-header .slogan {
@@ -343,4 +343,27 @@ sidebar-closed {
       color: white; }
 
 .section {
-  padding: 80px 100px; }
+  padding: 80px 130px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around; }
+  .section div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+  .section .cta {
+    display: inline-block;
+    padding: 10px 80px;
+    border-radius: 1px;
+    margin-top: 30px;
+    background: #A83330;
+    color: white; }
+    .section .cta:focus, .section .cta:hover {
+      color: white; }
+  .section img {
+    float: right;
+    max-width: 60%; }
+  .section:last-of-type {
+    background: #fafafa; }
