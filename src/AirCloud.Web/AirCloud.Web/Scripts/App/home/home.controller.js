@@ -17,11 +17,10 @@
             $scope.$emit('dateData', dateObject); 
         }
 
-
         $scope.map = {
-            control: {},
             center: { latitude: 43.5110932, longitude: 16.4717638 },
             zoom: 13,
+            control: {}, 
             options: {
                 disableDefaultUI: true,
                 scrollwheel: false,
@@ -48,133 +47,105 @@
                 }); 
             }, 
             styles: [
-                {
-                    "featureType": "administrative",
-                    "elementType": "all",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "landscape",
-                    "elementType": "all",
-                    "stylers": [
-                        {
-                            "visibility": "simplified"
-                        },
-                        {
-                            "hue": "#0066ff"
-                        },
-                        {
-                            "saturation": 74
-                        },
-                        {
-                            "lightness": 100
-                        }
-                    ]
-                },
-                {
-                    "featureType": "poi",
-                    "elementType": "all",
-                    "stylers": [
-                        {
-                            "visibility": "simplified"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road",
-                    "elementType": "all",
-                    "stylers": [
-                        {
-                            "visibility": "simplified"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "all",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        },
-                        {
-                            "weight": 0.6
-                        },
-                        {
-                            "saturation": -85
-                        },
-                        {
-                            "lightness": 61
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.highway",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "visibility": "on"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.arterial",
-                    "elementType": "all",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "road.local",
-                    "elementType": "all",
-                    "stylers": [
-                        {
-                            "visibility": "on"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "transit",
-                    "elementType": "all",
-                    "stylers": [
-                        {
-                            "visibility": "simplified"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "water",
-                    "elementType": "all",
-                    "stylers": [
-                        {
-                            "visibility": "simplified"
-                        },
-                        {
-                            "color": "#5f94ff"
-                        },
-                        {
-                            "lightness": 26
-                        },
-                        {
-                            "gamma": 5.86
-                        }
-                    ]
-                }
+{
+    "featureType": "administrative",
+    "elementType": "all",
+    "stylers": [
+      {
+          "visibility": "on"
+      },
+      {
+          "lightness": 33
+      }
+    ]
+},
+            {
+                "featureType": "landscape",
+                "elementType": "all",
+                "stylers": [
+                  {
+                      "color": "#f2e5d4"
+                  }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                      "color": "#c5dac6"
+                  }
+                ]
+            },
+            {
+                "featureType": "poi.park",
+                "elementType": "labels",
+                "stylers": [
+                  {
+                      "visibility": "on"
+                  },
+                  {
+                      "lightness": 20
+                  }
+                ]
+            },
+            {
+                "featureType": "road",
+                "elementType": "all",
+                "stylers": [
+                  {
+                      "lightness": 20
+                  }
+                ]
+            },
+            {
+                "featureType": "road.highway",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                      "color": "#c5c6c6"
+                  }
+                ]
+            },
+            {
+                "featureType": "road.arterial",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                      "color": "#e4d7c6"
+                  }
+                ]
+            },
+            {
+                "featureType": "road.local",
+                "elementType": "geometry",
+                "stylers": [
+                  {
+                      "color": "#fbfaf7"
+                  }
+                ]
+            },
+            {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [
+                  {
+                      "visibility": "on"
+                  },
+                  {
+                      "color": "#acbcc9"
+                  }
+                ]
+            }
             ]
         };
 
         uiGmapGoogleMapApi.then(function (map) {
             google.maps.event.trigger(map, 'resize');
-            console.log(map); 
 
             autocomplete = new google.maps.places.Autocomplete(
             (document.getElementById('autocomplete')), {
-                    types: ['(cities)']
+                types: ['(cities)']
             });
 
             places = new google.maps.places.PlacesService(map);
@@ -183,7 +154,7 @@
             function onPlaceChanged() {
                 var place = autocomplete.getPlace();
                 if (place.geometry) {
-                     $scope.map.control.refresh({ latitude: place.geometry.location.lat(), longitude: place.geometry.location.lng() });
+                    $scope.map.control.refresh({ latitude: place.geometry.location.lat(), longitude: place.geometry.location.lng() });
                 } else {
                     document.getElementById('autocomplete').placeholder = 'Enter a city';
                 }

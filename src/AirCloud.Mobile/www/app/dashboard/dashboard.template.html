@@ -18,7 +18,7 @@
              ng-repeat="bluetoothDevice in bluetoothDevices">{{ bluetoothDevice.name }}
         </div>
       </div>
-      
+
       <div class="splash-screen_no-items" ng-if="!bluetoothDevices">We haven't detected any AirCloud devices nearby :(</div>
     </div>
 
@@ -26,7 +26,7 @@
       <div class="header" ng-class="{'header--good': vm.quality.overalQuality == 'good',
       'header--moderate': vm.quality.overalQuality == 'moderate', 'header--bad': vm.quality.overalQuality == 'bad'}">
         <div class="header_bar bar bar-header">
-          <h1 class="title">Air Cloud</h1>
+          <h1 class="title"><img src="../../img/logo.png" class="title-img"> Air Cloud</h1>
         </div>
         <div class="header_message">
           Air quality

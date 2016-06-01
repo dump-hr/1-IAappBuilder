@@ -9932,7 +9932,14 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
     line-height: 50px !important;
     color: white;
     text-align: left;
-    padding-left: 30px; }
+    padding-left: 30px;
+    font-weight: 300; }
+  .header_bar .title-img {
+    width: 35px;
+    display: inline-block;
+    margin-right: 7px;
+    position: relative;
+    top: 5px; }
 
 .header {
   background-color: #4CAF50;
@@ -10140,9 +10147,11 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active {
   padding: 55px 15px 40px;
   background: #F5F5F5; }
   .statistics-wrapper h3 {
-    margin-top: 30px;
+    margin-top: 50px;
     text-align: center;
     margin-bottom: 10px; }
+    .statistics-wrapper h3:first-of-type {
+      margin-top: 25px; }
     .statistics-wrapper h3:last-of-type {
       margin-bottom: 20px; }
   .statistics-wrapper span {

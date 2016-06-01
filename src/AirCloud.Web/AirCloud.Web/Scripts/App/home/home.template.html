@@ -35,7 +35,7 @@
     </div>
 
     <div class="content-wrapper">
-        <ui-gmap-google-map control="map.control" center='map.center' zoom='map.zoom' styles='map.styles' options='map.options'>
+        <ui-gmap-google-map control="map.control" center='map.center' zoom='map.zoom' styles='map.styles' options='map.options' dorebuildall="true">
             <ui-gmap-layer show="true" namespace="visualization" type="HeatmapLayer" onCreated="map.heatLayerCallback"></ui-gmap-layer>
         </ui-gmap-google-map>
     </div>
