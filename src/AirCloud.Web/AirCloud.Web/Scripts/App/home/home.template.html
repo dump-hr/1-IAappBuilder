@@ -21,32 +21,29 @@
 
             <div class="record-section">
                 <span class="label">Reading date</span>
-                <input type="text" id="datepicker" class="date form-control" placeholder="Select date">
+                <input ng-model="date" ng-change="vm.dateChanged(date)" type="text" id="datepicker" class="date form-control" placeholder="Select date">
             </div>
 
             <div class="record-section">
                 <span class="label">Select record type</span>
-                <select class="form-control">
+                <select class="form-control" ng-model="vm.selected">
                     <option value="one">Carbon Monoxide (CO)</option>
                     <option value="two">Volatile organic compound (VOC)</option>
                 </select>
-            </div>
-
-            <div class="record-section">
-                <button class="btn">Apply filters</button>
             </div>
         </div>
     </div>
 
     <div class="content-wrapper">
-        <ui-gmap-google-map control="map.control" center='map.center' zoom='map.zoom' styles='map.styles' options='map.options'></ui-gmap-google-map>
+        <ui-gmap-google-map control="map.control" center='map.center' zoom='map.zoom' styles='map.styles' options='map.options' dorebuildall="true">
+            <ui-gmap-layer show="true" namespace="visualization" type="HeatmapLayer" onCreated="map.heatLayerCallback"></ui-gmap-layer>
+        </ui-gmap-google-map>
     </div>
 </div>
 
 <script>
     var picker = new Pikaday({
         field: document.getElementById('datepicker'),
-        format: 'D MMM YYYY',
         onSelect: function () {
             console.log(this.getMoment().format('Do MMMM YYYY'));
         }

@@ -208,6 +208,10 @@
     <Content Include="Scripts\App\app.config.js" />
     <Content Include="Scripts\App\app.module.js" />
     <Content Include="Scripts\App\app.states.js" />
+    <Content Include="Scripts\App\common\airQualityLevels.js" />
+    <Content Include="Scripts\App\common\apiEndpoints.js" />
+    <Content Include="Scripts\App\common\heatmapWeights.js" />
+    <Content Include="Scripts\App\common\readings.service.js" />
     <Content Include="Scripts\App\home\home.controller.js" />
     <Content Include="Scripts\App\home\home.template.html" />
     <Content Include="Scripts\Dist\app.js" />
