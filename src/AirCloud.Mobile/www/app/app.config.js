@@ -21,7 +21,7 @@
 	HeatmapConfig.$inject = ['uiGmapGoogleMapApiProvider'];
 	function HeatmapConfig(uiGmapGoogleMapApiProvider){
 		uiGmapGoogleMapApiProvider.configure({
-			key: 'AIzaSyB81UIIhv_kwpUKiSsnclFpjD8xwwdM4F0',
+			key: '',
 			libraries: 'weather,geometry,visualization'
 		});
 	}
