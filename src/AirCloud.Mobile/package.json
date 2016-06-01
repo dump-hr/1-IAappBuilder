@@ -22,7 +22,8 @@
     "cordova-plugin-network-information",
     "cordova-plugin-dialogs",
     "cordova-plugin-local-notifications",
-    "ionic-plugin-keyboard"
+    "ionic-plugin-keyboard", 
+    "cordova-plugin-intercom"
   ],
   "cordovaPlatforms": [
     "android"
