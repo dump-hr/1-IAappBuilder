@@ -1,12 +1,10 @@
 (function () {
-    angular.module('app').run(deviceDataEmitter);
+    angular.module('app').run(user);
 
-    deviceDataEmitter.$inject = ['$ionicPlatform', 'userService'];
-    function deviceDataEmitter($ionicPlatform, userService) {
+    user.$inject = ['$ionicPlatform', 'userService'];
+    function user($ionicPlatform, userService) {
         $ionicPlatform.ready(function () {
-           console.log(userService.getUser());
            userService.createIfNotExist();
-           console.log(userService.getUser());
         });
     }
 })();
