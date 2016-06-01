@@ -2,8 +2,7 @@
     angular.module('app').constant('apiEndpoints', {
         reading: {
             getAll_LongDetails: 'http://aircloud.dump.hr/api/readings/getAll_longdetails',
-            create:             'http://aircloud.dump.hr/api/readings/create',
-            getGlobalAverages:  'http://aircloud.dump.hr/api/readings/getGlobalAverages'
+            create:             'http://aircloud.dump.hr/api/readings/create'
         }
     });
 })();

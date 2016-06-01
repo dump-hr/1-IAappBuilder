@@ -7,7 +7,7 @@ namespace AirCloud.Data.Seed
     using ent = Model.Entities;
     public class ReadingsFactory
     {
-        public IEnumerable<ent::Reading> GetRandomReadings(int take = 1000)
+        public IEnumerable<ent::Reading> GetRandomReadings(DateTime date, int take = 1000)
         {
             return Enumerable.Range(0, take).Select(_ =>
             {
@@ -27,7 +27,7 @@ namespace AirCloud.Data.Seed
                     VocConcentration    = measurements.VocConcentration,
                     Humidity            = measurements.Humidity,
                     Temperature         = measurements.Temperature,
-                    MeasuredOn          = DateTime.Now
+                    MeasuredOn          = date
                 };
             });
         } 
@@ -58,7 +58,7 @@ namespace AirCloud.Data.Seed
             };
         }
         private int GetRandomInteger()    => random.Next(0, 80);
-        private int GetRandomPercentage() => random.Next(0, 80) / 100;
+        private double GetRandomPercentage() => GetRandomInteger() * 0.01;
 
         private readonly double                     maxDelta = 0.01;
         private readonly Random                     random = new Random();
