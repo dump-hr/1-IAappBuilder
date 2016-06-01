@@ -8,7 +8,6 @@ using AirCloud.Data;
 using AirCloud.Data.Configuration;
 using AirCloud.Data.Model;
 using AirCloud.Domain.Services;
-using AirCloud.Web.Controllers;
 using Autofac;
 using Autofac.Core;
 using Autofac.Integration.WebApi;
