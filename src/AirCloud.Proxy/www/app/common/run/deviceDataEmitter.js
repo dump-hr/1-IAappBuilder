@@ -3,10 +3,9 @@
     
     deviceDataEmitter.$inject = ['$rootScope', '$interval', '$ionicPlatform', '$cordovaBluetoothSerial'];
     function deviceDataEmitter($rootScope, $interval, $ionicPlatform, $cordovaBluetoothSerial) {
+		localStorage["counter"] = angular.toJson(0);
         $ionicPlatform.ready(function () {
-            console.log("Usa san"); 
             $cordovaBluetoothSerial.subscribe('\n').then(function () { }, function () { }, function (data) {
-                console.log("Subscribe");
                 var splittedData = data.split(',');
                 var newDataReading = {
                     voc: splittedData[0],
