@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background: #fafafa;
 }
 
 .header {
@@ -29,7 +30,6 @@ sidebar-closed {
     background: #212121;
     display: flex;
     align-items: center;
-
     transition: all 0.2s ease-in-out;
 
     .filter-wrapper {
@@ -138,4 +138,74 @@ sidebar-closed {
     .angular-google-map-container {
         width: 100%;
     }
+}
+
+.full-height-header {
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-image: url('../../../img/bg-image.jpg');
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    -webkit-clip-path: polygon(30% 0%, 100% 0, 100% 93%, 60% 93%, 50% 100%, 40% 93%, 0 93%, 0 0);
+
+    &:after {
+
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .logo-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo {
+        width: 270px;
+    }
+
+    h1 {
+        color: white;
+        font-weight: 300;
+        margin-left: 30px;
+    }
+
+    .slogan {
+        text-align: center;
+        margin-top: 25px;
+        font-size: 20px;
+        color: white;
+
+        strong {
+            font-size: 26px;
+        }
+    }
+
+    .cta {
+        display: inline-block;
+        padding: 10px 80px;
+        border-radius: 1px;
+        margin-top: 30px;
+        background: #A83330;
+        color: white;
+
+        &:focus, &:hover {
+            color: white;
+        }
+    }
+}
+
+
+.section {
+    padding: 80px 100px;
 }
